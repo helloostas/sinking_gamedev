@@ -1,20 +1,29 @@
 extends CharacterBody3D
 
-@onready var head = $head
+#player nodes
 
-#Defining speed types as variables
+@onready var head = $head
+@onready var standing_collision_shape = $standing_collision_shape
+@onready var crouching_collision_shape = $crouching_collision_shape
+@onready var ray_cast_3d = $RayCast3D
+
+#speed varibles
+
 var current_speed = 5.0
+
 const walking_speed = 5.0
 const sprinting_speed = 9.0
 const crounching_speed = 3.0
 
-#Other actions
+#movement variables
+
 const jump_velocity = 4.5
 var crouch_depth = -0.5
-
-#General Movement and sensitivity variables
-const mouse_sens = 0.4
 var lerp_speed = 10.0
+
+#input variables
+
+const mouse_sens = 0.4
 var direction = Vector3.ZERO
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -22,6 +31,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+# Mouse movement
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -31,16 +42,35 @@ func _input(event):
 
 func _physics_process(delta):
 	
+	# Handling movement states
+	
+	# Crouching
+
 	if Input.is_action_pressed("crounch"):
 		current_speed = crounching_speed
-		head.position.y = 1.8 + crouch_depth
-	else:
-		head.position.y = 1.8
+		standing_collision_shape.disabled = true
+		crouching_collision_shape.disabled = false
+		head.position.y = lerp(head.position.y, 1.8 + crouch_depth, delta * lerp_speed)
+		
+	elif !ray_cast_3d.is_colliding():
+		
+		# Standing
+		
+		standing_collision_shape.disabled = false
+		crouching_collision_shape.disabled = true
+		head.position.y = lerp(head.position.y, 1.8, delta * lerp_speed)
+		
 		if Input.is_action_pressed("sprint"):
+			
+			# Sprinting
+			
 			current_speed = sprinting_speed
 		else:
+			
+			# Walking
+			
 			current_speed = walking_speed
-	
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -50,11 +80,10 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	
 	#lerp speed - will decellerate from whatever speed player is moving at
-	direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * lerp_speed)
+	direction = lerp(direction, (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * lerp_speed)
 	
 	if direction:
 		velocity.x = direction.x * current_speed
