@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends CharacterBody3D #goober
 
 @onready var head = $head
 
