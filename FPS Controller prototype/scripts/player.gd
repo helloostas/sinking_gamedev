@@ -1,19 +1,20 @@
-extends CharacterBody3D #goober
+extends CharacterBody3D
 
 @onready var head = $head
 
+#Defining speed types as variables
 var current_speed = 5.0
-
 const walking_speed = 5.0
 const sprinting_speed = 9.0
 const crounching_speed = 3.0
 
+#Other actions
 const jump_velocity = 4.5
+var crouch_depth = -0.5
 
+#General Movement and sensitivity variables
 const mouse_sens = 0.4
-
 var lerp_speed = 10.0
-
 var direction = Vector3.ZERO
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -30,10 +31,15 @@ func _input(event):
 
 func _physics_process(delta):
 	
-	if Input.is_action_pressed("sprint"):
-		current_speed = sprinting_speed
+	if Input.is_action_pressed("crounch"):
+		current_speed = crounching_speed
+		head.position.y = 1.8 + crouch_depth
 	else:
-		current_speed = walking_speed
+		head.position.y = 1.8
+		if Input.is_action_pressed("sprint"):
+			current_speed = sprinting_speed
+		else:
+			current_speed = walking_speed
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -46,6 +52,8 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	
+	#lerp speed - will decellerate from whatever speed player is moving at
 	direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * lerp_speed)
 	
 	if direction:
