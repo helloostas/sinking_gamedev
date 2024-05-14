@@ -15,6 +15,13 @@ const walking_speed = 5.0
 const sprinting_speed = 9.0
 const crounching_speed = 3.0
 
+# States
+
+var walking = false
+var sprinting = false
+var crouching = false
+var sliding = false
+
 #movement variables
 
 const jump_velocity = 4.5
@@ -47,10 +54,16 @@ func _physics_process(delta):
 	# Crouching
 
 	if Input.is_action_pressed("crounch"):
+		
 		current_speed = crounching_speed
+		head.position.y = lerp(head.position.y, 1.8 + crouch_depth, delta * lerp_speed)
+		
 		standing_collision_shape.disabled = true
 		crouching_collision_shape.disabled = false
-		head.position.y = lerp(head.position.y, 1.8 + crouch_depth, delta * lerp_speed)
+		
+		walking = false
+		sprinting = false
+		crouching = true
 		
 	elif !ray_cast_3d.is_colliding():
 		
@@ -65,14 +78,21 @@ func _physics_process(delta):
 			# Sprinting
 			
 			current_speed = sprinting_speed
+			
+			walking = false
+			sprinting = true
+			crouching = false
 		else:
 			
 			# Walking
 			
 			current_speed = walking_speed
+			walking = true
+			sprinting = false
+			crouching = false
 
-	# Add the gravity.
 	if not is_on_floor():
+	# Add the gravity.
 		velocity.y -= gravity * delta
 
 	# Handle jump.
