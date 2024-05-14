@@ -22,6 +22,10 @@ var sprinting = false
 var crouching = false
 var sliding = false
 
+# Slide Variables
+var slide_timer = 0.0
+var slide_timer_max = 1.0
+
 #movement variables
 
 const jump_velocity = 4.5
@@ -60,6 +64,10 @@ func _physics_process(delta):
 		
 		standing_collision_shape.disabled = true
 		crouching_collision_shape.disabled = false
+		
+		if sprinting:
+			sliding = true
+			slide_timer = slide_timer_max
 		
 		walking = false
 		sprinting = false
