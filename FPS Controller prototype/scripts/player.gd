@@ -90,6 +90,8 @@ func _physics_process(delta):
 			sprinting = false
 			crouching = false
 
+#Adding Basic Attack
+
 	if not is_on_floor():
 	# Add the gravity.
 		velocity.y -= gravity * delta

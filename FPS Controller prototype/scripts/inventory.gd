@@ -1,11 +1,24 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@export var max_abilities: int = 2
+var abilities: Array = []
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#Function for adding an ability
+func add_ability(ability: Node):
+	if abilities.size() >= max_abilities:
+		print("Inventory full")
+		return false
+
+	abilities.append(ability)
+	print("Ability added: %s" % ability.ability_name)
+	return true
+
+func use_ability(index: int):
+	if index >= 0 and index < abilities.size():
+		abilities[index].use_ability()
+		if abilities[index].is_used:
+			abilities.erase(index)
+	else:
+		print("Invalid ability index")
+		
