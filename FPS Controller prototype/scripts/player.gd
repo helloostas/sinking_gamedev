@@ -8,7 +8,8 @@ extends CharacterBody3D
 @onready var ray_cast_3d = $RayCast3D
 
 #Abilities
-var ability_on_hand = ["double_jump", "dash"]
+var global_abilities = ["double_jump", "dash", "sink", "lunge"]
+var on_hand_abilities = ["double_jump", "dash"]
 
 #speed varibles
 
@@ -125,7 +126,28 @@ func _physics_process(delta):
 
 	# Double Jump Ability
 	if Input.is_action_just_pressed("ability"):
-		if ability_on_hand[0] == "double_jump": #This is how it should be type shit yk
-			velocity.y = double_jump_velocity
-			
 		
+		if on_hand_abilities[0] == "double_jump":
+			velocity.y = double_jump_velocity
+			print(on_hand_abilities[0])
+			on_hand_abilities.remove_at(0)
+			print(on_hand_abilities)
+			#add jump code here
+			
+		elif on_hand_abilities[0] == "dash":
+			#add dash code here
+			print("dash")
+			
+		elif on_hand_abilities[0] == "sink":
+			# add sink code here
+			print("sink")
+			
+		elif on_hand_abilities[0] == "lunge":
+			# add lunge code here
+			print("lunge")
+		else:
+			pass
+	
+	if Input.is_action_just_pressed("switch"):
+		on_hand_abilities.reverse()
+		print(on_hand_abilities)

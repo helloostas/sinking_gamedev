@@ -53,6 +53,7 @@ shadow_enabled = true
 
 [node name="player" type="CharacterBody3D" parent="."]
 script = ExtResource("3_ss8hf")
+metadata/player = false
 
 [node name="standing_collision_shape" type="CollisionShape3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
