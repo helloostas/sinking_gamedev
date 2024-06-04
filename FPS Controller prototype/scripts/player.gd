@@ -7,6 +7,9 @@ extends CharacterBody3D
 @onready var crouching_collision_shape = $crouching_collision_shape
 @onready var ray_cast_3d = $RayCast3D
 
+#Abilities
+var ability_on_hand = ["double_jump", "dash"]
+
 #speed varibles
 
 var current_speed = 5.0
@@ -24,6 +27,7 @@ var crouching = false
 #movement variables
 
 const jump_velocity = 6
+const double_jump_velocity = 10
 var crouch_depth = -0.5
 var lerp_speed = 10.0
 
@@ -60,9 +64,13 @@ func _physics_process(delta):
 		standing_collision_shape.disabled = true
 		crouching_collision_shape.disabled = false
 		
+		if not is_on_floor():
+			current_speed = walking_speed
+		
 		walking = false
 		sprinting = false
 		crouching = true
+		
 		
 	elif !ray_cast_3d.is_colliding():
 		
@@ -90,8 +98,6 @@ func _physics_process(delta):
 			sprinting = false
 			crouching = false
 
-#Adding Basic Attack
-
 	if not is_on_floor():
 	# Add the gravity.
 		velocity.y -= gravity * delta
@@ -114,3 +120,12 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 
 	move_and_slide()
+
+# Abilities
+
+	# Double Jump Ability
+	if Input.is_action_just_pressed("ability"):
+		if ability_on_hand[0] == "double_jump": #This is how it should be type shit yk
+			velocity.y = double_jump_velocity
+			
+		
