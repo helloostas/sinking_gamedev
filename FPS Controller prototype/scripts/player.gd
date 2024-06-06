@@ -124,7 +124,6 @@ func _physics_process(delta):
 
 # Abilities
 
-	# Double Jump Ability
 	if Input.is_action_just_pressed("ability"):
 		print(on_hand_abilities)
 		
@@ -155,6 +154,8 @@ func _physics_process(delta):
 			
 		else:
 			pass
+	
+	# Switching Between Abilities
 	
 	if Input.is_action_just_pressed("switch"):
 		on_hand_abilities.reverse()

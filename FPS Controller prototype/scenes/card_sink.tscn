@@ -10,6 +10,7 @@
 albedo_color = Color(1, 0.262745, 0.376471, 1)
 
 [node name="Area3D" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
 script = ExtResource("1_2livd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
