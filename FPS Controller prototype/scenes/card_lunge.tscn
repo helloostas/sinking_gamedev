@@ -19,3 +19,5 @@ shape = SubResource("BoxShape3D_1j7i6")
 transform = Transform3D(1, -6.66421e-31, 2.91302e-38, 0, -4.37114e-08, -1, 6.66421e-31, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_6tvuo")
 surface_material_override/0 = SubResource("StandardMaterial3D_443p8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
