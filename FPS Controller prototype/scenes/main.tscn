@@ -1,9 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3spvehy3qpes"]
+[gd_scene load_steps=15 format=3 uid="uid://c3spvehy3qpes"]
 
 [ext_resource type="Texture2D" uid="uid://eoc11m7u21st" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_5wyxs"]
 [ext_resource type="Texture2D" uid="uid://blfiil2pv38hq" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_jdbik"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_ss8hf"]
 [ext_resource type="PackedScene" uid="uid://s4ky8jj53w3r" path="res://scenes/inventory.tscn" id="4_oiaow"]
+[ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="5_e7ufg"]
+[ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="6_wypb3"]
+[ext_resource type="PackedScene" uid="uid://cudqyxiii220g" path="res://scenes/card_lunge.tscn" id="7_ihqt3"]
+[ext_resource type="PackedScene" uid="uid://bj8yvn4vc7kkb" path="res://scenes/card_sink.tscn" id="8_n75hf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w88e"]
 albedo_texture = ExtResource("1_5wyxs")
@@ -53,7 +57,7 @@ shadow_enabled = true
 
 [node name="player" type="CharacterBody3D" parent="."]
 script = ExtResource("3_ss8hf")
-metadata/player = false
+metadata/player = true
 
 [node name="standing_collision_shape" type="CollisionShape3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
@@ -73,3 +77,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.8, 2.08165e-12
 target_position = Vector3(2.08165e-12, 2, 2.08165e-12)
 
 [node name="Control" parent="." instance=ExtResource("4_oiaow")]
+
+[node name="Area3D" parent="." instance=ExtResource("5_e7ufg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5414, 1.09438, 5.06653)
+
+[node name="Area3D2" parent="." instance=ExtResource("6_wypb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475328, 0.886223, -9.12124)
+
+[node name="Area3D3" parent="." instance=ExtResource("7_ihqt3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4513, 1.05784, -1.56757)
+
+[node name="Area3D4" parent="." instance=ExtResource("8_n75hf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25676, 1.15123, 7.14282)

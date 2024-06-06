@@ -126,6 +126,7 @@ func _physics_process(delta):
 
 	# Double Jump Ability
 	if Input.is_action_just_pressed("ability"):
+		print(on_hand_abilities)
 		
 		if on_hand_abilities[0] == "double_jump":
 			velocity.y = double_jump_velocity
@@ -136,15 +137,22 @@ func _physics_process(delta):
 			
 		elif on_hand_abilities[0] == "dash":
 			#add dash code here
-			print("dash")
+			print(on_hand_abilities[1])
+			on_hand_abilities.remove_at(0)
+			print(on_hand_abilities)
 			
 		elif on_hand_abilities[0] == "sink":
 			# add sink code here
-			print("sink")
+			print(on_hand_abilities[2])
+			on_hand_abilities.remove_at(0)
+			print(on_hand_abilities)
 			
 		elif on_hand_abilities[0] == "lunge":
 			# add lunge code here
-			print("lunge")
+			print(on_hand_abilities[3])
+			on_hand_abilities.remove_at(0)
+			print(on_hand_abilities)
+			
 		else:
 			pass
 	

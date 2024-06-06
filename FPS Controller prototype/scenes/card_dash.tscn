@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2kbtvdp1kdjj"]
+
+[ext_resource type="Script" path="res://scripts/card_dash.gd" id="1_h7js1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ak2wn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e8oku"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwkmp"]
+albedo_color = Color(0.329412, 0.756863, 0.466667, 1)
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+script = ExtResource("1_h7js1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ak2wn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -6.66421e-31, 2.91302e-38, 0, -4.37114e-08, -1, 6.66421e-31, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_e8oku")
+surface_material_override/0 = SubResource("StandardMaterial3D_gwkmp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

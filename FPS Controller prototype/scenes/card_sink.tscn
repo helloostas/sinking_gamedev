@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj8yvn4vc7kkb"]
+
+[ext_resource type="Script" path="res://scripts/card_sink.gd" id="1_2livd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wx3p6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sscb5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svv1g"]
+albedo_color = Color(1, 0.262745, 0.376471, 1)
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_2livd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wx3p6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -6.66421e-31, 2.91302e-38, 0, -4.37114e-08, -1, 6.66421e-31, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_sscb5")
+surface_material_override/0 = SubResource("StandardMaterial3D_svv1g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
