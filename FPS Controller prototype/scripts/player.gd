@@ -137,19 +137,19 @@ func _physics_process(delta):
 			
 		elif on_hand_abilities[0] == "dash":
 			#add dash code here
-			print(on_hand_abilities[1])
+			print(on_hand_abilities[0])
 			on_hand_abilities.remove_at(0)
 			print(on_hand_abilities)
 			
 		elif on_hand_abilities[0] == "sink":
 			# add sink code here
-			print(on_hand_abilities[2])
+			print(on_hand_abilities[0])
 			on_hand_abilities.remove_at(0)
 			print(on_hand_abilities)
 			
 		elif on_hand_abilities[0] == "lunge":
 			# add lunge code here
-			print(on_hand_abilities[3])
+			print(on_hand_abilities[0])
 			on_hand_abilities.remove_at(0)
 			print(on_hand_abilities)
 			
