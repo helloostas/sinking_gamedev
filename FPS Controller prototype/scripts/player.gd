@@ -127,33 +127,35 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ability"):
 		print(on_hand_abilities)
 		
-		if on_hand_abilities[0] == "double_jump":
-			velocity.y = double_jump_velocity
-			print(on_hand_abilities[0])
-			on_hand_abilities.remove_at(0)
-			print(on_hand_abilities)
-			#add jump code here
-			
-		elif on_hand_abilities[0] == "dash":
-			#add dash code here
-			print(on_hand_abilities[0])
-			on_hand_abilities.remove_at(0)
-			print(on_hand_abilities)
-			
-		elif on_hand_abilities[0] == "sink":
-			# add sink code here
-			print(on_hand_abilities[0])
-			on_hand_abilities.remove_at(0)
-			print(on_hand_abilities)
-			
-		elif on_hand_abilities[0] == "lunge":
-			# add lunge code here
-			print(on_hand_abilities[0])
-			on_hand_abilities.remove_at(0)
-			print(on_hand_abilities)
-			
-		else:
-			pass
+		if len(on_hand_abilities) > 0:
+		
+			if on_hand_abilities[0] == "double_jump":
+				velocity.y = double_jump_velocity
+				print(on_hand_abilities[0])
+				on_hand_abilities.remove_at(0)
+				print(on_hand_abilities)
+				#add jump code here
+				
+			elif on_hand_abilities[0] == "dash":
+				#add dash code here
+				print(on_hand_abilities[0])
+				on_hand_abilities.remove_at(0)
+				print(on_hand_abilities)
+				
+			elif on_hand_abilities[0] == "sink":
+				# add sink code here
+				print(on_hand_abilities[0])
+				on_hand_abilities.remove_at(0)
+				print(on_hand_abilities)
+				
+			elif on_hand_abilities[0] == "lunge":
+				# add lunge code here
+				print(on_hand_abilities[0])
+				on_hand_abilities.remove_at(0)
+				print(on_hand_abilities)
+				
+			else:
+				pass
 	
 	# Switching Between Abilities
 	
