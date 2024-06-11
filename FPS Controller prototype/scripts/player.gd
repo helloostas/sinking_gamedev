@@ -1,17 +1,17 @@
 extends CharacterBody3D
 
-#player nodes
+# Player nodes
 
 @onready var head = $head
 @onready var standing_collision_shape = $standing_collision_shape
 @onready var crouching_collision_shape = $crouching_collision_shape
 @onready var ray_cast_3d = $RayCast3D
 
-#Abilities
+# Abilities
 var global_abilities = ["double_jump", "dash", "sink", "lunge"]
 var on_hand_abilities = ["double_jump", "dash"]
 
-#speed varibles
+# Speed varibles
 
 var current_speed = 5.0
 
@@ -20,19 +20,17 @@ const sprinting_speed = 9.0
 const crounching_speed = 3.0
 
 # States
-
 var walking = false
 var sprinting = false
 var crouching = false
 
-#movement variables
-
+# Movement variables
 const jump_velocity = 6
 const double_jump_velocity = 10
 var crouch_depth = -0.5
 var lerp_speed = 10.0
 
-#input variables
+# Input variables
 
 const mouse_sens = 0.4
 var direction = Vector3.ZERO
@@ -56,7 +54,7 @@ func _physics_process(delta):
 	# Handling movement states
 	
 	# Crouching
-
+	
 	if Input.is_action_pressed("crounch"):
 		
 		current_speed = crounching_speed
@@ -119,7 +117,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
-
+	
 	move_and_slide()
 
 # Abilities
@@ -138,6 +136,7 @@ func _physics_process(delta):
 				
 			elif on_hand_abilities[0] == "dash":
 				#add dash code here
+				
 				print(on_hand_abilities[0])
 				on_hand_abilities.remove_at(0)
 				print(on_hand_abilities)
