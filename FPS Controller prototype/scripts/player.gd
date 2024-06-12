@@ -12,7 +12,6 @@ var global_abilities = ["double_jump", "dash", "sink", "lunge"]
 var on_hand_abilities = ["double_jump", "dash"]
 
 # Speed varibles
-
 var current_speed = 5.0
 
 const walking_speed = 7.0
@@ -29,6 +28,12 @@ const jump_velocity = 6
 const double_jump_velocity = 10
 var crouch_depth = -0.5
 var lerp_speed = 10.0
+
+# Dash Variables
+const dash_velocity = 110
+var dash_timer = 0.0
+const dash_duration = 10.0
+var is_dashing = false
 
 # Input variables
 
@@ -70,11 +75,9 @@ func _physics_process(delta):
 		sprinting = false
 		crouching = true
 		
-		
 	elif !ray_cast_3d.is_colliding():
 		
 		# Standing
-		
 		standing_collision_shape.disabled = false
 		crouching_collision_shape.disabled = true
 		head.position.y = lerp(head.position.y, 1.8, delta * lerp_speed)
@@ -82,7 +85,6 @@ func _physics_process(delta):
 		if Input.is_action_pressed("sprint"):
 			
 			# Sprinting
-			
 			current_speed = sprinting_speed
 			
 			walking = false
@@ -121,24 +123,28 @@ func _physics_process(delta):
 	move_and_slide()
 
 # Abilities
-
 	if Input.is_action_just_pressed("ability"):
 		print(on_hand_abilities)
 		
 		if len(on_hand_abilities) > 0:
-		
 			if on_hand_abilities[0] == "double_jump":
 				velocity.y = double_jump_velocity
 				print(on_hand_abilities[0])
 				on_hand_abilities.remove_at(0)
 				print(on_hand_abilities)
-				#add jump code here
 				
 			elif on_hand_abilities[0] == "dash":
-				#add dash code here
+				is_dashing = true
+				$dash_timer.start(dash_duration)
+				
+				if is_dashing:
+					velocity += transform.basis.z * -dash_velocity
+					velocity.y = 0  # Keep the dash horizontal
+					print(velocity)
+					move_and_slide()
 				
 				print(on_hand_abilities[0])
-				on_hand_abilities.remove_at(0)
+				#on_hand_abilities.remove_at(0)
 				print(on_hand_abilities)
 				
 			elif on_hand_abilities[0] == "sink":
@@ -157,7 +163,10 @@ func _physics_process(delta):
 				pass
 	
 	# Switching Between Abilities
-	
 	if Input.is_action_just_pressed("switch"):
 		on_hand_abilities.reverse()
 		print(on_hand_abilities)
+
+
+func _dash_end():
+	is_dashing = false

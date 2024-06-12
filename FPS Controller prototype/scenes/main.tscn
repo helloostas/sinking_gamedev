@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3spvehy3qpes"]
+[gd_scene load_steps=20 format=3 uid="uid://c3spvehy3qpes"]
 
 [ext_resource type="Texture2D" uid="uid://eoc11m7u21st" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_5wyxs"]
 [ext_resource type="Texture2D" uid="uid://blfiil2pv38hq" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_jdbik"]
@@ -29,6 +29,99 @@ glow_enabled = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lpyrn"]
 height = 1.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_lb0gj"]
+
+[sub_resource type="Animation" id="Animation_cjl5q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weapon_pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("weapon_pivot/weapon_mesh:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.569354, 1.41138, -0.731148)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("weapon_pivot/weapon_mesh:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.648879, -7.38729e-09, 0.327232)]
+}
+
+[sub_resource type="Animation" id="Animation_eiy7m"]
+resource_name = "attack_bare"
+length = 0.7
+
+[sub_resource type="Animation" id="Animation_g7xhp"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weapon_pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("weapon_pivot/weapon_mesh:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.569354, 1.41138, -0.731148), Vector3(0.569354, 1.3343, -0.731148)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("weapon_pivot/weapon_mesh:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(-0.648879, -7.38729e-09, 0.327232), Vector3(-0.714337, -0.0880211, 0.472858)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pi1i6"]
+_data = {
+"RESET": SubResource("Animation_cjl5q"),
+"attack_bare": SubResource("Animation_eiy7m"),
+"idle": SubResource("Animation_g7xhp")
+}
 
 [node name="world" type="Node3D"]
 
@@ -88,6 +181,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.8, 2.08165e-12
 [node name="RayCast3D" type="RayCast3D" parent="player"]
 target_position = Vector3(2.08165e-12, 2, 2.08165e-12)
 
+[node name="dash_timer" type="Timer" parent="player"]
+one_shot = true
+
+[node name="weapon_pivot" type="Node3D" parent="player"]
+
+[node name="weapon_mesh" type="MeshInstance3D" parent="player/weapon_pivot"]
+transform = Transform3D(0.0946935, -0.321423, -5.88591e-10, 0.0256098, 0.754482, 0.0604293, -0.0194234, -0.572227, 0.0796762, 0.569354, 1.41138, -0.731148)
+mesh = SubResource("BoxMesh_lb0gj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player"]
+libraries = {
+"": SubResource("AnimationLibrary_pi1i6")
+}
+autoplay = "idle"
+
 [node name="Control" parent="." instance=ExtResource("4_oiaow")]
 
 [node name="Area3D" parent="." instance=ExtResource("5_e7ufg")]
@@ -101,3 +209,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4513, 1.05784, -1.56757)
 
 [node name="Area3D4" parent="." instance=ExtResource("8_n75hf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25676, 1.15123, 7.14282)
+
+[connection signal="timeout" from="player/dash_timer" to="player" method="_dash_end"]
