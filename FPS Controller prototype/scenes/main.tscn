@@ -1,12 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3spvehy3qpes"]
+[gd_scene load_steps=23 format=3 uid="uid://c3spvehy3qpes"]
 
 [ext_resource type="Texture2D" uid="uid://eoc11m7u21st" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_5wyxs"]
 [ext_resource type="Texture2D" uid="uid://blfiil2pv38hq" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_jdbik"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_ss8hf"]
-[ext_resource type="PackedScene" uid="uid://s4ky8jj53w3r" path="res://scenes/inventory.tscn" id="4_oiaow"]
+[ext_resource type="Shader" path="res://scenes/test.gdshader" id="4_b3yfp"]
 [ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="5_e7ufg"]
 [ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="6_wypb3"]
 [ext_resource type="PackedScene" uid="uid://cudqyxiii220g" path="res://scenes/card_lunge.tscn" id="7_ihqt3"]
+[ext_resource type="PackedScene" uid="uid://ci1meaapuvfci" path="res://scenes/in_game_ui.tscn" id="8_803ew"]
 [ext_resource type="PackedScene" uid="uid://bj8yvn4vc7kkb" path="res://scenes/card_sink.tscn" id="8_n75hf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w88e"]
@@ -29,6 +30,15 @@ glow_enabled = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lpyrn"]
 height = 1.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gux66"]
+render_priority = 0
+shader = ExtResource("4_b3yfp")
+
+[sub_resource type="QuadMesh" id="QuadMesh_s85cg"]
+material = SubResource("ShaderMaterial_gux66")
+size = Vector2(10, 10)
+orientation = 1
 
 [sub_resource type="BoxMesh" id="BoxMesh_lb0gj"]
 
@@ -178,6 +188,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.8, 2.08165e-12
 
 [node name="Camera3D" type="Camera3D" parent="player/head"]
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player/head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
+mesh = SubResource("QuadMesh_s85cg")
+
 [node name="RayCast3D" type="RayCast3D" parent="player"]
 target_position = Vector3(2.08165e-12, 2, 2.08165e-12)
 
@@ -187,7 +201,7 @@ one_shot = true
 [node name="weapon_pivot" type="Node3D" parent="player"]
 
 [node name="weapon_mesh" type="MeshInstance3D" parent="player/weapon_pivot"]
-transform = Transform3D(0.0946935, -0.321423, -5.88591e-10, 0.0256098, 0.754482, 0.0604293, -0.0194234, -0.572227, 0.0796762, 0.569354, 1.41138, -0.731148)
+transform = Transform3D(0.0946935, -0.321423, -5.88591e-10, 0.0256098, 0.754481, 0.0604293, -0.0194234, -0.572227, 0.0796762, 0.569354, 1.41138, -0.731148)
 mesh = SubResource("BoxMesh_lb0gj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="player"]
@@ -196,18 +210,18 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="Control" parent="." instance=ExtResource("4_oiaow")]
-
 [node name="Area3D" parent="." instance=ExtResource("5_e7ufg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5414, 1.09438, 5.06653)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -1.34197, 1.05713, -8.83191)
 
 [node name="Area3D2" parent="." instance=ExtResource("6_wypb3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475328, 0.886223, -9.12124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.567353, 0.886223, -8.95367)
 
 [node name="Area3D3" parent="." instance=ExtResource("7_ihqt3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4513, 1.05784, -1.56757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41767, 0.889738, -8.89865)
 
 [node name="Area3D4" parent="." instance=ExtResource("8_n75hf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25676, 1.15123, 7.14282)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33649, 1.34869, -8.43574)
+
+[node name="in_game_ui" parent="." instance=ExtResource("8_803ew")]
 
 [connection signal="timeout" from="player/dash_timer" to="player" method="_dash_end"]

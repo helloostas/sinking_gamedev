@@ -1,46 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://s4ky8jj53w3r"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht0ai"]
-bg_color = Color(0.12549, 0.133333, 0.133333, 0.858824)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 10
+[gd_scene format=3 uid="uid://s4ky8jj53w3r"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 size_flags_horizontal = 4
-
-[node name="Health UI" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 291.0
-offset_bottom = 102.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ht0ai")
-
-[node name="Current Card Pickup" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 948.0
-offset_top = 444.0
-offset_right = 1077.0
-offset_bottom = 626.0
-
-[node name="Ammo Count" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 1091.0
-offset_top = 444.0
-offset_right = 1140.0
-offset_bottom = 472.0
-
-[node name="Cards Held" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 1091.0
-offset_top = 478.0
-offset_right = 1140.0
-offset_bottom = 626.0
