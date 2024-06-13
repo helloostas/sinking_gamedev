@@ -9,7 +9,7 @@ extends CharacterBody3D
 
 # Abilities
 var global_abilities = ["double_jump", "dash", "sink", "lunge"]
-var on_hand_abilities = ["double_jump", "dash"]
+var on_hand_abilities = ["double_jump", "sink"]
 
 # Speed varibles
 var current_speed = 5.0
@@ -26,13 +26,15 @@ var crouching = false
 # Movement variables
 const jump_velocity = 6
 const double_jump_velocity = 10
+const sink_velocity = 20
 var crouch_depth = -0.5
 var lerp_speed = 10.0
 
 # Dash Variables
-const dash_velocity = 110
+const dash_velocity = 80
 var dash_timer = 0.0
-const dash_duration = 10.0
+const dash_duration = 0.2
+var dash_direction
 var is_dashing = false
 
 # Input variables
@@ -111,7 +113,7 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	
 	#lerp speed - will decellerate from whatever speed player is moving at
-	direction = lerp(direction, (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * lerp_speed)
+	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
 		velocity.x = direction.x * current_speed
@@ -119,6 +121,10 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
+	
+	if is_dashing:
+			velocity += dash_direction * -dash_velocity
+			velocity.y = 0  # Keep the dash horizontal
 	
 	move_and_slide()
 
@@ -136,19 +142,14 @@ func _physics_process(delta):
 			elif on_hand_abilities[0] == "dash":
 				is_dashing = true
 				$dash_timer.start(dash_duration)
-				
-				if is_dashing:
-					velocity += transform.basis.z * -dash_velocity
-					velocity.y = 0  # Keep the dash horizontal
-					print(velocity)
-					move_and_slide()
-				
-				print(on_hand_abilities[0])
+				dash_direction = transform.basis.z
+				print(on_hand_abilities[0]) 
 				#on_hand_abilities.remove_at(0)
 				print(on_hand_abilities)
 				
 			elif on_hand_abilities[0] == "sink":
 				# add sink code here
+				velocity.y = -sink_velocity
 				print(on_hand_abilities[0])
 				on_hand_abilities.remove_at(0)
 				print(on_hand_abilities)
