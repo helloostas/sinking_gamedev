@@ -9,7 +9,7 @@ extends CharacterBody3D
 
 # Abilities
 var global_abilities = ["double_jump", "dash", "sink", "lunge"]
-var on_hand_abilities = ["double_jump", "sink"]
+var on_hand_abilities = []
 
 # Speed varibles
 var current_speed = 5.0
@@ -34,7 +34,7 @@ var has_dashed = false
 var time = 0
 
 # Dash Variables
-const dash_velocity = 15
+const dash_velocity = 10
 var dash_timer = 0.0
 const dash_duration = 0.1
 var dash_direction
@@ -43,8 +43,8 @@ var is_dashing = false
 # Lunge Variables
 var lunge_dir = Vector3()
 var is_lunging = false
-var lunge_velocity = 15
-var lunge_duration = 0.1
+var lunge_velocity = 10
+var lunge_duration = 0.2
 
 # Input variables
 
@@ -128,7 +128,7 @@ func _physics_process(delta):
 	#lerp speed - will decellerate from whatever speed player is moving at
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	# I dont know what this means and im not gonna touch it
+	# Tweaking the gravity to maintain horizontal momentum while using "dash"
 	if direction and not is_dashing:
 		if is_on_floor():
 			velocity.x = lerp(velocity.x, direction.x * current_speed, 0.2)
@@ -149,9 +149,10 @@ func _physics_process(delta):
 		velocity += dash_direction * -dash_velocity
 		velocity.y = 0  # Keep the dash horizontal
 		
+		
 	if is_lunging:
 		time += delta
-		velocity += dash_direction * -dash_velocity
+		velocity += lunge_dir * -lunge_velocity
 		velocity.y = (lunge_dir * dash_velocity).z * 2
 		print(velocity.y)
 	
@@ -177,20 +178,18 @@ func _physics_process(delta):
 				on_hand_abilities.remove_at(0)
 				print(on_hand_abilities)
 				
-				lunge_dir = $head.transform.basis.z
-				
 			elif on_hand_abilities[0] == "sink":
 				# add sink code here
 				velocity.y = -sink_velocity
 				print(on_hand_abilities[0])
 				on_hand_abilities.remove_at(0)
 				print(on_hand_abilities)
-				
+
 			elif on_hand_abilities[0] == "lunge":
 				is_lunging = true
-				$dash_timer.start(dash_duration)
-				dash_direction = transform.basis.z
-				# add lunge code here
+				$lunge_timer.start(lunge_duration)
+				lunge_dir = $head.transform.basis.z
+				lunge_dir = transform.basis.z
 				print(on_hand_abilities[0])
 				on_hand_abilities.remove_at(0)
 				print(on_hand_abilities)
@@ -203,9 +202,11 @@ func _physics_process(delta):
 		on_hand_abilities.reverse()
 		print(on_hand_abilities)
 
+# On dash and lunge end funcitons: (Makes each ability stop on timer end)
 
 func _dash_end():
-	print("FALSE")
-	print(time)
 	is_dashing = false
 	velocity.y = 0
+
+func _on_lunge_timer_timeout():
+	is_lunging = false
