@@ -1,9 +1,6 @@
 extends CanvasLayer
 class_name UI
 
-@onready var in_game_ui = $"."
-@onready var score = $Control/MarginContainer/VBoxContainer/HBoxContainer/score
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

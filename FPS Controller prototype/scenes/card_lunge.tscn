@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cudqyxiii220g"]
 
 [ext_resource type="Script" path="res://scripts/card_lunge.gd" id="1_c5sdf"]
-[ext_resource type="Texture2D" uid="uid://b0l4bubcq2gpg" path="res://assets/textures/card_icons/lunge_card_icon.png" id="2_xhm4f"]
+[ext_resource type="Texture2D" path="res://textures/card_icons/lunge_card_icon.png" id="2_xhm4f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1j7i6"]
 

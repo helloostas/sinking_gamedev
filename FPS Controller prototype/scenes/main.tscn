@@ -1,14 +1,53 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3spvehy3qpes"]
+[gd_scene load_steps=26 format=3 uid="uid://c3spvehy3qpes"]
 
-[ext_resource type="Texture2D" uid="uid://eoc11m7u21st" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_5wyxs"]
+[ext_resource type="Texture2D" uid="uid://eoc11m7u21st" path="res://godot textures/dev/grids/Dark/texture_07.png" id="1_5wyxs"]
 [ext_resource type="Texture2D" uid="uid://blfiil2pv38hq" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_jdbik"]
+[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_5prkj"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_ss8hf"]
+[ext_resource type="Texture2D" uid="uid://ukvl40ds26sq" path="res://textures/Bricks/Materials/brick_small_red_2.png" id="4_4ic57"]
 [ext_resource type="Shader" path="res://scenes/test.gdshader" id="4_b3yfp"]
+[ext_resource type="Texture2D" uid="uid://b5p1f2ficwc2q" path="res://textures/Bricks/Materials/bricks_modern_01.jpg" id="5_8ilkd"]
 [ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="5_e7ufg"]
+[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="5_jk4jp"]
+[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="6_il1gw"]
 [ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="6_wypb3"]
 [ext_resource type="PackedScene" uid="uid://cudqyxiii220g" path="res://scenes/card_lunge.tscn" id="7_ihqt3"]
-[ext_resource type="PackedScene" uid="uid://ci1meaapuvfci" path="res://scenes/in_game_ui.tscn" id="8_803ew"]
 [ext_resource type="PackedScene" uid="uid://bj8yvn4vc7kkb" path="res://scenes/card_sink.tscn" id="8_n75hf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unmc3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trk61"]
+albedo_texture = ExtResource("4_4ic57")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3ydh"]
+albedo_texture = ExtResource("5_8ilkd")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_by6h5"]
+_surfaces = [{
+"aabb": AABB(-3.15517, -1.03448, -7.51511, 9.12501, 2, 12.6875),
+"attribute_data": PackedByteArray(98, 251, 154, 63, 0, 0, 128, 62, 44, 251, 154, 63, 188, 255, 127, 62, 44, 251, 154, 63, 0, 0, 128, 62, 211, 4, 251, 191, 228, 255, 127, 190, 232, 4, 251, 191, 0, 0, 128, 190, 211, 4, 251, 191, 0, 0, 128, 190, 44, 251, 142, 63, 0, 0, 128, 190, 45, 251, 142, 63, 0, 0, 128, 190, 46, 251, 142, 63, 200, 255, 127, 190, 11, 0, 0, 192, 0, 0, 128, 190, 53, 0, 150, 63, 0, 0, 128, 62, 0, 0, 0, 192, 0, 0, 128, 62, 0, 0, 0, 192, 0, 0, 128, 63, 0, 0, 0, 192, 0, 0, 128, 63, 0, 0, 0, 192, 254, 255, 127, 191, 53, 0, 150, 63, 40, 0, 162, 63, 45, 251, 142, 63, 0, 0, 128, 190, 211, 4, 251, 191, 0, 0, 128, 62, 98, 251, 154, 63, 0, 0, 128, 62, 0, 0, 0, 64, 0, 0, 128, 190, 0, 0, 0, 64, 0, 0, 128, 62, 0, 0, 138, 191, 0, 0, 128, 190, 15, 0, 128, 63, 0, 0, 128, 190, 254, 255, 127, 63, 0, 0, 128, 62, 0, 0, 128, 191, 0, 0, 128, 62, 0, 0, 128, 191, 0, 0, 128, 190),
+"format": 34359742487,
+"index_count": 42,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 0, 0, 3, 0, 4, 0, 0, 0, 4, 0, 5, 0, 0, 0, 5, 0, 6, 0, 0, 0, 6, 0, 7, 0, 0, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 24, 0, 22, 0, 24, 0, 25, 0),
+"material": SubResource("StandardMaterial3D_trk61"),
+"name": "Bricks/Materials/brick_small_red_2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray(160, 238, 69, 192, 238, 105, 132, 191, 198, 123, 240, 192, 81, 238, 69, 192, 204, 105, 132, 191, 144, 123, 240, 192, 80, 238, 69, 192, 238, 105, 132, 191, 144, 123, 240, 192, 215, 8, 191, 64, 8, 44, 119, 63, 110, 132, 165, 64, 231, 8, 191, 64, 36, 44, 119, 63, 132, 132, 165, 64, 214, 8, 191, 64, 36, 44, 119, 63, 110, 132, 165, 64, 81, 238, 73, 192, 36, 44, 119, 63, 144, 123, 228, 192, 82, 238, 73, 192, 36, 44, 119, 63, 146, 123, 228, 192, 82, 238, 73, 192, 236, 43, 119, 63, 146, 123, 228, 192, 231, 8, 191, 64, 36, 44, 119, 63, 132, 132, 165, 64, 160, 238, 69, 192, 238, 105, 132, 191, 198, 123, 240, 192, 215, 8, 191, 64, 238, 105, 132, 191, 110, 132, 165, 64, 82, 238, 1, 192, 238, 105, 132, 191, 110, 132, 165, 64, 81, 238, 1, 192, 238, 105, 132, 191, 110, 132, 165, 64, 215, 8, 191, 64, 238, 105, 132, 191, 110, 132, 165, 64, 160, 238, 69, 192, 238, 105, 132, 191, 198, 123, 240, 192, 82, 238, 73, 192, 36, 44, 119, 63, 146, 123, 228, 192, 82, 238, 1, 192, 238, 105, 132, 191, 110, 132, 165, 64, 160, 238, 69, 192, 238, 105, 132, 191, 198, 123, 240, 192, 81, 238, 1, 192, 36, 44, 119, 63, 110, 132, 165, 64, 82, 238, 1, 192, 238, 105, 132, 191, 110, 132, 165, 64, 82, 238, 73, 192, 36, 44, 119, 63, 146, 123, 228, 192, 231, 8, 191, 64, 36, 44, 119, 63, 132, 132, 165, 64, 215, 8, 191, 64, 238, 105, 132, 191, 110, 132, 165, 64, 82, 238, 1, 192, 238, 105, 132, 191, 110, 132, 165, 64, 81, 238, 1, 192, 36, 44, 119, 63, 110, 132, 165, 64, 152, 244, 7, 189, 255, 255, 255, 255, 152, 244, 7, 189, 255, 255, 255, 255, 152, 244, 7, 189, 255, 255, 255, 255, 152, 244, 7, 189, 255, 255, 255, 255, 152, 244, 7, 189, 255, 255, 255, 255, 152, 244, 7, 189, 255, 255, 255, 255, 152, 244, 7, 189, 255, 255, 255, 255, 152, 244, 7, 189, 255, 255, 255, 255, 152, 244, 7, 189, 255, 255, 255, 255, 255, 255, 84, 181, 255, 255, 255, 255, 255, 255, 84, 181, 255, 255, 255, 255, 255, 255, 84, 181, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 203, 14, 174, 122, 0, 0, 0, 0, 203, 14, 174, 122, 0, 0, 0, 0, 203, 14, 174, 122, 0, 0, 0, 0, 183, 10, 255, 127, 255, 127, 255, 191, 183, 10, 255, 127, 255, 127, 255, 191, 183, 10, 255, 127, 255, 127, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191)
+}, {
+"aabb": AABB(-3.15517, 0.965517, -7.14008, 9.12501, 1.00136e-05, 12.3125),
+"attribute_data": PackedByteArray(0, 128, 177, 192, 1, 0, 122, 64, 13, 128, 29, 65, 19, 0, 240, 192, 0, 128, 29, 65, 0, 0, 32, 64),
+"format": 34359742487,
+"index_count": 3,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0),
+"material": SubResource("StandardMaterial3D_a3ydh"),
+"name": "Bricks/Materials/bricks_modern_01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray(82, 238, 73, 192, 36, 44, 119, 63, 146, 123, 228, 192, 231, 8, 191, 64, 36, 44, 119, 63, 132, 132, 165, 64, 81, 238, 1, 192, 36, 44, 119, 63, 110, 132, 165, 64, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191)
+}]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w88e"]
 albedo_texture = ExtResource("1_5wyxs")
@@ -41,6 +80,27 @@ size = Vector2(10, 10)
 orientation = 1
 
 [node name="world" type="Node3D"]
+
+[node name="QodotMap" type="Node3D" parent="."]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 1.8, -14.1978)
+script = ExtResource("5_jk4jp")
+map_file = "/Users/stastigay/Documents/Code Folder/Godot Files/godot_prototype_project/godot_game_dev/FPS Controller prototype/maps/first map.map"
+entity_fgd = ExtResource("6_il1gw")
+texture_file_extensions = PackedStringArray("png", "jpg", "jpeg", "bmp")
+default_material = SubResource("StandardMaterial3D_unmc3")
+
+[node name="entity_0_worldspawn" type="Node3D" parent="QodotMap"]
+script = ExtResource("3_5prkj")
+properties = {
+"_tb_textures": "textures;textures/Art;textures/Art/Materials;textures/Books;textures/Books/Materials;textures/Boxes;textures/Boxes/Materials;textures/Bricks;textures/Bricks/Materials;textures/Buildings;textures/Buildings/Materials;textures/Concrete;textures/Concrete/Materials;textures/Doors;textures/Doors/Materials;textures/Electrical;textures/Electrical/Materials;textures/Floor;textures/Floor/Materials;textures/Food;textures/Food/Materials;textures/Gems;textures/Gems/Materials;textures/Ground;textures/Ground/Materials;textures/Industrial;textures/Industrial/Materials;textures/Metal;textures/Metal/Materials;textures/Misc;textures/Misc/Colors;textures/Misc/Materials;textures/Nature;textures/Nature/Materials;textures/Panels;textures/Panels/Materials;textures/Papers;textures/Papers/Materials;textures/Products;textures/Products/Materials;textures/Road;textures/Road/Materials;textures/Rocks;textures/Rocks/Materials;textures/Roof;textures/Roof/Materials;textures/Shelves;textures/Shelves/Materials;textures/Signs;textures/Signs/Materials;textures/Tiles;textures/Tiles/Materials;textures/Tools;textures/Tools/Materials;textures/Units;textures/Units/Materials;textures/Vehicles;textures/Vehicles/Materials;textures/Walls;textures/Walls/Materials;textures/Water;textures/Windows;textures/Windows/Materials;textures/Wood;textures/Wood/Materials",
+"classname": "worldspawn",
+"mapversion": "220"
+}
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="QodotMap/entity_0_worldspawn"]
+cast_shadow = 2
+gi_mode = 0
+mesh = SubResource("ArrayMesh_by6h5")
 
 [node name="stage" type="Node3D" parent="."]
 
@@ -106,8 +166,6 @@ target_position = Vector3(2.08165e-12, 2, 2.08165e-12)
 one_shot = true
 
 [node name="lunge_timer" type="Timer" parent="player"]
-
-[node name="in_game_ui" parent="." instance=ExtResource("8_803ew")]
 
 [node name="Area3D" parent="." instance=ExtResource("5_e7ufg")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, -1.34197, 1.05713, -8.83191)

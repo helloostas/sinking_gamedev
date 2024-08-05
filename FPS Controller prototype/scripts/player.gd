@@ -14,7 +14,7 @@ var on_hand_abilities = []
 # Speed varibles
 var current_speed = 5.0
 
-const walking_speed = 7.0
+const walking_speed = 9.0
 const sprinting_speed = 9.0
 const crounching_speed = 3.0
 

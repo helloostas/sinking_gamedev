@@ -1,15 +1,15 @@
 [gd_scene load_steps=9 format=3 uid="uid://c2kbtvdp1kdjj"]
 
 [ext_resource type="Script" path="res://scripts/card_dash.gd" id="1_h7js1"]
-[ext_resource type="Texture2D" uid="uid://c6q0nousu3jbh" path="res://assets/textures/card_icons/dash_card_icon.png" id="2_4nmum"]
+[ext_resource type="Texture2D" path="res://textures/card_icons/dash_card_icon.png" id="2_4nmum"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ak2wn"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwhjj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vs1b7"]
 albedo_texture = ExtResource("2_4nmum")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ddd3m"]
-material = SubResource("StandardMaterial3D_qwhjj")
+material = SubResource("StandardMaterial3D_vs1b7")
 size = Vector2(1, 1.3)
 
 [sub_resource type="Animation" id="Animation_nnqyn"]

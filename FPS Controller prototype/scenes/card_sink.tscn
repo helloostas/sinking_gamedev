@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bj8yvn4vc7kkb"]
 
 [ext_resource type="Script" path="res://scripts/card_sink.gd" id="1_2livd"]
-[ext_resource type="Texture2D" uid="uid://dclrgeunsynqy" path="res://assets/textures/card_icons/sink_card_icon.png" id="2_swxik"]
+[ext_resource type="Texture2D" path="res://textures/card_icons/sink_card_icon.png" id="2_swxik"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wx3p6"]
 
