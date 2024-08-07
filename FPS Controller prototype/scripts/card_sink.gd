@@ -7,7 +7,7 @@ var player_position
 func _process(delta):
 	player_position = player.position
 	look_at(player_position)
-	rotation.x = clamp(player_position.y, deg_to_rad(-89), deg_to_rad(0))
+	rotation.x = clamp(player_position.y, deg_to_rad(0), deg_to_rad(0))
 
 
 # Lunge Ability
