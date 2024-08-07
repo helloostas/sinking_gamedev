@@ -1,15 +1,16 @@
-[gd_scene load_steps=31 format=3 uid="uid://c3spvehy3qpes"]
+[gd_scene load_steps=32 format=3 uid="uid://c3spvehy3qpes"]
 
 [ext_resource type="Texture2D" uid="uid://eoc11m7u21st" path="res://godot textures/dev/grids/Dark/texture_07.png" id="1_5wyxs"]
+[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_83liw"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_5prkj"]
-[ext_resource type="Texture2D" uid="uid://b4glxclry75io" path="res://textures/TEXTURES/TILE_7A.png" id="3_c07o3"]
+[ext_resource type="Texture2D" uid="uid://b4glxclry75io" path="res://textures/TEXTURES/TILE_7A.PNG" id="3_c07o3"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_ss8hf"]
-[ext_resource type="Shader" path="res://scenes/test.gdshader" id="4_b3yfp"]
-[ext_resource type="Texture2D" uid="uid://bnuhw5vj4kydv" path="res://textures/TEXTURES/CRATE_3C.png" id="4_mdp62"]
+[ext_resource type="Shader" path="res://scripts/test.gdshader" id="4_b3yfp"]
+[ext_resource type="Texture2D" uid="uid://bnuhw5vj4kydv" path="res://textures/TEXTURES/CRATE_3C.PNG" id="4_mdp62"]
 [ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="5_e7ufg"]
-[ext_resource type="Texture2D" uid="uid://bgugckbgdw0yc" path="res://textures/TEXTURES/CRATE_3B.png" id="5_fird8"]
+[ext_resource type="Texture2D" uid="uid://bgugckbgdw0yc" path="res://textures/TEXTURES/CRATE_3B.PNG" id="5_fird8"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="5_jk4jp"]
-[ext_resource type="Texture2D" uid="uid://dkomsvi3v2u2b" path="res://textures/TEXTURES/CRATE_3A.png" id="6_qhuy4"]
+[ext_resource type="Texture2D" uid="uid://dkomsvi3v2u2b" path="res://textures/TEXTURES/CRATE_3A.PNG" id="6_qhuy4"]
 [ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="6_wypb3"]
 [ext_resource type="PackedScene" uid="uid://cudqyxiii220g" path="res://scenes/card_lunge.tscn" id="7_ihqt3"]
 [ext_resource type="Texture2D" uid="uid://bkwv58htj44nk" path="res://assets/hdris/redsky.png" id="7_sr1qd"]
@@ -113,14 +114,15 @@ volumetric_fog_albedo = Color(0.286275, 0.0235294, 0.0705882, 1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jldww"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lpyrn"]
-height = 1.2
+radius = 0.35
+height = 0.7
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gux66"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p000o"]
 render_priority = 0
 shader = ExtResource("4_b3yfp")
 
 [sub_resource type="QuadMesh" id="QuadMesh_s85cg"]
-material = SubResource("ShaderMaterial_gux66")
+material = SubResource("ShaderMaterial_p000o")
 size = Vector2(10, 10)
 orientation = 1
 
@@ -131,6 +133,7 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 script = ExtResource("5_jk4jp")
 map_file = "/Users/stastigay/Documents/Code Folder/Godot Files/godot_prototype_project/godot_game_dev/FPS Controller prototype/maps/first map.map"
 inverse_scale_factor = 32.0
+entity_fgd = ExtResource("2_83liw")
 texture_file_extensions = PackedStringArray("png", "jpg", "jpeg", "bmp", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
 default_material = SubResource("StandardMaterial3D_unmc3")
 
@@ -202,18 +205,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
 shape = SubResource("CapsuleShape3D_jldww")
 
 [node name="crouching_collision_shape" type="CollisionShape3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.6, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.352126, 2.08165e-12)
 shape = SubResource("CapsuleShape3D_lpyrn")
 disabled = true
-
-[node name="head" type="Node3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.8, 2.08165e-12)
-
-[node name="Camera3D" type="Camera3D" parent="player/head"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player/head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
-mesh = SubResource("QuadMesh_s85cg")
 
 [node name="RayCast3D" type="RayCast3D" parent="player"]
 target_position = Vector3(2.08165e-12, 2, 2.08165e-12)
@@ -222,6 +216,18 @@ target_position = Vector3(2.08165e-12, 2, 2.08165e-12)
 one_shot = true
 
 [node name="lunge_timer" type="Timer" parent="player"]
+
+[node name="neck" type="Node3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.8, 2.08165e-12)
+
+[node name="head" type="Node3D" parent="player/neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="Camera3D" type="Camera3D" parent="player/neck/head"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player/neck/head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
+mesh = SubResource("QuadMesh_s85cg")
 
 [node name="Area3D" parent="." instance=ExtResource("5_e7ufg")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 1.98412, 2.41533, 13.3956)
