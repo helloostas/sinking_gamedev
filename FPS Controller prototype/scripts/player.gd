@@ -49,7 +49,7 @@ var slide_vector = Vector2.ZERO
 var slide_speed = 40.0
 
 # Dash Variables
-const dash_velocity = 10
+const dash_velocity = 15
 var dash_timer = 0.0
 const dash_duration = 0.1
 var dash_direction
@@ -81,6 +81,9 @@ func _input(event):
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta):
+	
+	$speedlines.material.set_shader_parameter("line_density", 0.0)
+	
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	
@@ -105,6 +108,7 @@ func _physics_process(delta):
 			slide_timer = slide_timer_max
 			sliding = true
 			slide_vector = input_dir
+			$speedlines.material.set_shader_parameter("line_density", 1.0)
 		
 		walking = false
 		sprinting = false
@@ -161,7 +165,9 @@ func _physics_process(delta):
 	
 	if sliding:
 		slide_timer -= delta
+		$speedlines.material.set_shader_parameter("line_density", 1.0)
 		if slide_timer <= 0:
+			$speedlines.material.set_shader_parameter("line_density", 0.0)
 			sliding = false
 			crouching = false
 			sprinting = false
@@ -173,6 +179,7 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 		else:
 			velocity.y -= gravity * delta / 2
+			$speedlines.material.set_shader_parameter("line_density", 1.0)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -272,6 +279,7 @@ func _physics_process(delta):
 func _dash_end():
 	is_dashing = false
 	velocity.y = 0
+	$speedlines.material.set_shader_parameter("line_density", 0.0)
 
 func _on_lunge_timer_timeout():
 	is_lunging = false
