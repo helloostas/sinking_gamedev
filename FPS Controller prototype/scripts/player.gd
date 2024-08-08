@@ -132,7 +132,7 @@ func _physics_process(delta):
 			
 			current_speed = walking_speed
 			walking = true
-			sprinting = false
+			#sprinting = false
 			crouching = false
 	
 	#Handle left/right movement
@@ -164,6 +164,7 @@ func _physics_process(delta):
 		if slide_timer <= 0:
 			sliding = false
 			crouching = false
+			sprinting = false
 
 	#Handling the dash
 	if not is_on_floor() and not is_dashing: #and not is_lunging:
@@ -215,7 +216,6 @@ func _physics_process(delta):
 		time += delta
 		velocity += lunge_dir * -lunge_velocity
 		velocity.y = (lunge_dir * dash_velocity).z * 2
-		print(velocity.y)
 	
 	move_and_slide()
 
@@ -257,11 +257,15 @@ func _physics_process(delta):
 				
 			else:
 				pass
+			
+			sprinting = true
+			#print(sliding)
 	
 	# Switching Between Abilities
 	if Input.is_action_just_pressed("switch"):
 		on_hand_abilities.reverse()
 		print(on_hand_abilities)
+
 
 # On dash and lunge end funcitons: (Makes each ability stop on timer end)
 
