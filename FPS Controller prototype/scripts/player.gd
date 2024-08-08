@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var ray_cast_3d = $RayCast3D
 @onready var camera_3d = $neck/head/Camera3D
 @onready var neck = $neck
+@onready var wall_running_collision = $"wall running collision"
 
 
 # Abilities
@@ -81,7 +82,6 @@ func _input(event):
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta):
-	
 	$speedlines.material.set_shader_parameter("line_density", 0.0)
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -283,3 +283,7 @@ func _dash_end():
 
 func _on_lunge_timer_timeout():
 	is_lunging = false
+
+
+func _on_wall_running_collision_body_entered(body):
+	pass

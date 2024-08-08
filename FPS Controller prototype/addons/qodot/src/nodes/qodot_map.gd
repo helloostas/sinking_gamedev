@@ -1295,3 +1295,7 @@ func _build_complete():
 	print('Build complete\n')
 	
 	emit_signal("build_complete")
+
+
+func _on_wall_running_collision_body_entered(body):
+	pass # Replace with function body.
