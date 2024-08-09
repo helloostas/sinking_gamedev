@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://p6w57yy3lu5d"]
 
 [ext_resource type="Script" path="res://scripts/card_doublejump.gd" id="1_f0dl6"]
-[ext_resource type="Texture2D" path="res://textures/card_icons/jump_card_icon.png" id="2_bqq07"]
+[ext_resource type="Texture2D" uid="uid://bngbsf2anbugy" path="res://textures/card_icons/jump_card_icon.png" id="2_bqq07"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kelex"]
 
