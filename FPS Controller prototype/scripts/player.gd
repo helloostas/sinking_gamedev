@@ -171,7 +171,12 @@ func _physics_process(delta):
 		if not has_dashed:
 			velocity.y -= gravity * delta
 		else:
+<<<<<<< Updated upstream
 			velocity.y -= gravity * delta / 2
+=======
+			velocity.y -= gravity * delta# / 2
+			$speedlines.material.set_shader_parameter("line_density", 1.0)
+>>>>>>> Stashed changes
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
