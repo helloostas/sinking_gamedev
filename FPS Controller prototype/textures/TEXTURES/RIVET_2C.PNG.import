@@ -15,8 +15,8 @@ dest_files=["res://.godot/imported/RIVET_2C.PNG-e1a97c7c948574782ed041b28d6c37e8
 
 [params]
 
-compress/mode=2
-compress/high_quality=false
+compress/mode=0
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

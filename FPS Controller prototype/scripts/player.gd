@@ -178,7 +178,7 @@ func _physics_process(delta):
 		if not has_dashed:
 			velocity.y -= gravity * delta
 		else:
-			velocity.y -= gravity * delta / 2
+			velocity.y -= gravity * delta# / 2
 			$speedlines.material.set_shader_parameter("line_density", 1.0)
 
 	# Handle jump.

@@ -15,8 +15,8 @@ dest_files=["res://.godot/imported/STEEL_2C.PNG-895dc1a97936de652bf0ba5a3835c627
 
 [params]
 
-compress/mode=2
-compress/high_quality=false
+compress/mode=0
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
