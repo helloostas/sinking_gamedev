@@ -1,64 +1,64 @@
-[gd_scene load_steps=122 format=3 uid="uid://c3spvehy3qpes"]
+[gd_scene load_steps=121 format=3 uid="uid://c3spvehy3qpes"]
 
 [ext_resource type="Texture2D" uid="uid://eoc11m7u21st" path="res://godot textures/dev/grids/Dark/texture_07.png" id="1_5wyxs"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_83liw"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_5prkj"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_ss8hf"]
-[ext_resource type="Texture2D" uid="uid://ca443k1w3514k" path="res://textures/TEXTURES/TILE_7G.png" id="4_754b0"]
+[ext_resource type="Texture2D" uid="uid://ca443k1w3514k" path="res://textures/TEXTURES/TILE_7G.PNG" id="4_754b0"]
 [ext_resource type="Shader" path="res://scripts/test.gdshader" id="4_b3yfp"]
-[ext_resource type="Texture2D" uid="uid://bnuhw5vj4kydv" path="res://textures/TEXTURES/CRATE_3C.png" id="5_8mg83"]
+[ext_resource type="Texture2D" uid="uid://bnuhw5vj4kydv" path="res://textures/TEXTURES/CRATE_3C.PNG" id="5_8mg83"]
 [ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="5_e7ufg"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="5_jk4jp"]
-[ext_resource type="Texture2D" uid="uid://bgugckbgdw0yc" path="res://textures/TEXTURES/CRATE_3B.png" id="6_ct6l3"]
+[ext_resource type="Texture2D" uid="uid://bgugckbgdw0yc" path="res://textures/TEXTURES/CRATE_3B.PNG" id="6_ct6l3"]
 [ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="6_wypb3"]
-[ext_resource type="Texture2D" uid="uid://dkomsvi3v2u2b" path="res://textures/TEXTURES/CRATE_3A.png" id="7_eg3nu"]
+[ext_resource type="Texture2D" uid="uid://dkomsvi3v2u2b" path="res://textures/TEXTURES/CRATE_3A.PNG" id="7_eg3nu"]
 [ext_resource type="PackedScene" uid="uid://cudqyxiii220g" path="res://scenes/card_lunge.tscn" id="7_ihqt3"]
 [ext_resource type="PackedScene" uid="uid://bj8yvn4vc7kkb" path="res://scenes/card_sink.tscn" id="8_n75hf"]
-[ext_resource type="Texture2D" uid="uid://b4glxclry75io" path="res://textures/TEXTURES/TILE_7A.png" id="8_s64re"]
-[ext_resource type="Texture2D" uid="uid://dne5i5ma405um" path="res://textures/TEXTURES/TILE_7F.png" id="9_yf1cj"]
-[ext_resource type="Texture2D" uid="uid://dynbdu816xqik" path="res://textures/TEXTURES/STEEL_2C.png" id="10_b5atr"]
-[ext_resource type="Texture2D" uid="uid://0i4yyknmpom2" path="res://textures/TEXTURES/RIVET_3A.png" id="11_rf0p7"]
-[ext_resource type="Texture2D" uid="uid://cwbgyc7kpaptw" path="res://textures/TEXTURES/RIVET_2C.png" id="12_42lfm"]
-[ext_resource type="Texture2D" uid="uid://dojwfoe3edm2e" path="res://textures/TEXTURES/RIVET_2B.png" id="13_n2hdd"]
-[ext_resource type="Texture2D" uid="uid://dwap1qqc4437" path="res://textures/TEXTURES/BRICK_3A.png" id="14_5xvyn"]
-[ext_resource type="Texture2D" uid="uid://cxgfsbdoni5uy" path="res://textures/TEXTURES/COBBLES_1A.png" id="15_2xj3f"]
-[ext_resource type="Texture2D" uid="uid://c2i6heumqpibu" path="res://textures/TEXTURES/STEEL_1D.png" id="16_0lla3"]
-[ext_resource type="Texture2D" uid="uid://bmo0e3dydhgah" path="res://textures/TEXTURES/TILE_2E.png" id="17_5lqi5"]
+[ext_resource type="Texture2D" uid="uid://b4glxclry75io" path="res://textures/TEXTURES/TILE_7A.PNG" id="8_s64re"]
+[ext_resource type="Texture2D" uid="uid://dne5i5ma405um" path="res://textures/TEXTURES/TILE_7F.PNG" id="9_yf1cj"]
+[ext_resource type="Texture2D" uid="uid://dynbdu816xqik" path="res://textures/TEXTURES/STEEL_2C.PNG" id="10_b5atr"]
+[ext_resource type="Texture2D" uid="uid://0i4yyknmpom2" path="res://textures/TEXTURES/RIVET_3A.PNG" id="11_rf0p7"]
+[ext_resource type="Texture2D" uid="uid://cwbgyc7kpaptw" path="res://textures/TEXTURES/RIVET_2C.PNG" id="12_42lfm"]
+[ext_resource type="Texture2D" uid="uid://dojwfoe3edm2e" path="res://textures/TEXTURES/RIVET_2B.PNG" id="13_n2hdd"]
+[ext_resource type="Texture2D" uid="uid://dwap1qqc4437" path="res://textures/TEXTURES/BRICK_3A.PNG" id="14_5xvyn"]
+[ext_resource type="Texture2D" uid="uid://cxgfsbdoni5uy" path="res://textures/TEXTURES/COBBLES_1A.PNG" id="15_2xj3f"]
+[ext_resource type="Texture2D" uid="uid://c2i6heumqpibu" path="res://textures/TEXTURES/STEEL_1D.PNG" id="16_0lla3"]
+[ext_resource type="Texture2D" uid="uid://bmo0e3dydhgah" path="res://textures/TEXTURES/TILE_2E.PNG" id="17_5lqi5"]
 [ext_resource type="Texture2D" uid="uid://bkvmj3kaio78v" path="res://assets/hdris/Mud Road Pure Sky 4k.exr" id="17_xa0av"]
-[ext_resource type="Texture2D" uid="uid://dx7dy6rc8jc4u" path="res://textures/TEXTURES/SUPPORT_5D.png" id="18_eew6p"]
+[ext_resource type="Texture2D" uid="uid://dx7dy6rc8jc4u" path="res://textures/TEXTURES/SUPPORT_5D.PNG" id="18_eew6p"]
 [ext_resource type="Shader" path="res://speedlines.gdshader" id="19_fcwm1"]
-[ext_resource type="Texture2D" uid="uid://dn62sdcvg8sn4" path="res://textures/TEXTURES/SUPPORT_1A.png" id="19_g0obu"]
-[ext_resource type="Texture2D" uid="uid://338rq55w0ouw" path="res://textures/TEXTURES/CRATE_1B.png" id="20_o6rkc"]
-[ext_resource type="Texture2D" uid="uid://dhh7ci07405gy" path="res://textures/TEXTURES/CRATE_1D.png" id="21_6gang"]
-[ext_resource type="Texture2D" uid="uid://cecdy3jfnajxb" path="res://textures/TEXTURES/CRATE_1M.png" id="22_m1h0x"]
-[ext_resource type="Texture2D" uid="uid://do2g8qx5ohi4e" path="res://textures/TEXTURES/CRATE_1I.png" id="23_cm50e"]
-[ext_resource type="Texture2D" uid="uid://e8h3op1ngdwx" path="res://textures/TEXTURES/CONSOLE_1A.png" id="24_ot0ep"]
-[ext_resource type="Texture2D" uid="uid://dh20muni01msp" path="res://textures/TEXTURES/PANEL_1A.png" id="25_ied05"]
-[ext_resource type="Texture2D" uid="uid://ryovd5dmgjkc" path="res://textures/TEXTURES/TECH_2F.png" id="26_oon75"]
-[ext_resource type="Texture2D" uid="uid://cfsqb3lldtdf5" path="res://textures/TEXTURES/LIGHT_2A.png" id="27_byhds"]
-[ext_resource type="Texture2D" uid="uid://cyhvryf8wrcmd" path="res://textures/TEXTURES/FLOOR_1A.png" id="28_5tkjp"]
-[ext_resource type="Texture2D" uid="uid://bwwqxglcqx5u8" path="res://textures/TEXTURES/SUPPORT_1C.png" id="29_kisvx"]
-[ext_resource type="Texture2D" uid="uid://du8kwfgo77box" path="res://textures/TEXTURES/SUPPORT_3A.png" id="30_tf6hm"]
-[ext_resource type="Texture2D" uid="uid://by56wm05u8j4h" path="res://textures/TEXTURES/CRATE_2B.png" id="31_vgari"]
-[ext_resource type="Texture2D" uid="uid://qcah6qxnbivl" path="res://textures/TEXTURES/CRATE_2C.png" id="32_kalw8"]
-[ext_resource type="Texture2D" uid="uid://u4hs0kjs0ox1" path="res://textures/TEXTURES/CRATE_2N.png" id="33_1ps8m"]
-[ext_resource type="Texture2D" uid="uid://pruek4xubqvp" path="res://textures/TEXTURES/FENCE_1B.png" id="34_hln7t"]
-[ext_resource type="Texture2D" uid="uid://du6r8h5wgr60j" path="res://textures/TEXTURES/FLOOR_2A.png" id="35_rcqyj"]
-[ext_resource type="Texture2D" uid="uid://ckn1itc1lh58a" path="res://textures/TEXTURES/FENCE_1A.png" id="36_quweu"]
-[ext_resource type="Texture2D" uid="uid://du76tjym3pc5g" path="res://textures/TEXTURES/SUPPORT_1D.png" id="37_er4sq"]
-[ext_resource type="Texture2D" uid="uid://ijm35b62a0kt" path="res://textures/TEXTURES/LIGHT_1B.png" id="38_oyash"]
-[ext_resource type="Texture2D" uid="uid://srnmujv8jlup" path="res://textures/TEXTURES/FLOOR_4A.png" id="39_x4nid"]
-[ext_resource type="Texture2D" uid="uid://ccxanmo47vdao" path="res://textures/TEXTURES/TECH_1A.png" id="40_fxeni"]
-[ext_resource type="Texture2D" uid="uid://rp6b3mxy2ttb" path="res://textures/TEXTURES/CONCRETE_3C.png" id="41_jmjmk"]
-[ext_resource type="Texture2D" uid="uid://bl406f4xlv6pk" path="res://textures/TEXTURES/TILE_3B.png" id="42_px36p"]
-[ext_resource type="Texture2D" uid="uid://cfa7unc0elxtm" path="res://textures/TEXTURES/CONCRETE_3A.png" id="43_s6b6m"]
-[ext_resource type="Texture2D" uid="uid://c68srqp4xnkgy" path="res://textures/TEXTURES/TILE_3A.png" id="44_f8npe"]
-[ext_resource type="Texture2D" uid="uid://c6gybc62842uk" path="res://textures/TEXTURES/SUPPORT_2A.png" id="45_eagik"]
-[ext_resource type="Texture2D" uid="uid://n0vg450p7j1v" path="res://textures/TEXTURES/TILE_3F.png" id="46_amt8t"]
-[ext_resource type="Texture2D" uid="uid://cut7mqr1u8shu" path="res://textures/TEXTURES/SUPPORT_5C.png" id="47_u3iar"]
-[ext_resource type="Texture2D" uid="uid://cvk8dac8u4opl" path="res://textures/TEXTURES/SUPPORT_5A.png" id="48_x130t"]
-[ext_resource type="Texture2D" uid="uid://d1qarmqk0omx7" path="res://textures/TEXTURES/CRATE_1K.png" id="49_tfpwo"]
-[ext_resource type="Texture2D" uid="uid://6yuqvpeelbya" path="res://textures/TEXTURES/CRATE_1J.png" id="50_stpmr"]
+[ext_resource type="Texture2D" uid="uid://dn62sdcvg8sn4" path="res://textures/TEXTURES/SUPPORT_1A.PNG" id="19_g0obu"]
+[ext_resource type="Texture2D" uid="uid://338rq55w0ouw" path="res://textures/TEXTURES/CRATE_1B.PNG" id="20_o6rkc"]
+[ext_resource type="Texture2D" uid="uid://dhh7ci07405gy" path="res://textures/TEXTURES/CRATE_1D.PNG" id="21_6gang"]
+[ext_resource type="Texture2D" uid="uid://cecdy3jfnajxb" path="res://textures/TEXTURES/CRATE_1M.PNG" id="22_m1h0x"]
+[ext_resource type="Texture2D" uid="uid://do2g8qx5ohi4e" path="res://textures/TEXTURES/CRATE_1I.PNG" id="23_cm50e"]
+[ext_resource type="Texture2D" uid="uid://e8h3op1ngdwx" path="res://textures/TEXTURES/CONSOLE_1A.PNG" id="24_ot0ep"]
+[ext_resource type="Texture2D" uid="uid://dh20muni01msp" path="res://textures/TEXTURES/PANEL_1A.PNG" id="25_ied05"]
+[ext_resource type="Texture2D" uid="uid://ryovd5dmgjkc" path="res://textures/TEXTURES/TECH_2F.PNG" id="26_oon75"]
+[ext_resource type="Texture2D" uid="uid://cfsqb3lldtdf5" path="res://textures/TEXTURES/LIGHT_2A.PNG" id="27_byhds"]
+[ext_resource type="Texture2D" uid="uid://cyhvryf8wrcmd" path="res://textures/TEXTURES/FLOOR_1A.PNG" id="28_5tkjp"]
+[ext_resource type="Texture2D" uid="uid://bwwqxglcqx5u8" path="res://textures/TEXTURES/SUPPORT_1C.PNG" id="29_kisvx"]
+[ext_resource type="Texture2D" uid="uid://du8kwfgo77box" path="res://textures/TEXTURES/SUPPORT_3A.PNG" id="30_tf6hm"]
+[ext_resource type="Texture2D" uid="uid://by56wm05u8j4h" path="res://textures/TEXTURES/CRATE_2B.PNG" id="31_vgari"]
+[ext_resource type="Texture2D" uid="uid://qcah6qxnbivl" path="res://textures/TEXTURES/CRATE_2C.PNG" id="32_kalw8"]
+[ext_resource type="Texture2D" uid="uid://u4hs0kjs0ox1" path="res://textures/TEXTURES/CRATE_2N.PNG" id="33_1ps8m"]
+[ext_resource type="Texture2D" uid="uid://pruek4xubqvp" path="res://textures/TEXTURES/FENCE_1B.PNG" id="34_hln7t"]
+[ext_resource type="Texture2D" uid="uid://du6r8h5wgr60j" path="res://textures/TEXTURES/FLOOR_2A.PNG" id="35_rcqyj"]
+[ext_resource type="Texture2D" uid="uid://ckn1itc1lh58a" path="res://textures/TEXTURES/FENCE_1A.PNG" id="36_quweu"]
+[ext_resource type="Texture2D" uid="uid://du76tjym3pc5g" path="res://textures/TEXTURES/SUPPORT_1D.PNG" id="37_er4sq"]
+[ext_resource type="Texture2D" uid="uid://ijm35b62a0kt" path="res://textures/TEXTURES/LIGHT_1B.PNG" id="38_oyash"]
+[ext_resource type="Texture2D" uid="uid://srnmujv8jlup" path="res://textures/TEXTURES/FLOOR_4A.PNG" id="39_x4nid"]
+[ext_resource type="Texture2D" uid="uid://ccxanmo47vdao" path="res://textures/TEXTURES/TECH_1A.PNG" id="40_fxeni"]
+[ext_resource type="Texture2D" uid="uid://rp6b3mxy2ttb" path="res://textures/TEXTURES/CONCRETE_3C.PNG" id="41_jmjmk"]
+[ext_resource type="Texture2D" uid="uid://bl406f4xlv6pk" path="res://textures/TEXTURES/TILE_3B.PNG" id="42_px36p"]
+[ext_resource type="Texture2D" uid="uid://cfa7unc0elxtm" path="res://textures/TEXTURES/CONCRETE_3A.PNG" id="43_s6b6m"]
+[ext_resource type="Texture2D" uid="uid://c68srqp4xnkgy" path="res://textures/TEXTURES/TILE_3A.PNG" id="44_f8npe"]
+[ext_resource type="Texture2D" uid="uid://c6gybc62842uk" path="res://textures/TEXTURES/SUPPORT_2A.PNG" id="45_eagik"]
+[ext_resource type="Texture2D" uid="uid://n0vg450p7j1v" path="res://textures/TEXTURES/TILE_3F.PNG" id="46_amt8t"]
+[ext_resource type="Texture2D" uid="uid://cut7mqr1u8shu" path="res://textures/TEXTURES/SUPPORT_5C.PNG" id="47_u3iar"]
+[ext_resource type="Texture2D" uid="uid://cvk8dac8u4opl" path="res://textures/TEXTURES/SUPPORT_5A.PNG" id="48_x130t"]
+[ext_resource type="Texture2D" uid="uid://d1qarmqk0omx7" path="res://textures/TEXTURES/CRATE_1K.PNG" id="49_tfpwo"]
+[ext_resource type="Texture2D" uid="uid://6yuqvpeelbya" path="res://textures/TEXTURES/CRATE_1J.PNG" id="50_stpmr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unmc3"]
 
@@ -830,9 +830,6 @@ shader_parameter/mask_edge = 1.0
 shader_parameter/animation_speed = 20.0
 shader_parameter/noise = SubResource("NoiseTexture2D_hqnb1")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_cnjmw"]
-radius = 0.3
-
 [node name="world" type="Node3D"]
 
 [node name="QodotMap" type="Node3D" parent="."]
@@ -938,15 +935,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="wall running collision" type="Area3D" parent="player"]
+[node name="left collision" type="RayCast3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.25, 2.08165e-12)
+target_position = Vector3(-1, 2.08165e-12, 2.08165e-12)
+hit_from_inside = true
 
-[node name="right collision" type="CollisionShape3D" parent="player/wall running collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.3, 2.08165e-12)
-shape = SubResource("SphereShape3D_cnjmw")
-
-[node name="left collision" type="CollisionShape3D" parent="player/wall running collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.3, 2.08165e-12)
-shape = SubResource("SphereShape3D_cnjmw")
+[node name="right collision" type="RayCast3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.256, 2.08165e-12)
+target_position = Vector3(1, 2.08165e-12, 2.08165e-12)
+hit_from_inside = true
 
 [node name="Area3D" parent="." instance=ExtResource("5_e7ufg")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 1.98412, 2.41533, 13.3956)
@@ -980,4 +977,3 @@ transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e
 
 [connection signal="timeout" from="player/dash_timer" to="player" method="_dash_end"]
 [connection signal="timeout" from="player/lunge_timer" to="player" method="_on_lunge_timer_timeout"]
-[connection signal="body_entered" from="player/wall running collision" to="player" method="_on_wall_running_collision_body_entered"]
