@@ -55,14 +55,17 @@ layout_mode = 2
 text = "Quit"
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ColorRect"]
-layout_mode = 2
-offset_left = 560.0
-offset_top = -4.0
-offset_right = 2544.0
-offset_bottom = 1084.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 544.0
+offset_top = -11.0
+offset_right = 548.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.442937, 0.442937)
+scale = Vector2(0.470567, 0.466425)
 stream = ExtResource("3_faw60")
 autoplay = true
 loop = true
