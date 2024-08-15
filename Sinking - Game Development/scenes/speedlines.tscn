@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dq3km4jauhun7"]
 
-[ext_resource type="Shader" path="res://speedlines.gdshader" id="1_on81g"]
+[ext_resource type="Shader" path="res://scripts/speedlines.gdshader" id="1_on81g"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qob5w"]
 noise_type = 5
