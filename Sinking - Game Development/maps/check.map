@@ -1,0 +1,22 @@
+// Game: Trenchbroom Entities
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"classname" "worldspawn"
+"_tb_textures" "textures;textures/TEXTURES;textures/card_icons"
+// brush 0
+{
+( -64 -64 -16 ) ( -64 -63 -16 ) ( -64 -64 -15 ) card_icons/sink_card_icon [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -16 ) ( -64 -64 -15 ) ( -63 -64 -16 ) card_icons/sink_card_icon [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -64 -64 -16 ) ( -63 -64 -16 ) ( -64 -63 -16 ) card_icons/sink_card_icon [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 16 ) ( 64 65 16 ) ( 65 64 16 ) card_icons/sink_card_icon [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 64 16 ) ( 65 64 16 ) ( 64 64 17 ) card_icons/sink_card_icon [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 64 64 16 ) ( 64 64 17 ) ( 64 65 16 ) card_icons/sink_card_icon [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
+// entity 1
+{
+"classname" "light"
+"origin" "-24 -56 24"
+}

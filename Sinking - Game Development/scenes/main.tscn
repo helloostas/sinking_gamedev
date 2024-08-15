@@ -1,7 +1,7 @@
 [gd_scene load_steps=123 format=3 uid="uid://c3spvehy3qpes"]
 
 [ext_resource type="Texture2D" uid="uid://eoc11m7u21st" path="res://godot textures/dev/grids/Dark/texture_07.png" id="1_5wyxs"]
-[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_83liw"]
+[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/point_classes/qodot_fgd.tres" id="2_83liw"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_5prkj"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_ss8hf"]
 [ext_resource type="Shader" path="res://scripts/test.gdshader" id="4_b3yfp"]
