@@ -819,12 +819,12 @@ volumetric_fog_albedo = Color(0.286275, 0.0235294, 0.0705882, 1)
 radius = 0.35
 height = 0.7
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e456l"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qalpo"]
 render_priority = 0
 shader = ExtResource("4_b3yfp")
 
 [sub_resource type="QuadMesh" id="QuadMesh_s85cg"]
-material = SubResource("ShaderMaterial_e456l")
+material = SubResource("ShaderMaterial_qalpo")
 size = Vector2(10, 10)
 orientation = 1
 
@@ -832,7 +832,7 @@ orientation = 1
 noise_type = 5
 frequency = 0.2
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ocvjh"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mql0s"]
 noise = SubResource("FastNoiseLite_7224s")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u6mkq"]
@@ -844,7 +844,7 @@ shader_parameter/line_faloff = 1.0
 shader_parameter/mask_size = 0.049
 shader_parameter/mask_edge = 1.0
 shader_parameter/animation_speed = 20.0
-shader_parameter/noise = SubResource("NoiseTexture2D_ocvjh")
+shader_parameter/noise = SubResource("NoiseTexture2D_mql0s")
 
 [node name="world" type="Node3D"]
 
@@ -941,6 +941,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00543547, -0.0059495, 0.00677299)
 script = ExtResource("3_ss8hf")
 metadata/player = true
 
