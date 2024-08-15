@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_ss8hf"]
 [ext_resource type="Shader" path="res://scripts/test.gdshader" id="4_b3yfp"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://ca443k1w3514k" path="res://textures/TEXTURES/TILE_7G.PNG" id="4_ur2v8"]
 [ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="5_e7ufg"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="5_jk4jp"]
@@ -21,10 +22,20 @@
 [ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="6_wypb3"]
 [ext_resource type="Texture2D" uid="uid://dkomsvi3v2u2b" path="res://textures/TEXTURES/CRATE_3A.png" id="7_hsr34"]
 >>>>>>> parent of f19c706 (Thu 13 Aug)
+=======
+[ext_resource type="Texture2D" uid="uid://ca443k1w3514k" path="res://textures/TEXTURES/TILE_7G.png" id="4_j2sdy"]
+[ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="5_e7ufg"]
+[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="5_jk4jp"]
+[ext_resource type="Texture2D" uid="uid://bnuhw5vj4kydv" path="res://textures/TEXTURES/CRATE_3C.png" id="5_wifrw"]
+[ext_resource type="Texture2D" uid="uid://bgugckbgdw0yc" path="res://textures/TEXTURES/CRATE_3B.png" id="6_bo331"]
+[ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="6_wypb3"]
+[ext_resource type="Texture2D" uid="uid://dkomsvi3v2u2b" path="res://textures/TEXTURES/CRATE_3A.png" id="7_hsr34"]
+>>>>>>> parent of f19c706 (Thu 13 Aug)
 [ext_resource type="PackedScene" uid="uid://cudqyxiii220g" path="res://scenes/card_lunge.tscn" id="7_ihqt3"]
 [ext_resource type="Texture2D" uid="uid://dkomsvi3v2u2b" path="res://textures/TEXTURES/CRATE_3A.PNG" id="7_x10lw"]
 [ext_resource type="Texture2D" uid="uid://b4glxclry75io" path="res://textures/TEXTURES/TILE_7A.PNG" id="8_eov7k"]
 [ext_resource type="PackedScene" uid="uid://bj8yvn4vc7kkb" path="res://scenes/card_sink.tscn" id="8_n75hf"]
+<<<<<<< HEAD
 <<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://dne5i5ma405um" path="res://textures/TEXTURES/TILE_7F.PNG" id="9_8j63s"]
 [ext_resource type="Texture2D" uid="uid://dynbdu816xqik" path="res://textures/TEXTURES/STEEL_2C.PNG" id="10_4obwq"]
@@ -82,6 +93,18 @@
 [ext_resource type="Texture2D" uid="uid://cxgfsbdoni5uy" path="res://textures/TEXTURES/COBBLES_1A.png" id="15_v0x1d"]
 [ext_resource type="Texture2D" uid="uid://c2i6heumqpibu" path="res://textures/TEXTURES/STEEL_1D.png" id="16_m70us"]
 [ext_resource type="Texture2D" uid="uid://bkvmj3kaio78v" path="res://assets/hdris/Mud Road Pure Sky 4k.exr" id="17_xa0av"]
+=======
+[ext_resource type="Texture2D" uid="uid://b4glxclry75io" path="res://textures/TEXTURES/TILE_7A.png" id="8_pm30e"]
+[ext_resource type="Texture2D" uid="uid://dne5i5ma405um" path="res://textures/TEXTURES/TILE_7F.png" id="9_0k2aq"]
+[ext_resource type="Texture2D" uid="uid://dynbdu816xqik" path="res://textures/TEXTURES/STEEL_2C.png" id="10_v06w0"]
+[ext_resource type="Texture2D" uid="uid://0i4yyknmpom2" path="res://textures/TEXTURES/RIVET_3A.png" id="11_rpfn1"]
+[ext_resource type="Texture2D" uid="uid://cwbgyc7kpaptw" path="res://textures/TEXTURES/RIVET_2C.png" id="12_h7gex"]
+[ext_resource type="Texture2D" uid="uid://dojwfoe3edm2e" path="res://textures/TEXTURES/RIVET_2B.png" id="13_pn5y7"]
+[ext_resource type="Texture2D" uid="uid://dwap1qqc4437" path="res://textures/TEXTURES/BRICK_3A.png" id="14_dlj6y"]
+[ext_resource type="Texture2D" uid="uid://cxgfsbdoni5uy" path="res://textures/TEXTURES/COBBLES_1A.png" id="15_v0x1d"]
+[ext_resource type="Texture2D" uid="uid://c2i6heumqpibu" path="res://textures/TEXTURES/STEEL_1D.png" id="16_m70us"]
+[ext_resource type="Texture2D" uid="uid://bkvmj3kaio78v" path="res://assets/hdris/Mud Road Pure Sky 4k.exr" id="17_xa0av"]
+>>>>>>> parent of f19c706 (Thu 13 Aug)
 [ext_resource type="Texture2D" uid="uid://bmo0e3dydhgah" path="res://textures/TEXTURES/TILE_2E.png" id="17_ysdeh"]
 [ext_resource type="Texture2D" uid="uid://dx7dy6rc8jc4u" path="res://textures/TEXTURES/SUPPORT_5D.png" id="18_ctcjt"]
 [ext_resource type="Shader" path="res://speedlines.gdshader" id="19_fcwm1"]
@@ -118,6 +141,9 @@
 [ext_resource type="Texture2D" uid="uid://d1qarmqk0omx7" path="res://textures/TEXTURES/CRATE_1K.png" id="49_mt4l1"]
 [ext_resource type="Texture2D" uid="uid://6yuqvpeelbya" path="res://textures/TEXTURES/CRATE_1J.png" id="50_pxpu7"]
 [ext_resource type="Texture2D" uid="uid://dqxsbxfcle5gr" path="res://textures/TEXTURES/CONCRETE_2C.png" id="51_1utcv"]
+<<<<<<< HEAD
+>>>>>>> parent of f19c706 (Thu 13 Aug)
+=======
 >>>>>>> parent of f19c706 (Thu 13 Aug)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unmc3"]
