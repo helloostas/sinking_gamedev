@@ -60,8 +60,6 @@ var right_collision = false
 var wall_collision = false
 var wall_jump_direction
 var is_wall_jumping = false
-var wall_jump_velocity = 7
-const wall_jump_duration = 0.1
 
 # Dash Variables
 
@@ -187,9 +185,8 @@ func _physics_process(delta):
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, deg_to_rad(-20), delta * lerp_rotation_speed)
 		
 		if Input.is_action_just_pressed("ui_accept"):
-			$wall_jump_timer.start(wall_jump_duration)
-			is_wall_jumping = true
-			velocity.y = wall_jump_velocity
+			#is_wall_jumping = true
+			velocity.y = jump_velocity
 			wall_jump_direction = transform.basis.x
 	
 	if $"right collision".is_colliding() and not is_on_floor():
@@ -198,9 +195,8 @@ func _physics_process(delta):
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, deg_to_rad(20), delta * lerp_rotation_speed)
 		
 		if Input.is_action_just_pressed("ui_accept"):
-			$wall_jump_timer.start(wall_jump_duration)
-			is_wall_jumping = true
-			velocity.y = wall_jump_velocity
+			#is_wall_jumping = true
+			velocity.y = jump_velocity
 			wall_jump_direction = -transform.basis.x
 	
 	if not $"right collision".is_colliding() and not $"left collision".is_colliding():
@@ -286,7 +282,7 @@ func _physics_process(delta):
 		velocity.y = (lunge_dir * dash_velocity).z * 2
 	
 	if is_wall_jumping:
-		velocity += wall_jump_direction * 2
+		velocity += wall_jump_direction * 1
 	
 	move_and_slide()
 	
@@ -348,7 +344,3 @@ func _dash_end():
 
 func _on_lunge_timer_timeout():
 	is_lunging = false
-
-
-func _on_wall_jump_timer_timeout():
-	is_wall_jumping = false

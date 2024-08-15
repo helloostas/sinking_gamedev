@@ -3,10 +3,20 @@
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_bhn0v"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/point_classes/qodot_fgd.tres" id="2_bji3j"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_0vjlo"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://dclrgeunsynqy" path="res://textures/card_icons/sink_card_icon.png" id="4_ei1dg"]
 [ext_resource type="Texture2D" uid="uid://bkvmj3kaio78v" path="res://assets/hdris/Mud Road Pure Sky 4k.exr" id="5_64lar"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="6_8dytx"]
 [ext_resource type="Shader" path="res://scripts/test.gdshader" id="7_d4wi3"]
+=======
+[ext_resource type="Texture2D" uid="uid://rp6b3mxy2ttb" path="res://textures/TEXTURES/CONCRETE_3C.png" id="4_lyfvj"]
+[ext_resource type="Texture2D" uid="uid://bkvmj3kaio78v" path="res://assets/hdris/Mud Road Pure Sky 4k.exr" id="5_64lar"]
+[ext_resource type="Texture2D" uid="uid://bdaqkx3dy8163" path="res://textures/TEXTURES/BLOOD_1A.png" id="5_x6j47"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="6_8dytx"]
+[ext_resource type="Texture2D" uid="uid://dqxsbxfcle5gr" path="res://textures/TEXTURES/CONCRETE_2C.png" id="6_u3se7"]
+[ext_resource type="Shader" path="res://scripts/test.gdshader" id="7_d4wi3"]
+[ext_resource type="Texture2D" uid="uid://blb01cj2psnrw" path="res://textures/TEXTURES/SLUDGE_1A.png" id="7_xtci3"]
+>>>>>>> parent of f19c706 (Thu 13 Aug)
 [ext_resource type="PackedScene" uid="uid://bj8yvn4vc7kkb" path="res://scenes/card_sink.tscn" id="11_oki84"]
 [ext_resource type="Shader" path="res://scripts/speedlines.gdshader" id="12_bfcv0"]
 

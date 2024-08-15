@@ -13,7 +13,11 @@ config_version=5
 config/name="sinking_game"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+<<<<<<< HEAD
 config/icon="res://assets/logo_black.png"
+=======
+config/icon="res://logo.png"
+>>>>>>> parent of f19c706 (Thu 13 Aug)
 
 [display]
 
