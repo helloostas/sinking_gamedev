@@ -796,12 +796,12 @@ uv1_triplanar = true
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jtkpc"]
 panorama = ExtResource("17_xa0av")
 
-[sub_resource type="Sky" id="Sky_etaf0"]
+[sub_resource type="Sky" id="Sky_hn13l"]
 sky_material = SubResource("PanoramaSkyMaterial_jtkpc")
 
 [sub_resource type="Environment" id="Environment_lgo74"]
 background_mode = 2
-sky = SubResource("Sky_etaf0")
+sky = SubResource("Sky_hn13l")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.5
