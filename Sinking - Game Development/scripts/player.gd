@@ -65,7 +65,7 @@ const wall_jump_duration = 0.1
 
 # Dash Variables
 
-const dash_velocity = 10
+const dash_velocity = 15
 var dash_timer = 0.0
 const dash_duration = 0.1
 var dash_direction
@@ -108,6 +108,9 @@ func _physics_process(delta):
 # Getting the Input Direction and Handling the Movement / Deceleration
 	
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	
+	if is_on_floor() and has_dashed:
+		has_dashed = false
 	
 # Handling Movement States
 	
@@ -242,22 +245,21 @@ func _physics_process(delta):
 	
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-#lerp speed for jumps IDK I HAVENT FIGURED IT OUT YET
-	
 	if sliding:
 		direction = (transform.basis * Vector3(slide_vector.x, 0, slide_vector.y)).normalized()
 	
 # Tweaking the gravity to maintain horizontal momentum while using "dash"
 
 	if direction and not is_dashing:
+		
 		if is_on_floor():
 			velocity.x = lerp(velocity.x, direction.x * current_speed, 0.2)
 			velocity.z = lerp(velocity.z, direction.z * current_speed, 0.2)
 			
 		else:
-			velocity.x = lerp(velocity.x, direction.x * current_speed, 0.04)
-			velocity.z = lerp(velocity.z, direction.z * current_speed, 0.04)
-			
+			velocity.x = lerp(velocity.x, direction.x * current_speed, 0.05)
+			velocity.z = lerp(velocity.z, direction.z * current_speed, 0.05)
+		
 		if sliding && is_on_floor():
 			velocity.x = direction.x * slide_timer * slide_speed
 			velocity.z = direction.z * slide_timer * slide_speed
@@ -266,19 +268,15 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.x = lerp(velocity.x, 0.0, 0.1)
 			velocity.z = lerp(velocity.z, 0.0, 0.1)
+			
 		else:
-			velocity.x = lerp(velocity.x, 0.0, 0.01)
-			velocity.z = lerp(velocity.z, 0.0, 0.01)
-	
-	# State logic
+			velocity.x = lerp(velocity.x, 0.0, 0.1)
+			velocity.z = lerp(velocity.z, 0.0, 0.1)
 	
 	if is_dashing:
 		time += delta
 		velocity += dash_direction * -dash_velocity
 		velocity.y = 0  # Keep the dash horizontal
-		
-	if is_on_floor() and has_dashed:
-		has_dashed = false
 		
 	if is_lunging:
 		time += delta
@@ -289,7 +287,6 @@ func _physics_process(delta):
 		velocity += wall_jump_direction * 2
 	
 	move_and_slide()
-	
 # Abilities
 
 	if Input.is_action_just_pressed("ability"):
