@@ -133,6 +133,10 @@ func _physics_process(delta):
 		sprinting = false
 		crouching = true
 		
+	elif Input.is_action_just_released("crounch"):
+		slide_timer = 0
+		sliding = false
+		
 	elif !ray_cast_3d.is_colliding():
 		
 # Standing

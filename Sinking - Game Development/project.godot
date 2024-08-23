@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="sinking_game"
-run/main_scene="res://scenes/menu.tscn"
+run/main_scene="res://introduction.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/logo_black.png"
 

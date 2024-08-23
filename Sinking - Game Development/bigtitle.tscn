@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dm4bsj3igi52y"]
+[gd_scene load_steps=3 format=3 uid="uid://dm4bsj3igi52y"]
 
 [ext_resource type="VideoStream" path="res://assets/newtitle.ogv" id="1_cncod"]
+[ext_resource type="Script" path="res://bigtitle.gd" id="1_g1wp1"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_g1wp1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -34,3 +36,8 @@ scale = Vector2(0.99186, 0.976978)
 stream = ExtResource("1_cncod")
 autoplay = true
 loop = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
