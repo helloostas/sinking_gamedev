@@ -68,6 +68,7 @@ const wall_jump_duration = 0.1
 const dash_velocity = 10
 var dash_timer = 0.0
 const dash_duration = 0.1
+const dash_fov_duration = 0.7
 var dash_direction
 var is_dashing = false
 
@@ -77,6 +78,9 @@ var lunge_dir = Vector3()
 var is_lunging = false
 var lunge_velocity = 10
 var lunge_duration = 0.2
+
+
+var cam_dash_tween: Tween
 
 # Input variables
 
@@ -310,6 +314,9 @@ func _physics_process(delta):
 			elif on_hand_abilities[0] == "dash":
 				is_dashing = true
 				$dash_timer.start(dash_duration)
+				$dash_fov_timer.start(dash_fov_duration)
+				camera_zoom_out(dash_fov_duration)
+				
 				dash_direction = transform.basis.z
 				has_dashed = true
 				print(on_hand_abilities[0]) 
@@ -356,3 +363,12 @@ func _on_lunge_timer_timeout():
 
 func _on_wall_jump_timer_timeout():
 	is_wall_jumping = false
+
+func camera_zoom_out(duration: float) -> void:
+	if cam_dash_tween and cam_dash_tween.is_running():
+		cam_dash_tween.kill()
+		
+	cam_dash_tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	cam_dash_tween.tween_property(camera_3d, "fov", 100.0, 0.3)
+	cam_dash_tween.tween_interval(duration-0.2)
+	cam_dash_tween.tween_property(camera_3d, "fov", 90.0, 0.4)

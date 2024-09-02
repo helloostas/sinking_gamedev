@@ -1,0 +1,160 @@
+[gd_scene load_steps=20 format=4 uid="uid://cj8arnclbhbto"]
+
+[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_vka1q"]
+[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_1nk7g"]
+[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_xs81l"]
+[ext_resource type="Texture2D" uid="uid://rp6b3mxy2ttb" path="res://textures/TEXTURES/CONCRETE_3C.png" id="4_okahq"]
+[ext_resource type="Texture2D" uid="uid://b04n1234cjcso" path="res://textures/TEXTURES/BLOOD_1B.png" id="5_vml85"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="6_ighcn"]
+[ext_resource type="Shader" path="res://scripts/test.gdshader" id="7_nflcb"]
+[ext_resource type="Shader" path="res://scripts/speedlines.gdshader" id="8_u3vyq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcvb4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5en2a"]
+albedo_texture = ExtResource("4_okahq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8d13"]
+albedo_texture = ExtResource("5_vml85")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w3jsc"]
+_surfaces = [{
+"aabb": AABB(-11.75, 10, 4.75, 12, 1, 12),
+"attribute_data": PackedByteArray("AABAQAAAgL4AAEBAAACAPgAAQMAAAIA+AABAwAAAgL4AACDAAACAvgAAYEAAAIC+AABgQAAAgD4AACDAAACAPgAAIEAAAEDAAAAgQAAAQEAAAGDAAABAQAAAYMAAAEDAAAAgwAAAQMAAAGBAAABAwAAAYEAAAEBAAAAgwAAAQEAAACBAAACAvgAAIEAAAIA+AABgwAAAgD4AAGDAAACAvgAAQMAAAIC+AABAQAAAgL4AAEBAAACAPgAAQMAAAIA+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": SubResource("StandardMaterial3D_5en2a"),
+"name": "TEXTURES/CONCRETE_3C",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAA8wQAAMEEAAJhAAAA8wQAAIEEAAJhAAACAPgAAIEEAAJhAAACAPgAAMEEAAJhAAAA8wQAAMEEAAJhAAAA8wQAAMEEAAIZBAAA8wQAAIEEAAIZBAAA8wQAAIEEAAJhAAACAPgAAIEEAAJhAAAA8wQAAIEEAAJhAAAA8wQAAIEEAAIZBAACAPgAAIEEAAIZBAACAPgAAMEEAAJhAAACAPgAAMEEAAIZBAAA8wQAAMEEAAIZBAAA8wQAAMEEAAJhAAACAPgAAMEEAAJhAAACAPgAAIEEAAJhAAACAPgAAIEEAAIZBAACAPgAAMEEAAIZBAAA8wQAAMEEAAIZBAACAPgAAMEEAAIZBAACAPgAAIEEAAIZBAAA8wQAAIEEAAIZB/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+}, {
+"aabb": AABB(-100.75, -11, -137.25, 213, 1, 253),
+"attribute_data": PackedByteArray("AAA8QgAAHEEAADxCAAAkQQAAbsIAACRBAABuwgAAHEEAAJXCAAAcQQAAUEIAABxBAABQQgAAJEEAAJXCAAAkQQAAlUIAAG7CAACVQgAAPEIAAFDCAAA8QgAAUMIAAG7CAACVwgAAbsIAAFBCAABuwgAAUEIAADxCAACVwgAAPEIAAJVCAAAcQQAAlUIAACRBAABQwgAAJEEAAFDCAAAcQQAAPMIAABxBAABuQgAAHEEAAG5CAAAkQQAAPMIAACRB"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": SubResource("StandardMaterial3D_n8d13"),
+"name": "TEXTURES/BLOOD_1B",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AIDJwgAAIMEAQAnDAIDJwgAAMMEAQAnDAIDgQgAAMMEAQAnDAIDgQgAAIMEAQAnDAIDJwgAAIMEAQAnDAIDJwgAAIMEAgOdCAIDJwgAAMMEAgOdCAIDJwgAAMMEAQAnDAIDgQgAAMMEAQAnDAIDJwgAAMMEAQAnDAIDJwgAAMMEAgOdCAIDgQgAAMMEAgOdCAIDgQgAAIMEAQAnDAIDgQgAAIMEAgOdCAIDJwgAAIMEAgOdCAIDJwgAAIMEAQAnDAIDgQgAAIMEAQAnDAIDgQgAAMMEAQAnDAIDgQgAAMMEAgOdCAIDgQgAAIMEAgOdCAIDJwgAAIMEAgOdCAIDgQgAAIMEAgOdCAIDgQgAAMMEAgOdCAIDJwgAAMMEAgOdC/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mxs7t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ebwwi"]
+radius = 0.35
+height = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qalpo"]
+render_priority = 0
+shader = ExtResource("7_nflcb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_bcdf4"]
+material = SubResource("ShaderMaterial_qalpo")
+size = Vector2(10, 10)
+orientation = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8c5pw"]
+noise_type = 5
+frequency = 0.2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mql0s"]
+noise = SubResource("FastNoiseLite_8c5pw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qebvm"]
+shader = ExtResource("8_u3vyq")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_count = 0.5
+shader_parameter/line_density = 1.0
+shader_parameter/line_faloff = 1.0
+shader_parameter/mask_size = 0.049
+shader_parameter/mask_edge = 1.0
+shader_parameter/animation_speed = 20.0
+shader_parameter/noise = SubResource("NoiseTexture2D_mql0s")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="QodotMap" type="Node3D" parent="."]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 6.07768, -13.0849, -9.76617)
+script = ExtResource("1_vka1q")
+map_file = "/Users/stastigay/Documents/Code Folder/Godot Files/godot_prototype_project/godot_game_dev/Sinking - Game Development/maps/level1.map"
+inverse_scale_factor = 32.0
+entity_fgd = ExtResource("2_1nk7g")
+texture_file_extensions = PackedStringArray("png", "jpg", "jpeg", "bmp", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+default_material = SubResource("StandardMaterial3D_lcvb4")
+
+[node name="entity_0_worldspawn" type="Node3D" parent="QodotMap"]
+script = ExtResource("3_xs81l")
+properties = {
+"_tb_textures": "textures;textures/TEXTURES",
+"classname": "worldspawn",
+"mapversion": "220"
+}
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="QodotMap/entity_0_worldspawn"]
+cast_shadow = 2
+gi_mode = 0
+mesh = SubResource("ArrayMesh_w3jsc")
+
+[node name="player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00543547, -0.0059495, 0.00677299)
+script = ExtResource("6_ighcn")
+metadata/player = true
+
+[node name="standing_collision_shape" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_mxs7t")
+
+[node name="crouching_collision_shape" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.352126, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_ebwwi")
+disabled = true
+
+[node name="RayCast3D" type="RayCast3D" parent="player"]
+target_position = Vector3(2.08165e-12, 2, 2.08165e-12)
+
+[node name="dash_timer" type="Timer" parent="player"]
+one_shot = true
+
+[node name="lunge_timer" type="Timer" parent="player"]
+
+[node name="wall_jump_timer" type="Timer" parent="player"]
+
+[node name="neck" type="Node3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.8, 2.08165e-12)
+
+[node name="head" type="Node3D" parent="player/neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="Camera3D" type="Camera3D" parent="player/neck/head"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player/neck/head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
+mesh = SubResource("QuadMesh_bcdf4")
+
+[node name="speedlines" type="ColorRect" parent="player"]
+material = SubResource("ShaderMaterial_qebvm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left collision" type="RayCast3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.25, 2.08165e-12)
+target_position = Vector3(-1.5, 2.08165e-12, 2.08165e-12)
+hit_from_inside = true
+
+[node name="right collision" type="RayCast3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.256, 2.08165e-12)
+target_position = Vector3(1.5, 2.08165e-12, 2.08165e-12)
+hit_from_inside = true
+
+[connection signal="timeout" from="player/dash_timer" to="player" method="_dash_end"]
+[connection signal="timeout" from="player/lunge_timer" to="player" method="_on_lunge_timer_timeout"]
+[connection signal="timeout" from="player/wall_jump_timer" to="player" method="_on_wall_jump_timer_timeout"]
