@@ -1,80 +1,80 @@
-[gd_scene load_steps=168 format=4 uid="uid://dl34o2438485q"]
+[gd_scene load_steps=169 format=4 uid="uid://dl34o2438485q"]
 
 [ext_resource type="Script" path="res://introduction.gd" id="1_hls22"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_spqor"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_3o7kd"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_6spm6"]
-[ext_resource type="Texture2D" uid="uid://0i4yyknmpom2" path="res://textures/TEXTURES/RIVET_3A.png" id="5_0ooax"]
-[ext_resource type="Texture2D" uid="uid://dojwfoe3edm2e" path="res://textures/TEXTURES/RIVET_2B.png" id="6_0gbo5"]
-[ext_resource type="Texture2D" uid="uid://cwbgyc7kpaptw" path="res://textures/TEXTURES/RIVET_2C.png" id="7_51d4u"]
+[ext_resource type="Texture2D" uid="uid://0i4yyknmpom2" path="res://textures/TEXTURES/RIVET_3A.PNG" id="5_0ooax"]
+[ext_resource type="Texture2D" uid="uid://dojwfoe3edm2e" path="res://textures/TEXTURES/RIVET_2B.PNG" id="6_0gbo5"]
+[ext_resource type="Texture2D" uid="uid://cwbgyc7kpaptw" path="res://textures/TEXTURES/RIVET_2C.PNG" id="7_51d4u"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="8_svvno"]
-[ext_resource type="Texture2D" uid="uid://cw8lhttuahd3o" path="res://textures/TEXTURES/PIPES_3A.png" id="8_utdg6"]
-[ext_resource type="Texture2D" uid="uid://b4cc1pw1ndu06" path="res://textures/TEXTURES/PIPES_1B.png" id="9_owdm2"]
+[ext_resource type="Texture2D" uid="uid://cw8lhttuahd3o" path="res://textures/TEXTURES/PIPES_3A.PNG" id="8_utdg6"]
+[ext_resource type="Texture2D" uid="uid://b4cc1pw1ndu06" path="res://textures/TEXTURES/PIPES_1B.PNG" id="9_owdm2"]
 [ext_resource type="Shader" path="res://scripts/test.gdshader" id="9_u7f31"]
-[ext_resource type="Texture2D" uid="uid://cucbafc4nkdt3" path="res://textures/TEXTURES/RIVET_1B.png" id="10_8v6ov"]
+[ext_resource type="Texture2D" uid="uid://cucbafc4nkdt3" path="res://textures/TEXTURES/RIVET_1B.PNG" id="10_8v6ov"]
 [ext_resource type="Shader" path="res://scripts/speedlines.gdshader" id="10_e3xxt"]
-[ext_resource type="Texture2D" uid="uid://b5mr2a0ohmb1b" path="res://textures/TEXTURES/RIVET_2A.png" id="11_hpc8w"]
-[ext_resource type="Texture2D" uid="uid://odh8ax54875w" path="res://textures/TEXTURES/PIPES_2A.png" id="12_oi1ip"]
-[ext_resource type="Texture2D" uid="uid://cfsqb3lldtdf5" path="res://textures/TEXTURES/LIGHT_2A.png" id="13_20ayc"]
-[ext_resource type="Texture2D" uid="uid://chkqupoxa0ghm" path="res://textures/TEXTURES/PIPES_1A.png" id="14_d3roj"]
-[ext_resource type="Texture2D" uid="uid://cfa7unc0elxtm" path="res://textures/TEXTURES/CONCRETE_3A.png" id="15_xfykd"]
-[ext_resource type="Texture2D" uid="uid://m2oha3r8h2wn" path="res://textures/TEXTURES/RIVET_3B.png" id="16_pwbyu"]
-[ext_resource type="Texture2D" uid="uid://dynbdu816xqik" path="res://textures/TEXTURES/STEEL_2C.png" id="17_6d7cw"]
-[ext_resource type="Texture2D" uid="uid://c6gybc62842uk" path="res://textures/TEXTURES/SUPPORT_2A.png" id="18_wb6wp"]
-[ext_resource type="Texture2D" uid="uid://bimvwjtikhfy6" path="res://textures/TEXTURES/TARMAC_1A.png" id="19_7vxwv"]
-[ext_resource type="Texture2D" uid="uid://b8qgj5gesfkdb" path="res://textures/TEXTURES/SUPPORT_3C.png" id="20_ylhm8"]
-[ext_resource type="Texture2D" uid="uid://c2ef5kugtqop2" path="res://textures/TEXTURES/SUPPORT_3D.png" id="21_2r77f"]
-[ext_resource type="Texture2D" uid="uid://bx1q7uhchrrp2" path="res://textures/TEXTURES/RIVET_1C.png" id="22_td3f1"]
-[ext_resource type="Texture2D" uid="uid://cyhvryf8wrcmd" path="res://textures/TEXTURES/FLOOR_1A.png" id="23_obafc"]
-[ext_resource type="Texture2D" uid="uid://bri8glwl6d6q0" path="res://textures/TEXTURES/STEEL_3C.png" id="24_rs00d"]
-[ext_resource type="Texture2D" uid="uid://bfu3k4ahy3mqo" path="res://textures/TEXTURES/STEEL_2A.png" id="25_s58xu"]
-[ext_resource type="Texture2D" uid="uid://bdaqkx3dy8163" path="res://textures/TEXTURES/BLOOD_1A.png" id="26_i6d58"]
+[ext_resource type="Texture2D" uid="uid://b5mr2a0ohmb1b" path="res://textures/TEXTURES/RIVET_2A.PNG" id="11_hpc8w"]
+[ext_resource type="Texture2D" uid="uid://odh8ax54875w" path="res://textures/TEXTURES/PIPES_2A.PNG" id="12_oi1ip"]
+[ext_resource type="Texture2D" uid="uid://cfsqb3lldtdf5" path="res://textures/TEXTURES/LIGHT_2A.PNG" id="13_20ayc"]
+[ext_resource type="Texture2D" uid="uid://chkqupoxa0ghm" path="res://textures/TEXTURES/PIPES_1A.PNG" id="14_d3roj"]
+[ext_resource type="Texture2D" uid="uid://cfa7unc0elxtm" path="res://textures/TEXTURES/CONCRETE_3A.PNG" id="15_xfykd"]
+[ext_resource type="Texture2D" uid="uid://m2oha3r8h2wn" path="res://textures/TEXTURES/RIVET_3B.PNG" id="16_pwbyu"]
+[ext_resource type="Texture2D" uid="uid://dynbdu816xqik" path="res://textures/TEXTURES/STEEL_2C.PNG" id="17_6d7cw"]
+[ext_resource type="Texture2D" uid="uid://c6gybc62842uk" path="res://textures/TEXTURES/SUPPORT_2A.PNG" id="18_wb6wp"]
+[ext_resource type="Texture2D" uid="uid://bimvwjtikhfy6" path="res://textures/TEXTURES/TARMAC_1A.PNG" id="19_7vxwv"]
+[ext_resource type="Texture2D" uid="uid://b8qgj5gesfkdb" path="res://textures/TEXTURES/SUPPORT_3C.PNG" id="20_ylhm8"]
+[ext_resource type="Texture2D" uid="uid://c2ef5kugtqop2" path="res://textures/TEXTURES/SUPPORT_3D.PNG" id="21_2r77f"]
+[ext_resource type="Texture2D" uid="uid://bx1q7uhchrrp2" path="res://textures/TEXTURES/RIVET_1C.PNG" id="22_td3f1"]
+[ext_resource type="Texture2D" uid="uid://cyhvryf8wrcmd" path="res://textures/TEXTURES/FLOOR_1A.PNG" id="23_obafc"]
+[ext_resource type="Texture2D" uid="uid://bri8glwl6d6q0" path="res://textures/TEXTURES/STEEL_3C.PNG" id="24_rs00d"]
+[ext_resource type="Texture2D" uid="uid://bfu3k4ahy3mqo" path="res://textures/TEXTURES/STEEL_2A.PNG" id="25_s58xu"]
 [ext_resource type="Texture2D" uid="uid://bdaqkx3dy8163" path="res://textures/TEXTURES/BLOOD_1A.PNG" id="26_jd7qn"]
-[ext_resource type="Texture2D" uid="uid://bpld8gbjntcth" path="res://textures/TEXTURES/PIPES_2B.png" id="27_jbsy4"]
-[ext_resource type="Texture2D" uid="uid://78yc03c0cysp" path="res://textures/TEXTURES/DOOR_3A.png" id="28_yj7m3"]
-[ext_resource type="Texture2D" uid="uid://ijm35b62a0kt" path="res://textures/TEXTURES/LIGHT_1B.png" id="29_32yrs"]
-[ext_resource type="Texture2D" uid="uid://baw34hwlob48g" path="res://textures/TEXTURES/WARN_1A.png" id="30_jdluv"]
-[ext_resource type="Texture2D" uid="uid://du76tjym3pc5g" path="res://textures/TEXTURES/SUPPORT_1D.png" id="31_rk4qu"]
-[ext_resource type="Texture2D" uid="uid://c2gbfj4nts6ql" path="res://textures/TEXTURES/DOOR_4A.png" id="32_j2owh"]
-[ext_resource type="Texture2D" uid="uid://b8xjbe34dkiok" path="res://textures/TEXTURES/TECH_1B.png" id="33_v1hgx"]
-[ext_resource type="Texture2D" uid="uid://ccxanmo47vdao" path="res://textures/TEXTURES/TECH_1A.png" id="34_4tpg4"]
-[ext_resource type="Texture2D" uid="uid://bgr55i3xf80dd" path="res://textures/TEXTURES/PANEL_1B.png" id="35_dvwl0"]
-[ext_resource type="Texture2D" uid="uid://do50uq1yhj7uu" path="res://textures/TEXTURES/DOOR_1A.png" id="36_6uwbg"]
-[ext_resource type="Texture2D" uid="uid://c2dr6i6wsfaot" path="res://textures/TEXTURES/FLOOR_3A.png" id="37_kskr2"]
-[ext_resource type="Texture2D" uid="uid://ci831wvk82c1c" path="res://textures/TEXTURES/LAB_1A.png" id="38_dvl4q"]
-[ext_resource type="Texture2D" uid="uid://dvp1jqllwfpow" path="res://textures/TEXTURES/FLOOR_3C.png" id="39_lwqbr"]
-[ext_resource type="Texture2D" uid="uid://dn62sdcvg8sn4" path="res://textures/TEXTURES/SUPPORT_1A.png" id="40_5dbaa"]
-[ext_resource type="Texture2D" uid="uid://dxic88gklki82" path="res://textures/TEXTURES/TECH_4B.png" id="41_saq4a"]
-[ext_resource type="Texture2D" uid="uid://c4ggcdg2iimko" path="res://textures/TEXTURES/TECH_4A.png" id="42_se8ib"]
-[ext_resource type="Texture2D" uid="uid://c58n3iuj8idab" path="res://textures/TEXTURES/DOOR_3B.png" id="43_7yfxq"]
-[ext_resource type="Texture2D" uid="uid://baqrtq0k8ngyv" path="res://textures/TEXTURES/SUPPORT_2C.png" id="44_pcd4u"]
-[ext_resource type="Texture2D" uid="uid://c084xutsdpne7" path="res://textures/TEXTURES/LIGHT_1A.png" id="45_6dp4w"]
-[ext_resource type="Texture2D" uid="uid://ce3lbp7syisc1" path="res://textures/TEXTURES/CONCRETE_2B.png" id="46_kxi56"]
-[ext_resource type="Texture2D" uid="uid://bwrf72ol8wu6c" path="res://textures/TEXTURES/DOOR_1B.png" id="47_3ulvf"]
-[ext_resource type="Texture2D" uid="uid://dcn4ecc4a1p1j" path="res://textures/TEXTURES/DOOR_1D.png" id="48_d2ljl"]
-[ext_resource type="Texture2D" uid="uid://bbhq5qwk1rvhs" path="res://textures/TEXTURES/GRID_1B.png" id="49_xpo1w"]
-[ext_resource type="Texture2D" uid="uid://6eth21kj3gjw" path="res://textures/TEXTURES/FLOOR_2E.png" id="50_s6dmd"]
-[ext_resource type="Texture2D" uid="uid://xw06cd2u0rvo" path="res://textures/TEXTURES/STEEL_2D.png" id="51_k7v48"]
-[ext_resource type="Texture2D" uid="uid://dqxsbxfcle5gr" path="res://textures/TEXTURES/CONCRETE_2C.png" id="52_8tbx5"]
-[ext_resource type="Texture2D" uid="uid://cukarxfuh67yd" path="res://textures/TEXTURES/PANEL_2D.png" id="53_4f2gx"]
-[ext_resource type="Texture2D" uid="uid://dwloy5qwhp7af" path="res://textures/TEXTURES/STEEL_3B.png" id="54_ce5am"]
-[ext_resource type="Texture2D" uid="uid://rp6b3mxy2ttb" path="res://textures/TEXTURES/CONCRETE_3C.png" id="55_c54cw"]
+[ext_resource type="Texture2D" uid="uid://bpld8gbjntcth" path="res://textures/TEXTURES/PIPES_2B.PNG" id="27_jbsy4"]
+[ext_resource type="Texture2D" uid="uid://78yc03c0cysp" path="res://textures/TEXTURES/DOOR_3A.PNG" id="28_yj7m3"]
+[ext_resource type="Texture2D" uid="uid://ijm35b62a0kt" path="res://textures/TEXTURES/LIGHT_1B.PNG" id="29_32yrs"]
+[ext_resource type="Texture2D" uid="uid://baw34hwlob48g" path="res://textures/TEXTURES/WARN_1A.PNG" id="30_jdluv"]
+[ext_resource type="Texture2D" uid="uid://du76tjym3pc5g" path="res://textures/TEXTURES/SUPPORT_1D.PNG" id="31_rk4qu"]
+[ext_resource type="Texture2D" uid="uid://c2gbfj4nts6ql" path="res://textures/TEXTURES/DOOR_4A.PNG" id="32_j2owh"]
+[ext_resource type="Texture2D" uid="uid://b8xjbe34dkiok" path="res://textures/TEXTURES/TECH_1B.PNG" id="33_v1hgx"]
+[ext_resource type="Texture2D" uid="uid://ccxanmo47vdao" path="res://textures/TEXTURES/TECH_1A.PNG" id="34_4tpg4"]
+[ext_resource type="Texture2D" uid="uid://bgr55i3xf80dd" path="res://textures/TEXTURES/PANEL_1B.PNG" id="35_dvwl0"]
+[ext_resource type="Texture2D" uid="uid://do50uq1yhj7uu" path="res://textures/TEXTURES/DOOR_1A.PNG" id="36_6uwbg"]
+[ext_resource type="Texture2D" uid="uid://c2dr6i6wsfaot" path="res://textures/TEXTURES/FLOOR_3A.PNG" id="37_kskr2"]
+[ext_resource type="Texture2D" uid="uid://ci831wvk82c1c" path="res://textures/TEXTURES/LAB_1A.PNG" id="38_dvl4q"]
+[ext_resource type="Texture2D" uid="uid://dvp1jqllwfpow" path="res://textures/TEXTURES/FLOOR_3C.PNG" id="39_lwqbr"]
+[ext_resource type="Texture2D" uid="uid://dn62sdcvg8sn4" path="res://textures/TEXTURES/SUPPORT_1A.PNG" id="40_5dbaa"]
+[ext_resource type="Texture2D" uid="uid://dxic88gklki82" path="res://textures/TEXTURES/TECH_4B.PNG" id="41_saq4a"]
+[ext_resource type="Texture2D" uid="uid://c4ggcdg2iimko" path="res://textures/TEXTURES/TECH_4A.PNG" id="42_se8ib"]
+[ext_resource type="Texture2D" uid="uid://c58n3iuj8idab" path="res://textures/TEXTURES/DOOR_3B.PNG" id="43_7yfxq"]
+[ext_resource type="Texture2D" uid="uid://baqrtq0k8ngyv" path="res://textures/TEXTURES/SUPPORT_2C.PNG" id="44_pcd4u"]
+[ext_resource type="Texture2D" uid="uid://c084xutsdpne7" path="res://textures/TEXTURES/LIGHT_1A.PNG" id="45_6dp4w"]
+[ext_resource type="Texture2D" uid="uid://ce3lbp7syisc1" path="res://textures/TEXTURES/CONCRETE_2B.PNG" id="46_kxi56"]
+[ext_resource type="Texture2D" uid="uid://bwrf72ol8wu6c" path="res://textures/TEXTURES/DOOR_1B.PNG" id="47_3ulvf"]
+[ext_resource type="Texture2D" uid="uid://dcn4ecc4a1p1j" path="res://textures/TEXTURES/DOOR_1D.PNG" id="48_d2ljl"]
+[ext_resource type="Texture2D" uid="uid://bbhq5qwk1rvhs" path="res://textures/TEXTURES/GRID_1B.PNG" id="49_xpo1w"]
+[ext_resource type="Texture2D" uid="uid://6eth21kj3gjw" path="res://textures/TEXTURES/FLOOR_2E.PNG" id="50_s6dmd"]
+[ext_resource type="Texture2D" uid="uid://xw06cd2u0rvo" path="res://textures/TEXTURES/STEEL_2D.PNG" id="51_k7v48"]
+[ext_resource type="Texture2D" uid="uid://dqxsbxfcle5gr" path="res://textures/TEXTURES/CONCRETE_2C.PNG" id="52_8tbx5"]
+[ext_resource type="Texture2D" uid="uid://cukarxfuh67yd" path="res://textures/TEXTURES/PANEL_2D.PNG" id="53_4f2gx"]
+[ext_resource type="Texture2D" uid="uid://dwloy5qwhp7af" path="res://textures/TEXTURES/STEEL_3B.PNG" id="54_ce5am"]
+[ext_resource type="Texture2D" uid="uid://rp6b3mxy2ttb" path="res://textures/TEXTURES/CONCRETE_3C.PNG" id="55_c54cw"]
 [ext_resource type="FontFile" uid="uid://b3ll66htywhkr" path="res://assets/Pixellari.ttf" id="55_qp40g"]
 [ext_resource type="Theme" uid="uid://bf11rkfxk6cnw" path="res://scripts/testtheme.tres" id="56_i6bph"]
-[ext_resource type="Texture2D" uid="uid://df7xcqajlkquy" path="res://textures/TEXTURES/CRATE_2D.png" id="56_rbuns"]
+[ext_resource type="Texture2D" uid="uid://df7xcqajlkquy" path="res://textures/TEXTURES/CRATE_2D.PNG" id="56_rbuns"]
 [ext_resource type="VideoStream" path="res://assets/newtitle.ogv" id="57_ikbks"]
-[ext_resource type="Texture2D" uid="uid://313gg4fcyety" path="res://textures/TEXTURES/CRATE_2I.png" id="57_slcjo"]
-[ext_resource type="Texture2D" uid="uid://bhuukovmemv32" path="res://textures/TEXTURES/CRATE_2K.png" id="58_cq4yu"]
-[ext_resource type="Texture2D" uid="uid://v4fyb8xg4har" path="res://textures/TEXTURES/BRICK_6D.png" id="59_xohrf"]
-[ext_resource type="Texture2D" uid="uid://b43beo31byhgt" path="res://textures/TEXTURES/DOOR_1C.png" id="60_4ntm1"]
-[ext_resource type="Texture2D" uid="uid://dkgmkp4frds2b" path="res://textures/TEXTURES/FLOOR_2C.png" id="61_pbyay"]
-[ext_resource type="Texture2D" uid="uid://coqu6nbxsilyw" path="res://textures/TEXTURES/VENT_1A.png" id="63_lcwbm"]
-[ext_resource type="Texture2D" uid="uid://bwwqxglcqx5u8" path="res://textures/TEXTURES/SUPPORT_1C.png" id="64_funmf"]
+[ext_resource type="Texture2D" uid="uid://313gg4fcyety" path="res://textures/TEXTURES/CRATE_2I.PNG" id="57_slcjo"]
+[ext_resource type="Texture2D" uid="uid://bhuukovmemv32" path="res://textures/TEXTURES/CRATE_2K.PNG" id="58_cq4yu"]
+[ext_resource type="Texture2D" uid="uid://v4fyb8xg4har" path="res://textures/TEXTURES/BRICK_6D.PNG" id="59_xohrf"]
+[ext_resource type="Texture2D" uid="uid://b43beo31byhgt" path="res://textures/TEXTURES/DOOR_1C.PNG" id="60_4ntm1"]
+[ext_resource type="Texture2D" uid="uid://dkgmkp4frds2b" path="res://textures/TEXTURES/FLOOR_2C.PNG" id="61_pbyay"]
+[ext_resource type="Texture2D" uid="uid://coqu6nbxsilyw" path="res://textures/TEXTURES/VENT_1A.PNG" id="63_lcwbm"]
+[ext_resource type="Texture2D" uid="uid://bwwqxglcqx5u8" path="res://textures/TEXTURES/SUPPORT_1C.PNG" id="64_funmf"]
 [ext_resource type="Texture2D" uid="uid://c3wsb0bitwxl8" path="res://textures/TEXTURES/black.png" id="64_om1cx"]
-[ext_resource type="Texture2D" uid="uid://bbox0ena5yf7g" path="res://textures/TEXTURES/CRATE_2J.png" id="65_soef2"]
+[ext_resource type="Texture2D" uid="uid://bbox0ena5yf7g" path="res://textures/TEXTURES/CRATE_2J.PNG" id="65_soef2"]
 [ext_resource type="Texture2D" uid="uid://dclrgeunsynqy" path="res://textures/card_icons/sink_card_icon.png" id="70_jqyri"]
 [ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="72_mrlr0"]
 [ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="73_gdlcb"]
+[ext_resource type="Texture2D" uid="uid://b04n1234cjcso" path="res://textures/TEXTURES/BLOOD_1B.PNG" id="75_lyka7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gws48"]
 
@@ -142,7 +142,7 @@ albedo_texture = ExtResource("24_rs00d")
 albedo_texture = ExtResource("25_s58xu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nj23p"]
-albedo_texture = ExtResource("26_i6d58")
+albedo_texture = ExtResource("26_jd7qn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icopk"]
 albedo_texture = ExtResource("27_jbsy4")
@@ -1218,7 +1218,7 @@ shader = ExtResource("9_u7f31")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ppnoh"]
 material = SubResource("ShaderMaterial_ex4lk")
-size = Vector2(10, 10)
+size = Vector2(2, 2)
 orientation = 1
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pnebp"]
@@ -1240,89 +1240,97 @@ shader_parameter/animation_speed = 20.0
 shader_parameter/noise = SubResource("NoiseTexture2D_3k300")
 
 [sub_resource type="Shader" id="Shader_tntin"]
-code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's StandardMaterial3D.
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
-shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
-
-uniform vec4 albedo : source_color;
-uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
-uniform float point_size : hint_range(0.1, 128.0, 0.1);
-
-uniform float roughness : hint_range(0.0, 1.0);
-uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
-uniform vec4 metallic_texture_channel;
-uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
-
-uniform float specular : hint_range(0.0, 1.0, 0.01);
-uniform float metallic : hint_range(0.0, 1.0, 0.01);
-varying vec3 uv1_triplanar_pos;
-
-uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
-varying vec3 uv1_power_normal;
-
-uniform vec3 uv1_scale;
-uniform vec3 uv1_offset;
-uniform vec3 uv2_scale;
-uniform vec3 uv2_offset;
+uniform vec3 albedo : source_color;
+uniform sampler2D water_texture1;
+uniform sampler2D water_texture2;
+uniform sampler2D noise_texture;
+uniform vec2 scroll_speed1 = vec2(0.05, 0.0);
+uniform vec2 scroll_speed2 = vec2(-0.03, 0.0);
+uniform float blend_factor = 0.5;
+uniform vec2 scale1 = vec2(1.0, 1.0);
+uniform vec2 scale2 = vec2(1.0, 1.0);
+uniform float wave_strength = 1.0;
+uniform float wave_scale = 0.02;
+uniform int pixelation_level = 64;
+uniform float FoamSize = 0.5;
+uniform sampler2D DepthTexture : hint_depth_texture;
+uniform float WaterOpacity = 1.0;
+uniform float FoamGlowIntensity = 0.5;
 
 void vertex() {
-	vec3 normal = NORMAL;
-
-	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
-	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
-	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
-	TANGENT = normalize(TANGENT);
-
-	BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
-	BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
-	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
-	BINORMAL = normalize(BINORMAL);
-
-	// UV1 Triplanar: Enabled
-	uv1_power_normal = pow(abs(NORMAL), vec3(uv1_blend_sharpness));
-	uv1_triplanar_pos = VERTEX * uv1_scale + uv1_offset;
-	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
-	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
-}
-
-vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
-	vec4 samp = vec4(0.0);
-	samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
-	samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
-	samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
-	return samp;
+    vec2 global_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xz;
+    float noise_value = texture(noise_texture, global_position * wave_scale).r;
+    float wave = sin(global_position.x * 0.2 + global_position.y * 0.2 + TIME + noise_value * 10.0) * wave_strength;
+    VERTEX.y += wave;
 }
 
 void fragment() {
-	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, uv1_triplanar_pos);
-	ALBEDO = albedo.rgb * albedo_tex.rgb;
+    vec2 scaledUV1 = UV * scale1;
+    vec2 scaledUV2 = UV * scale2;
+    vec2 scrolledUV1 = scaledUV1 + scroll_speed1 * TIME;
+    vec2 scrolledUV2 = scaledUV2 + scroll_speed2 * TIME;
+    scrolledUV1 = mod(scrolledUV1, vec2(1.0, 1.0));
+    scrolledUV2 = mod(scrolledUV2, vec2(1.0, 1.0));
+    scrolledUV1 = floor(scrolledUV1 * float(pixelation_level)) / float(pixelation_level);
+    scrolledUV2 = floor(scrolledUV2 * float(pixelation_level)) / float(pixelation_level);
 
-	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, uv1_triplanar_pos), metallic_texture_channel);
-	METALLIC = metallic_tex * metallic;
-	SPECULAR = specular;
+    vec4 water_color1 = texture(water_texture1, scrolledUV1);
+    vec4 water_color2 = texture(water_texture2, scrolledUV2);
+    vec4 blended_water_color = mix(water_color1, water_color2, blend_factor);
 
-	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
-	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, uv1_triplanar_pos), roughness_texture_channel);
-	ROUGHNESS = roughness_tex * roughness;
-}
-"
+    float depthValue = texture(DepthTexture, SCREEN_UV).r;
+    vec4 worldPosition = INV_PROJECTION_MATRIX * vec4(SCREEN_UV * 2.0 - 1.0, depthValue, 1.0);
+    worldPosition.xyz /= worldPosition.w;
+    float foamEffect = clamp(1.0 - smoothstep(worldPosition.z + FoamSize, worldPosition.z, VERTEX.z), 0.0, 1.0);
+    float foamOpacity = 1.0 - foamEffect;
+    float foamEffectRounded = round(foamOpacity);
+    float finalOpacity = foamEffectRounded + WaterOpacity;
+
+    ALBEDO = blended_water_color.rgb * albedo;
+    ALPHA = finalOpacity;
+    EMISSION = vec3(foamEffectRounded) * FoamGlowIntensity;
+    METALLIC = 0.0;
+    ROUGHNESS = 1.0;
+}"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hv7n0"]
 render_priority = 0
 shader = SubResource("Shader_tntin")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = null
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 0.0
-shader_parameter/uv1_blend_sharpness = 1.0
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/texture_albedo = ExtResource("26_jd7qn")
+shader_parameter/albedo = Color(0.81435, 0.0257761, 0.675852, 1)
+shader_parameter/scroll_speed1 = Vector2(0.2, 0)
+shader_parameter/scroll_speed2 = Vector2(-0.03, 0)
+shader_parameter/blend_factor = 0.5
+shader_parameter/scale1 = Vector2(10, 10)
+shader_parameter/scale2 = Vector2(10, 10)
+shader_parameter/wave_strength = 0.5
+shader_parameter/wave_scale = 0.02
+shader_parameter/pixelation_level = 32
+shader_parameter/FoamSize = 0.0
+shader_parameter/WaterOpacity = 1.0
+shader_parameter/FoamGlowIntensity = 0.5
+shader_parameter/water_texture1 = ExtResource("26_jd7qn")
+shader_parameter/water_texture2 = ExtResource("75_lyka7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmgjv"]
+render_priority = 0
+shader = SubResource("Shader_tntin")
+shader_parameter/albedo = Color(0.81435, 0.0257761, 0.675852, 1)
+shader_parameter/scroll_speed1 = Vector2(0.3, 0.1)
+shader_parameter/scroll_speed2 = Vector2(-0.03, 0)
+shader_parameter/blend_factor = 0.5
+shader_parameter/scale1 = Vector2(10, 40)
+shader_parameter/scale2 = Vector2(10, 40)
+shader_parameter/wave_strength = 0.5
+shader_parameter/wave_scale = 0.02
+shader_parameter/pixelation_level = 32
+shader_parameter/FoamSize = 0.0
+shader_parameter/WaterOpacity = 1.0
+shader_parameter/FoamGlowIntensity = 0.5
+shader_parameter/water_texture1 = ExtResource("26_jd7qn")
+shader_parameter/water_texture2 = ExtResource("75_lyka7")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_hls22")
@@ -1560,7 +1568,7 @@ transform = Transform3D(-0.999981, -3.03274e-23, 0.00619572, -3.04919e-23, 1, -2
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, -11.9504, -1.51599, 53.81)
 
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7971, -0.754264, 79.7666)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7971, -3.1779, 79.7666)
 script = ExtResource("8_svvno")
 metadata/player = true
 
@@ -1615,11 +1623,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.256, 2.08165e-
 target_position = Vector3(1.5, 2.08165e-12, 2.08165e-12)
 hit_from_inside = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1.00005, 0, 0, 0, 1.00005, 0, 0, 0, 1.00005, -8.71828, -11.914, -59.3451)
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1.0001, 0, 0, 0, 1.0001, 0, 0, 0, 1.0001, -12.0664, -6.01665, 43.6399)
 use_collision = true
-size = Vector3(40, 1, 40)
+size = Vector3(19.2913, 1, 19.4975)
 material = SubResource("ShaderMaterial_hv7n0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1.00005, 0, 0, 0, 1.00005, 0, 0, 0, 1.00005, 22.7928, -10.6894, -61.05)
+use_collision = true
+size = Vector3(103.019, 1, 40)
+material = SubResource("ShaderMaterial_gmgjv")
 
 [connection signal="body_entered" from="intro_words1" to="." method="_on_intro_words_1_body_entered"]
 [connection signal="body_shape_exited" from="intro_words1" to="." method="_on_intro_words_1_body_shape_exited"]
