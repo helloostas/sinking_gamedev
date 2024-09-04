@@ -58,12 +58,17 @@ var slide_speed = 40.0
 var left_collision = false
 var right_collision = false
 var wall_collision = false
+var wall_jump_direction
+var is_wall_jumping = false
+var wall_jump_velocity = 7
+const wall_jump_duration = 0.1
 
 # Dash Variables
 
-const dash_velocity = 15
+const dash_velocity = 10
 var dash_timer = 0.0
 const dash_duration = 0.1
+const dash_fov_duration = 0.7
 var dash_direction
 var is_dashing = false
 
@@ -73,6 +78,9 @@ var lunge_dir = Vector3()
 var is_lunging = false
 var lunge_velocity = 10
 var lunge_duration = 0.2
+
+
+var cam_dash_tween: Tween
 
 # Input variables
 
@@ -105,9 +113,6 @@ func _physics_process(delta):
 	
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	
-	if is_on_floor() and has_dashed:
-		has_dashed = false
-	
 # Handling Movement States
 	
 # Crouching
@@ -131,6 +136,10 @@ func _physics_process(delta):
 		walking = false
 		sprinting = false
 		crouching = true
+		
+	elif Input.is_action_just_released("crounch"):
+		slide_timer = 0
+		sliding = false
 		
 	elif !ray_cast_3d.is_colliding():
 		
@@ -186,7 +195,10 @@ func _physics_process(delta):
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, deg_to_rad(-20), delta * lerp_rotation_speed)
 		
 		if Input.is_action_just_pressed("ui_accept"):
-			velocity.y = jump_velocity
+			$wall_jump_timer.start(wall_jump_duration)
+			is_wall_jumping = true
+			velocity.y = wall_jump_velocity
+			wall_jump_direction = transform.basis.x
 	
 	if $"right collision".is_colliding() and not is_on_floor():
 		right_collision = true
@@ -194,8 +206,14 @@ func _physics_process(delta):
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, deg_to_rad(20), delta * lerp_rotation_speed)
 		
 		if Input.is_action_just_pressed("ui_accept"):
-			velocity.y = jump_velocity
+			$wall_jump_timer.start(wall_jump_duration)
+			is_wall_jumping = true
+			velocity.y = wall_jump_velocity
+			wall_jump_direction = -transform.basis.x
 	
+	if not $"right collision".is_colliding() and not $"left collision".is_colliding():
+		wall_collision = false
+
 #Handle sliding
 
 	if sliding:
@@ -214,9 +232,11 @@ func _physics_process(delta):
 		
 # Add the gravity.
 	
-		if not has_dashed:
-			velocity.y -= gravity * delta
+		if wall_collision and velocity.y < 0:
+			velocity.y -= gravity * delta / 2
 			
+		elif not has_dashed:
+			velocity.y -= gravity * delta
 		else:
 			velocity.y -= gravity * delta# / 2
 			$speedlines.material.set_shader_parameter("line_density", 1.0)
@@ -230,21 +250,22 @@ func _physics_process(delta):
 	
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+#lerp speed for jumps IDK I HAVENT FIGURED IT OUT YET
+	
 	if sliding:
 		direction = (transform.basis * Vector3(slide_vector.x, 0, slide_vector.y)).normalized()
 	
 # Tweaking the gravity to maintain horizontal momentum while using "dash"
 
 	if direction and not is_dashing:
-		
 		if is_on_floor():
 			velocity.x = lerp(velocity.x, direction.x * current_speed, 0.2)
 			velocity.z = lerp(velocity.z, direction.z * current_speed, 0.2)
 			
 		else:
-			velocity.x = lerp(velocity.x, direction.x * current_speed, 0.05)
-			velocity.z = lerp(velocity.z, direction.z * current_speed, 0.05)
-		
+			velocity.x = lerp(velocity.x, direction.x * current_speed, 0.04)
+			velocity.z = lerp(velocity.z, direction.z * current_speed, 0.04)
+			
 		if sliding && is_on_floor():
 			velocity.x = direction.x * slide_timer * slide_speed
 			velocity.z = direction.z * slide_timer * slide_speed
@@ -253,23 +274,30 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.x = lerp(velocity.x, 0.0, 0.1)
 			velocity.z = lerp(velocity.z, 0.0, 0.1)
-			
 		else:
-			velocity.x = lerp(velocity.x, 0.0, 0.1)
-			velocity.z = lerp(velocity.z, 0.0, 0.1)
+			velocity.x = lerp(velocity.x, 0.0, 0.01)
+			velocity.z = lerp(velocity.z, 0.0, 0.01)
+	
+	# State logic
 	
 	if is_dashing:
 		time += delta
 		velocity += dash_direction * -dash_velocity
 		velocity.y = 0  # Keep the dash horizontal
 		
+	if is_on_floor() and has_dashed:
+		has_dashed = false
+		
 	if is_lunging:
 		time += delta
 		velocity += lunge_dir * -lunge_velocity
 		velocity.y = (lunge_dir * dash_velocity).z * 2
 	
+	if is_wall_jumping:
+		velocity += wall_jump_direction * 2
+	
 	move_and_slide()
-
+	
 # Abilities
 
 	if Input.is_action_just_pressed("ability"):
@@ -286,6 +314,9 @@ func _physics_process(delta):
 			elif on_hand_abilities[0] == "dash":
 				is_dashing = true
 				$dash_timer.start(dash_duration)
+				$dash_fov_timer.start(dash_fov_duration)
+				camera_zoom_out(dash_fov_duration)
+				
 				dash_direction = transform.basis.z
 				has_dashed = true
 				print(on_hand_abilities[0]) 
@@ -328,3 +359,16 @@ func _dash_end():
 
 func _on_lunge_timer_timeout():
 	is_lunging = false
+
+
+func _on_wall_jump_timer_timeout():
+	is_wall_jumping = false
+
+func camera_zoom_out(duration: float) -> void:
+	if cam_dash_tween and cam_dash_tween.is_running():
+		cam_dash_tween.kill()
+		
+	cam_dash_tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	cam_dash_tween.tween_property(camera_3d, "fov", 100.0, 0.3)
+	cam_dash_tween.tween_interval(duration-0.2)
+	cam_dash_tween.tween_property(camera_3d, "fov", 90.0, 0.4)
