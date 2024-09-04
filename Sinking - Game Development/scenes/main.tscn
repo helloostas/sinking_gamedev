@@ -4,7 +4,6 @@
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_83liw"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_5prkj"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_ss8hf"]
-[ext_resource type="Shader" path="res://scripts/test.gdshader" id="4_b3yfp"]
 [ext_resource type="Texture2D" uid="uid://ca443k1w3514k" path="res://textures/TEXTURES/TILE_7G.PNG" id="4_ur2v8"]
 [ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="5_e7ufg"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="5_jk4jp"]
@@ -60,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://d1qarmqk0omx7" path="res://textures/TEXTURES/CRATE_1K.PNG" id="49_mc4lr"]
 [ext_resource type="Texture2D" uid="uid://6yuqvpeelbya" path="res://textures/TEXTURES/CRATE_1J.PNG" id="50_4w45x"]
 [ext_resource type="Texture2D" uid="uid://dqxsbxfcle5gr" path="res://textures/TEXTURES/CONCRETE_2C.PNG" id="51_w17st"]
+[ext_resource type="Shader" path="res://scripts/test.gdshader" id="59_bek4a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unmc3"]
 
@@ -813,29 +813,29 @@ fog_sky_affect = 0.0
 volumetric_fog_density = 0.0028
 volumetric_fog_albedo = Color(0.286275, 0.0235294, 0.0705882, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jldww"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x37ta"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lpyrn"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5x8jd"]
 radius = 0.35
 height = 0.7
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w2u7u"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ex4lk"]
 render_priority = 0
-shader = ExtResource("4_b3yfp")
+shader = ExtResource("59_bek4a")
 
-[sub_resource type="QuadMesh" id="QuadMesh_s85cg"]
-material = SubResource("ShaderMaterial_w2u7u")
+[sub_resource type="QuadMesh" id="QuadMesh_03efk"]
+material = SubResource("ShaderMaterial_ex4lk")
 size = Vector2(10, 10)
 orientation = 1
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_7224s"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lta8d"]
 noise_type = 5
 frequency = 0.2
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rrl7q"]
-noise = SubResource("FastNoiseLite_7224s")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3k300"]
+noise = SubResource("FastNoiseLite_lta8d")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6mkq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ljvmy"]
 shader = ExtResource("19_fcwm1")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_count = 0.5
@@ -844,7 +844,7 @@ shader_parameter/line_faloff = 1.0
 shader_parameter/mask_size = 0.049
 shader_parameter/mask_edge = 1.0
 shader_parameter/animation_speed = 20.0
-shader_parameter/noise = SubResource("NoiseTexture2D_rrl7q")
+shader_parameter/noise = SubResource("NoiseTexture2D_3k300")
 
 [node name="world" type="Node3D"]
 
@@ -941,17 +941,17 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00543547, -0.0059495, 0.00677299)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7971, 33.781, 79.7666)
 script = ExtResource("3_ss8hf")
 metadata/player = true
 
 [node name="standing_collision_shape" type="CollisionShape3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
-shape = SubResource("CapsuleShape3D_jldww")
+shape = SubResource("CapsuleShape3D_x37ta")
 
 [node name="crouching_collision_shape" type="CollisionShape3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.352126, 2.08165e-12)
-shape = SubResource("CapsuleShape3D_lpyrn")
+shape = SubResource("CapsuleShape3D_5x8jd")
 disabled = true
 
 [node name="RayCast3D" type="RayCast3D" parent="player"]
@@ -976,10 +976,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/neck/head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
-mesh = SubResource("QuadMesh_s85cg")
+mesh = SubResource("QuadMesh_03efk")
 
 [node name="speedlines" type="ColorRect" parent="player"]
-material = SubResource("ShaderMaterial_u6mkq")
+material = SubResource("ShaderMaterial_ljvmy")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

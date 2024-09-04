@@ -1212,20 +1212,20 @@ size = Vector2(1, 1.3)
 radius = 0.35
 height = 0.7
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ex4lk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y01dn"]
 render_priority = 0
 shader = ExtResource("9_u7f31")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ppnoh"]
-material = SubResource("ShaderMaterial_ex4lk")
-size = Vector2(2, 2)
+material = SubResource("ShaderMaterial_y01dn")
+size = Vector2(10, 10)
 orientation = 1
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pnebp"]
 noise_type = 5
 frequency = 0.2
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3k300"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bf3jb"]
 noise = SubResource("FastNoiseLite_pnebp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ullqy"]
@@ -1237,7 +1237,7 @@ shader_parameter/line_faloff = 1.0
 shader_parameter/mask_size = 0.049
 shader_parameter/mask_edge = 1.0
 shader_parameter/animation_speed = 20.0
-shader_parameter/noise = SubResource("NoiseTexture2D_3k300")
+shader_parameter/noise = SubResource("NoiseTexture2D_bf3jb")
 
 [sub_resource type="Shader" id="Shader_tntin"]
 code = "shader_type spatial;
