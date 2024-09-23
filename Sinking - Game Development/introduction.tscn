@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=4 uid="uid://dl34o2438485q"]
+[gd_scene load_steps=192 format=4 uid="uid://dl34o2438485q"]
 
 [ext_resource type="Script" path="res://introduction.gd" id="1_hls22"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_spqor"]
@@ -86,6 +86,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojdkh"]
 albedo_texture = ExtResource("5_qbdls")
+texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xspx2"]
 albedo_texture = ExtResource("6_ynn42")
@@ -95,6 +96,7 @@ albedo_texture = ExtResource("7_j1btx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jihfg"]
 albedo_texture = ExtResource("8_v01g2")
+texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8dop"]
 albedo_texture = ExtResource("9_5ce3d")
@@ -1101,12 +1103,12 @@ size = Vector3(5.10145, 0.205078, 20.4853)
 [sub_resource type="Environment" id="Environment_fyphl"]
 background_mode = 1
 ambient_light_source = 2
-ambient_light_energy = 2.47
+ambient_light_color = Color(0.2484, 0.2484, 0.2484, 1)
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(0.148348, 9.42641e-05, 0.202762, 1)
-fog_sky_affect = 0.0
+fog_light_color = Color(0.145388, 0.096564, 0.571687, 1)
+fog_light_energy = 0.15
 fog_depth_curve = 0.164939
 volumetric_fog_density = 0.0028
 volumetric_fog_albedo = Color(0.286275, 0.0235294, 0.0705882, 1)
@@ -1274,7 +1276,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_0q83r"]
 resource_name = "fade_in"
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1282,7 +1284,7 @@ tracks/0/path = NodePath("transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 2.56667, 3),
+"times": PackedFloat32Array(-0.0333333, 1.63333, 1.93333),
 "transitions": PackedFloat32Array(1, 1, 2.46229),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.967742), Color(1, 1, 1, 0)]
@@ -1336,6 +1338,70 @@ shader_parameter/mask_size = 0.049
 shader_parameter/mask_edge = 1.0
 shader_parameter/animation_speed = 20.0
 shader_parameter/noise = SubResource("NoiseTexture2D_bf3jb")
+
+[sub_resource type="Curve" id="Curve_vj8de"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_odxby"]
+curve = SubResource("Curve_vj8de")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3h7to"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 10, 50)
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.55
+angular_velocity_min = 64.71
+angular_velocity_max = 257.63
+gravity = Vector3(0, 0, 0)
+scale_min = 0.02
+scale_max = 0.07
+alpha_curve = SubResource("CurveTexture_odxby")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1oem"]
+vertex_color_use_as_albedo = true
+emission = Color(1, 1, 1, 1)
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_yfnwl"]
+material = SubResource("StandardMaterial3D_e1oem")
+
+[sub_resource type="Curve" id="Curve_6n4u6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hxlxr"]
+curve = SubResource("Curve_6n4u6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0o331"]
+emission_shape = 3
+emission_box_extents = Vector3(50, 4, 50)
+angle_max = 720.0
+direction = Vector3(1, -1, 0)
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.8
+angular_velocity_min = 64.71
+angular_velocity_max = 257.63
+gravity = Vector3(0, -6, 0)
+scale_min = 0.2
+scale_max = 0.45
+alpha_curve = SubResource("CurveTexture_hxlxr")
+turbulence_enabled = true
+turbulence_noise_strength = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd6rb"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_v6sid"]
+material = SubResource("StandardMaterial3D_cd6rb")
+size = Vector2(0.2, 0.2)
 
 [sub_resource type="Shader" id="Shader_tntin"]
 code = "shader_type spatial;
@@ -1585,7 +1651,7 @@ transform = Transform3D(2.05, 0, 0, 0, 2.05, 0, 0, 0, 2.05, 0, 0, 0)
 shape = SubResource("BoxShape3D_mix8b")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, -6.97242e-16, 1.52138e-17, 1.52139e-17, 0.0436193, 0.999048, -6.97242e-16, -0.999048, 0.0436193, -12.0449, 4.63277, 80.0282)
+transform = Transform3D(1, -6.97242e-16, 1.52138e-17, 1.52139e-17, 0.0436193, 0.999048, -6.97242e-16, -0.999048, 0.0436193, -12.0449, -0.0956097, 82.2871)
 light_color = Color(1, 0.376471, 0.490196, 1)
 light_energy = 16.0
 light_specular = 0.0
@@ -1595,16 +1661,14 @@ spot_angle = 180.0
 spot_angle_attenuation = 2.46228
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.574, 8.39477, 37.9366)
-light_color = Color(0.921569, 0.541176, 0, 1)
-light_energy = 16.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9917, 6.81815, 36.659)
 omni_range = 14.057
 omni_attenuation = 1.1487
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0235, 8.01469, 50.1998)
-light_color = Color(0.818692, 0.608151, 7.3795e-07, 1)
-light_energy = 16.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0235, 6.73369, 55.8698)
+light_color = Color(0.00481048, 0, 0.841588, 1)
+light_energy = 2.709
 omni_range = 14.057
 omni_attenuation = 1.1487
 
@@ -1755,6 +1819,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/neck/head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
+visible = false
 mesh = SubResource("QuadMesh_ppnoh")
 
 [node name="speedlines" type="ColorRect" parent="player"]
@@ -1774,6 +1839,27 @@ hit_from_inside = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.256, 2.08165e-12)
 target_position = Vector3(1.5, 2.08165e-12, 2.08165e-12)
 hit_from_inside = true
+
+[node name="DustParticles" type="GPUParticles3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+visible = false
+emitting = false
+amount = 300
+lifetime = 6.5
+randomness = 0.6
+visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
+process_material = SubResource("ParticleProcessMaterial_3h7to")
+draw_pass_1 = SubResource("BoxMesh_yfnwl")
+
+[node name="SnowParticles" type="GPUParticles3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.465, 0)
+amount = 650
+lifetime = 6.5
+randomness = 0.6
+visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_0o331")
+draw_pass_1 = SubResource("QuadMesh_v6sid")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1.0001, 0, 0, 0, 1.0001, 0, 0, 0, 1.0001, -12.0664, -6.01665, 43.6399)

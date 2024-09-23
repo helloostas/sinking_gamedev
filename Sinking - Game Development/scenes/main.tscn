@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=4 uid="uid://c3spvehy3qpes"]
+[gd_scene load_steps=133 format=4 uid="uid://c3spvehy3qpes"]
 
 [ext_resource type="Texture2D" uid="uid://eoc11m7u21st" path="res://godot textures/dev/grids/Dark/texture_07.png" id="1_5wyxs"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_83liw"]
@@ -846,6 +846,69 @@ shader_parameter/mask_edge = 1.0
 shader_parameter/animation_speed = 20.0
 shader_parameter/noise = SubResource("NoiseTexture2D_3k300")
 
+[sub_resource type="Curve" id="Curve_1fpgf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rlxjv"]
+curve = SubResource("Curve_1fpgf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vy761"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 10, 50)
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.55
+angular_velocity_min = 64.71
+angular_velocity_max = 257.63
+gravity = Vector3(0, 0, 0)
+scale_min = 0.02
+scale_max = 0.07
+alpha_curve = SubResource("CurveTexture_rlxjv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tccq"]
+vertex_color_use_as_albedo = true
+emission = Color(1, 1, 1, 1)
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ko53g"]
+material = SubResource("StandardMaterial3D_1tccq")
+
+[sub_resource type="Curve" id="Curve_noudv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ojhut"]
+curve = SubResource("Curve_noudv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f78ld"]
+emission_shape = 3
+emission_box_extents = Vector3(50, 4, 50)
+angle_max = 720.0
+direction = Vector3(1, -1, 0)
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.8
+angular_velocity_min = 64.71
+angular_velocity_max = 257.63
+gravity = Vector3(0, -6, 0)
+scale_min = 0.2
+scale_max = 0.45
+alpha_curve = SubResource("CurveTexture_ojhut")
+turbulence_enabled = true
+turbulence_noise_strength = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pglhk"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_2vocs"]
+material = SubResource("StandardMaterial3D_pglhk")
+
 [node name="world" type="Node3D"]
 
 [node name="QodotMap" type="Node3D" parent="."]
@@ -976,6 +1039,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/neck/head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
+visible = false
 mesh = SubResource("QuadMesh_03efk")
 
 [node name="speedlines" type="ColorRect" parent="player"]
@@ -995,6 +1059,27 @@ hit_from_inside = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.256, 2.08165e-12)
 target_position = Vector3(1.5, 2.08165e-12, 2.08165e-12)
 hit_from_inside = true
+
+[node name="DustParticles" type="GPUParticles3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+visible = false
+emitting = false
+amount = 300
+lifetime = 6.5
+randomness = 0.6
+visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
+process_material = SubResource("ParticleProcessMaterial_vy761")
+draw_pass_1 = SubResource("BoxMesh_ko53g")
+
+[node name="SnowParticles" type="GPUParticles3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.465, 0)
+amount = 650
+lifetime = 6.5
+randomness = 0.6
+visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_f78ld")
+draw_pass_1 = SubResource("QuadMesh_2vocs")
 
 [connection signal="timeout" from="player/dash_timer" to="player" method="_dash_end"]
 [connection signal="timeout" from="player/lunge_timer" to="player" method="_on_lunge_timer_timeout"]
