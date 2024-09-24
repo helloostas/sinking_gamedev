@@ -1,4 +1,4 @@
-how to transfer GPUparticles3D from one godot file to anotherextends Control
+extends Control
 @onready var timer = $Timer
 
 

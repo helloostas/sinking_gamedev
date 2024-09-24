@@ -198,7 +198,7 @@ func _physics_process(delta):
 		wall_collision = true
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, deg_to_rad(-20), delta * lerp_rotation_speed)
 		
-		if Input.is_action_just_pressed("ui_accept") and wall_run_ammount < 3:
+		if Input.is_action_just_pressed("ui_accept") and wall_run_ammount < 2:
 			$wall_jump_timer.start(wall_jump_duration)
 			is_wall_jumping = true
 			velocity.y = wall_jump_velocity
@@ -210,7 +210,7 @@ func _physics_process(delta):
 		wall_collision = true
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, deg_to_rad(20), delta * lerp_rotation_speed)
 		
-		if Input.is_action_just_pressed("ui_accept") and wall_run_ammount < 3:
+		if Input.is_action_just_pressed("ui_accept") and wall_run_ammount < 2:
 			$wall_jump_timer.start(wall_jump_duration)
 			is_wall_jumping = true
 			velocity.y = wall_jump_velocity
