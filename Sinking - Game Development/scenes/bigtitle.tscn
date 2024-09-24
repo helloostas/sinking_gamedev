@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dm4bsj3igi52y"]
 
-[ext_resource type="VideoStream" path="res://assets/newtitle.ogv" id="1_cncod"]
-[ext_resource type="Script" path="res://bigtitle.gd" id="1_g1wp1"]
+[ext_resource type="Script" path="res://bigtitle.gd" id="1_dmg2x"]
+[ext_resource type="VideoStream" path="res://assets/newtitle.ogv" id="2_opj78"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_g1wp1")
+script = ExtResource("1_dmg2x")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -33,7 +33,7 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.99186, 0.976978)
-stream = ExtResource("1_cncod")
+stream = ExtResource("2_opj78")
 autoplay = true
 loop = true
 

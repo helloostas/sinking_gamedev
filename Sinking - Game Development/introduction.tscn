@@ -1,4 +1,4 @@
-[gd_scene load_steps=192 format=4 uid="uid://dl34o2438485q"]
+[gd_scene load_steps=193 format=4 uid="uid://dl34o2438485q"]
 
 [ext_resource type="Script" path="res://introduction.gd" id="1_hls22"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_spqor"]
@@ -81,6 +81,8 @@
 [ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="72_mrlr0"]
 [ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="73_gdlcb"]
 [ext_resource type="Texture2D" uid="uid://b04n1234cjcso" path="res://textures/TEXTURES/BLOOD_1B.PNG" id="75_lyka7"]
+[ext_resource type="ArrayMesh" uid="uid://bx34gtqbmcums" path="res://assets/wave_updated.obj" id="82_y1mge"]
+[ext_resource type="Material" uid="uid://bwtcp2vttub2t" path="res://assets/blood_box.tres" id="83_64iu5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gws48"]
 
@@ -1343,7 +1345,7 @@ shader_parameter/noise = SubResource("NoiseTexture2D_bf3jb")
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_odxby"]
+[sub_resource type="CurveTexture" id="CurveTexture_5ekq4"]
 curve = SubResource("Curve_vj8de")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3h7to"]
@@ -1359,21 +1361,21 @@ angular_velocity_max = 257.63
 gravity = Vector3(0, 0, 0)
 scale_min = 0.02
 scale_max = 0.07
-alpha_curve = SubResource("CurveTexture_odxby")
+alpha_curve = SubResource("CurveTexture_5ekq4")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1oem"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ore77"]
 vertex_color_use_as_albedo = true
 emission = Color(1, 1, 1, 1)
 disable_receive_shadows = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_yfnwl"]
-material = SubResource("StandardMaterial3D_e1oem")
+material = SubResource("StandardMaterial3D_ore77")
 
 [sub_resource type="Curve" id="Curve_6n4u6"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_hxlxr"]
+[sub_resource type="CurveTexture" id="CurveTexture_tftrw"]
 curve = SubResource("Curve_6n4u6")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0o331"]
@@ -1389,18 +1391,18 @@ angular_velocity_max = 257.63
 gravity = Vector3(0, -6, 0)
 scale_min = 0.2
 scale_max = 0.45
-alpha_curve = SubResource("CurveTexture_hxlxr")
+alpha_curve = SubResource("CurveTexture_tftrw")
 turbulence_enabled = true
 turbulence_noise_strength = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd6rb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0v1h"]
 transparency = 1
 blend_mode = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_v6sid"]
-material = SubResource("StandardMaterial3D_cd6rb")
+material = SubResource("StandardMaterial3D_x0v1h")
 size = Vector2(0.2, 0.2)
 
 [sub_resource type="Shader" id="Shader_tntin"]
@@ -1459,24 +1461,6 @@ void fragment() {
     METALLIC = 0.0;
     ROUGHNESS = 1.0;
 }"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hv7n0"]
-render_priority = 0
-shader = SubResource("Shader_tntin")
-shader_parameter/albedo = Color(0.81435, 0.0257761, 0.675852, 1)
-shader_parameter/scroll_speed1 = Vector2(0.2, 0)
-shader_parameter/scroll_speed2 = Vector2(-0.03, 0)
-shader_parameter/blend_factor = 0.5
-shader_parameter/scale1 = Vector2(10, 10)
-shader_parameter/scale2 = Vector2(10, 10)
-shader_parameter/wave_strength = 0.5
-shader_parameter/wave_scale = 0.02
-shader_parameter/pixelation_level = 32
-shader_parameter/FoamSize = 0.0
-shader_parameter/WaterOpacity = 1.0
-shader_parameter/FoamGlowIntensity = 0.5
-shader_parameter/water_texture1 = ExtResource("26_jd7qn")
-shader_parameter/water_texture2 = ExtResource("75_lyka7")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gmgjv"]
 render_priority = 0
@@ -1861,17 +1845,16 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_0o331")
 draw_pass_1 = SubResource("QuadMesh_v6sid")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1.0001, 0, 0, 0, 1.0001, 0, 0, 0, 1.0001, -12.0664, -6.01665, 43.6399)
-use_collision = true
-size = Vector3(19.2913, 1, 19.4975)
-material = SubResource("ShaderMaterial_hv7n0")
-
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1.00005, 0, 0, 0, 1.00005, 0, 0, 0, 1.00005, 22.7928, -10.6894, -61.05)
+transform = Transform3D(1.00005, 0, 0, 0, 1.00005, 0, 0, 0, 1.00005, 22.8544, -10.7239, -60.9693)
 use_collision = true
 size = Vector3(103.019, 1, 40)
 material = SubResource("ShaderMaterial_gmgjv")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(-5.4099e-09, 0, -0.1, 0, 0.1, 0, 0.123764, 0, -4.37114e-09, -11.5606, -5.83888, 41.0964)
+mesh = ExtResource("82_y1mge")
+material = ExtResource("83_64iu5")
 
 [connection signal="body_entered" from="intro_words1" to="." method="_on_intro_words_1_body_entered"]
 [connection signal="body_shape_exited" from="intro_words1" to="." method="_on_intro_words_1_body_shape_exited"]

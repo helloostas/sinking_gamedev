@@ -66,7 +66,7 @@ var wall_run_ammount = 0
 
 # Dash Variables
 
-const dash_velocity = 10
+const dash_velocity = 7
 var dash_timer = 0.0
 const dash_duration = 0.1
 const dash_fov_duration = 0.7

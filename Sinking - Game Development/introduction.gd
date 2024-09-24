@@ -37,5 +37,5 @@ func _on_area_3d_body_entered(body):
 	if body.has_meta("player"):
 		print("yes3")
 		sinking_animation.play("sinking_start")
-		get_tree().change_scene_to_file("res://bigtitle.tscn")
+		get_tree().change_scene_to_file("res://scenes/bigtitle.tscn")
 	
