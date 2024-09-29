@@ -1,293 +1,294 @@
-[gd_scene load_steps=193 format=4 uid="uid://dl34o2438485q"]
+[gd_scene load_steps=194 format=4 uid="uid://dl34o2438485q"]
 
-[ext_resource type="Script" path="res://introduction.gd" id="1_hls22"]
-[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_spqor"]
-[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_3o7kd"]
-[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_6spm6"]
-[ext_resource type="Texture2D" uid="uid://0i4yyknmpom2" path="res://textures/TEXTURES/RIVET_3A.PNG" id="5_qbdls"]
-[ext_resource type="Texture2D" uid="uid://dojwfoe3edm2e" path="res://textures/TEXTURES/RIVET_2B.PNG" id="6_ynn42"]
-[ext_resource type="Texture2D" uid="uid://cwbgyc7kpaptw" path="res://textures/TEXTURES/RIVET_2C.PNG" id="7_j1btx"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="8_svvno"]
-[ext_resource type="Texture2D" uid="uid://cw8lhttuahd3o" path="res://textures/TEXTURES/PIPES_3A.PNG" id="8_v01g2"]
-[ext_resource type="Texture2D" uid="uid://b4cc1pw1ndu06" path="res://textures/TEXTURES/PIPES_1B.PNG" id="9_5ce3d"]
-[ext_resource type="Shader" path="res://scripts/test.gdshader" id="9_u7f31"]
-[ext_resource type="Texture2D" uid="uid://cucbafc4nkdt3" path="res://textures/TEXTURES/RIVET_1B.PNG" id="10_0dl8b"]
-[ext_resource type="Shader" path="res://scripts/speedlines.gdshader" id="10_e3xxt"]
-[ext_resource type="Texture2D" uid="uid://b5mr2a0ohmb1b" path="res://textures/TEXTURES/RIVET_2A.PNG" id="11_njgc5"]
-[ext_resource type="Texture2D" uid="uid://odh8ax54875w" path="res://textures/TEXTURES/PIPES_2A.PNG" id="12_1rios"]
-[ext_resource type="Texture2D" uid="uid://cfsqb3lldtdf5" path="res://textures/TEXTURES/LIGHT_2A.PNG" id="13_nxtf8"]
-[ext_resource type="Texture2D" uid="uid://chkqupoxa0ghm" path="res://textures/TEXTURES/PIPES_1A.PNG" id="14_mex3g"]
-[ext_resource type="Texture2D" uid="uid://cfa7unc0elxtm" path="res://textures/TEXTURES/CONCRETE_3A.PNG" id="15_t5k8g"]
-[ext_resource type="Texture2D" uid="uid://m2oha3r8h2wn" path="res://textures/TEXTURES/RIVET_3B.PNG" id="16_426ar"]
-[ext_resource type="Texture2D" uid="uid://dynbdu816xqik" path="res://textures/TEXTURES/STEEL_2C.PNG" id="17_p1o6t"]
-[ext_resource type="Texture2D" uid="uid://c6gybc62842uk" path="res://textures/TEXTURES/SUPPORT_2A.PNG" id="18_iefy6"]
-[ext_resource type="Texture2D" uid="uid://bimvwjtikhfy6" path="res://textures/TEXTURES/TARMAC_1A.PNG" id="19_fx53v"]
-[ext_resource type="Texture2D" uid="uid://b8qgj5gesfkdb" path="res://textures/TEXTURES/SUPPORT_3C.PNG" id="20_no4hn"]
-[ext_resource type="Texture2D" uid="uid://c2ef5kugtqop2" path="res://textures/TEXTURES/SUPPORT_3D.PNG" id="21_pg4lg"]
-[ext_resource type="Texture2D" uid="uid://bx1q7uhchrrp2" path="res://textures/TEXTURES/RIVET_1C.PNG" id="22_7mxa5"]
-[ext_resource type="Texture2D" uid="uid://cyhvryf8wrcmd" path="res://textures/TEXTURES/FLOOR_1A.PNG" id="23_6rpjo"]
-[ext_resource type="Texture2D" uid="uid://bri8glwl6d6q0" path="res://textures/TEXTURES/STEEL_3C.PNG" id="24_vx0h7"]
-[ext_resource type="Texture2D" uid="uid://bfu3k4ahy3mqo" path="res://textures/TEXTURES/STEEL_2A.PNG" id="25_mdryr"]
-[ext_resource type="Texture2D" uid="uid://bdaqkx3dy8163" path="res://textures/TEXTURES/BLOOD_1A.PNG" id="26_jd7qn"]
-[ext_resource type="Texture2D" uid="uid://bpld8gbjntcth" path="res://textures/TEXTURES/PIPES_2B.PNG" id="27_a6w27"]
-[ext_resource type="Texture2D" uid="uid://78yc03c0cysp" path="res://textures/TEXTURES/DOOR_3A.PNG" id="28_w0xnb"]
-[ext_resource type="Texture2D" uid="uid://ijm35b62a0kt" path="res://textures/TEXTURES/LIGHT_1B.PNG" id="29_k283y"]
-[ext_resource type="Texture2D" uid="uid://baw34hwlob48g" path="res://textures/TEXTURES/WARN_1A.PNG" id="30_waelq"]
-[ext_resource type="Texture2D" uid="uid://du76tjym3pc5g" path="res://textures/TEXTURES/SUPPORT_1D.PNG" id="31_3plgp"]
-[ext_resource type="Texture2D" uid="uid://c2gbfj4nts6ql" path="res://textures/TEXTURES/DOOR_4A.PNG" id="32_rcu7x"]
-[ext_resource type="Texture2D" uid="uid://b8xjbe34dkiok" path="res://textures/TEXTURES/TECH_1B.PNG" id="33_ytbhg"]
-[ext_resource type="Texture2D" uid="uid://ccxanmo47vdao" path="res://textures/TEXTURES/TECH_1A.PNG" id="34_j6m6q"]
-[ext_resource type="Texture2D" uid="uid://bgr55i3xf80dd" path="res://textures/TEXTURES/PANEL_1B.PNG" id="35_57gj8"]
-[ext_resource type="Texture2D" uid="uid://do50uq1yhj7uu" path="res://textures/TEXTURES/DOOR_1A.PNG" id="36_ti3lf"]
-[ext_resource type="Texture2D" uid="uid://c2dr6i6wsfaot" path="res://textures/TEXTURES/FLOOR_3A.PNG" id="37_wxpvu"]
-[ext_resource type="Texture2D" uid="uid://ci831wvk82c1c" path="res://textures/TEXTURES/LAB_1A.PNG" id="38_1cqht"]
-[ext_resource type="Texture2D" uid="uid://dvp1jqllwfpow" path="res://textures/TEXTURES/FLOOR_3C.PNG" id="39_f76l1"]
-[ext_resource type="Texture2D" uid="uid://dn62sdcvg8sn4" path="res://textures/TEXTURES/SUPPORT_1A.PNG" id="40_3r53o"]
-[ext_resource type="Texture2D" uid="uid://dxic88gklki82" path="res://textures/TEXTURES/TECH_4B.PNG" id="41_qleau"]
-[ext_resource type="Texture2D" uid="uid://c4ggcdg2iimko" path="res://textures/TEXTURES/TECH_4A.PNG" id="42_40djb"]
-[ext_resource type="Texture2D" uid="uid://c58n3iuj8idab" path="res://textures/TEXTURES/DOOR_3B.PNG" id="43_0dmca"]
-[ext_resource type="Texture2D" uid="uid://baqrtq0k8ngyv" path="res://textures/TEXTURES/SUPPORT_2C.PNG" id="44_rqlyx"]
-[ext_resource type="Texture2D" uid="uid://c084xutsdpne7" path="res://textures/TEXTURES/LIGHT_1A.PNG" id="45_1882l"]
-[ext_resource type="Texture2D" uid="uid://ce3lbp7syisc1" path="res://textures/TEXTURES/CONCRETE_2B.PNG" id="46_go1p6"]
-[ext_resource type="Texture2D" uid="uid://bwrf72ol8wu6c" path="res://textures/TEXTURES/DOOR_1B.PNG" id="47_lmbbd"]
-[ext_resource type="Texture2D" uid="uid://dcn4ecc4a1p1j" path="res://textures/TEXTURES/DOOR_1D.PNG" id="48_kejix"]
-[ext_resource type="Texture2D" uid="uid://bbhq5qwk1rvhs" path="res://textures/TEXTURES/GRID_1B.PNG" id="49_il6s7"]
-[ext_resource type="Texture2D" uid="uid://6eth21kj3gjw" path="res://textures/TEXTURES/FLOOR_2E.PNG" id="50_mf03m"]
-[ext_resource type="Texture2D" uid="uid://xw06cd2u0rvo" path="res://textures/TEXTURES/STEEL_2D.PNG" id="51_u3be5"]
-[ext_resource type="Texture2D" uid="uid://dqxsbxfcle5gr" path="res://textures/TEXTURES/CONCRETE_2C.PNG" id="52_8p1jh"]
-[ext_resource type="Texture2D" uid="uid://cukarxfuh67yd" path="res://textures/TEXTURES/PANEL_2D.PNG" id="53_ncvqs"]
-[ext_resource type="Texture2D" uid="uid://dwloy5qwhp7af" path="res://textures/TEXTURES/STEEL_3B.PNG" id="54_kmqgc"]
-[ext_resource type="Texture2D" uid="uid://rp6b3mxy2ttb" path="res://textures/TEXTURES/CONCRETE_3C.PNG" id="55_abpvg"]
-[ext_resource type="FontFile" uid="uid://b3ll66htywhkr" path="res://assets/Pixellari.ttf" id="55_qp40g"]
-[ext_resource type="Theme" uid="uid://bf11rkfxk6cnw" path="res://scripts/testtheme.tres" id="56_i6bph"]
-[ext_resource type="Texture2D" uid="uid://df7xcqajlkquy" path="res://textures/TEXTURES/CRATE_2D.PNG" id="56_ohegs"]
-[ext_resource type="Texture2D" uid="uid://313gg4fcyety" path="res://textures/TEXTURES/CRATE_2I.PNG" id="57_2ef00"]
-[ext_resource type="VideoStream" path="res://assets/newtitle.ogv" id="57_ikbks"]
-[ext_resource type="Texture2D" uid="uid://bhuukovmemv32" path="res://textures/TEXTURES/CRATE_2K.PNG" id="58_pyspk"]
-[ext_resource type="Texture2D" uid="uid://v4fyb8xg4har" path="res://textures/TEXTURES/BRICK_6D.PNG" id="59_iiqh4"]
-[ext_resource type="Texture2D" uid="uid://b43beo31byhgt" path="res://textures/TEXTURES/DOOR_1C.PNG" id="60_pilbq"]
-[ext_resource type="Texture2D" uid="uid://dkgmkp4frds2b" path="res://textures/TEXTURES/FLOOR_2C.PNG" id="61_8py4h"]
-[ext_resource type="Texture2D" uid="uid://coqu6nbxsilyw" path="res://textures/TEXTURES/VENT_1A.PNG" id="63_m23fa"]
-[ext_resource type="Texture2D" uid="uid://c3wsb0bitwxl8" path="res://textures/TEXTURES/black.png" id="64_om1cx"]
-[ext_resource type="Texture2D" uid="uid://bwwqxglcqx5u8" path="res://textures/TEXTURES/SUPPORT_1C.PNG" id="64_tvwto"]
-[ext_resource type="Texture2D" uid="uid://bbox0ena5yf7g" path="res://textures/TEXTURES/CRATE_2J.PNG" id="65_l1hcj"]
-[ext_resource type="Texture2D" uid="uid://dou0vtwiowv8" path="res://textures/TEXTURES/DOOR_2C.PNG" id="66_4qiyp"]
-[ext_resource type="Texture2D" uid="uid://6s05txhvxkeg" path="res://textures/TEXTURES/TECH_1E.PNG" id="67_tdut0"]
-[ext_resource type="Texture2D" uid="uid://ryovd5dmgjkc" path="res://textures/TEXTURES/TECH_2F.PNG" id="68_7c7l8"]
-[ext_resource type="Texture2D" uid="uid://cg21cjy5ofrg7" path="res://textures/TEXTURES/TECH_4D.PNG" id="69_5lyre"]
-[ext_resource type="Texture2D" uid="uid://dclrgeunsynqy" path="res://textures/card_icons/sink_card_icon.png" id="70_jqyri"]
-[ext_resource type="Texture2D" uid="uid://6yuqvpeelbya" path="res://textures/TEXTURES/CRATE_1J.PNG" id="70_shu0s"]
-[ext_resource type="Texture2D" uid="uid://dfcrm43w31gdr" path="res://textures/TEXTURES/SUPPORT_3B.PNG" id="71_qmbyb"]
-[ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="72_mrlr0"]
-[ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="73_gdlcb"]
-[ext_resource type="Texture2D" uid="uid://b04n1234cjcso" path="res://textures/TEXTURES/BLOOD_1B.PNG" id="75_lyka7"]
-[ext_resource type="ArrayMesh" uid="uid://bx34gtqbmcums" path="res://assets/wave_updated.obj" id="82_y1mge"]
-[ext_resource type="Material" uid="uid://bwtcp2vttub2t" path="res://assets/blood_box.tres" id="83_64iu5"]
+[ext_resource type="Script" path="res://scripts/introduction.gd" id="1_qsj7s"]
+[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="2_1e8lf"]
+[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="3_6bj1r"]
+[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="4_ny2q8"]
+[ext_resource type="Texture2D" uid="uid://0i4yyknmpom2" path="res://textures/TEXTURES/RIVET_3A.PNG" id="5_i6jpv"]
+[ext_resource type="Texture2D" uid="uid://dojwfoe3edm2e" path="res://textures/TEXTURES/RIVET_2B.PNG" id="6_joyet"]
+[ext_resource type="Texture2D" uid="uid://cwbgyc7kpaptw" path="res://textures/TEXTURES/RIVET_2C.PNG" id="7_r2mhf"]
+[ext_resource type="Texture2D" uid="uid://cw8lhttuahd3o" path="res://textures/TEXTURES/PIPES_3A.PNG" id="8_v7h6x"]
+[ext_resource type="Texture2D" uid="uid://b4cc1pw1ndu06" path="res://textures/TEXTURES/PIPES_1B.PNG" id="9_t13yi"]
+[ext_resource type="Texture2D" uid="uid://cucbafc4nkdt3" path="res://textures/TEXTURES/RIVET_1B.PNG" id="10_grsaf"]
+[ext_resource type="Texture2D" uid="uid://b5mr2a0ohmb1b" path="res://textures/TEXTURES/RIVET_2A.PNG" id="11_7hok3"]
+[ext_resource type="Texture2D" uid="uid://odh8ax54875w" path="res://textures/TEXTURES/PIPES_2A.PNG" id="12_c7ajw"]
+[ext_resource type="Texture2D" uid="uid://cfsqb3lldtdf5" path="res://textures/TEXTURES/LIGHT_2A.PNG" id="13_eut0p"]
+[ext_resource type="Texture2D" uid="uid://chkqupoxa0ghm" path="res://textures/TEXTURES/PIPES_1A.PNG" id="14_2f4a5"]
+[ext_resource type="Texture2D" uid="uid://cfa7unc0elxtm" path="res://textures/TEXTURES/CONCRETE_3A.PNG" id="15_itun6"]
+[ext_resource type="Texture2D" uid="uid://m2oha3r8h2wn" path="res://textures/TEXTURES/RIVET_3B.PNG" id="16_dyshq"]
+[ext_resource type="Texture2D" uid="uid://dynbdu816xqik" path="res://textures/TEXTURES/STEEL_2C.PNG" id="17_vhqka"]
+[ext_resource type="Texture2D" uid="uid://c6gybc62842uk" path="res://textures/TEXTURES/SUPPORT_2A.PNG" id="18_4okuk"]
+[ext_resource type="Texture2D" uid="uid://bimvwjtikhfy6" path="res://textures/TEXTURES/TARMAC_1A.PNG" id="19_2tv8p"]
+[ext_resource type="Texture2D" uid="uid://b8qgj5gesfkdb" path="res://textures/TEXTURES/SUPPORT_3C.PNG" id="20_86dek"]
+[ext_resource type="Texture2D" uid="uid://c2ef5kugtqop2" path="res://textures/TEXTURES/SUPPORT_3D.PNG" id="21_w0nym"]
+[ext_resource type="Texture2D" uid="uid://bx1q7uhchrrp2" path="res://textures/TEXTURES/RIVET_1C.PNG" id="22_bnaum"]
+[ext_resource type="Texture2D" uid="uid://cyhvryf8wrcmd" path="res://textures/TEXTURES/FLOOR_1A.PNG" id="23_0c65i"]
+[ext_resource type="Texture2D" uid="uid://bri8glwl6d6q0" path="res://textures/TEXTURES/STEEL_3C.PNG" id="24_8myo1"]
+[ext_resource type="Texture2D" uid="uid://bfu3k4ahy3mqo" path="res://textures/TEXTURES/STEEL_2A.PNG" id="25_5adlj"]
+[ext_resource type="Texture2D" uid="uid://bdaqkx3dy8163" path="res://textures/TEXTURES/BLOOD_1A.PNG" id="26_3d2c0"]
+[ext_resource type="Texture2D" uid="uid://bpld8gbjntcth" path="res://textures/TEXTURES/PIPES_2B.PNG" id="27_1a2ko"]
+[ext_resource type="Texture2D" uid="uid://78yc03c0cysp" path="res://textures/TEXTURES/DOOR_3A.PNG" id="28_p1y7d"]
+[ext_resource type="Texture2D" uid="uid://ijm35b62a0kt" path="res://textures/TEXTURES/LIGHT_1B.PNG" id="29_fovyv"]
+[ext_resource type="Texture2D" uid="uid://baw34hwlob48g" path="res://textures/TEXTURES/WARN_1A.PNG" id="30_b0jsd"]
+[ext_resource type="Texture2D" uid="uid://du76tjym3pc5g" path="res://textures/TEXTURES/SUPPORT_1D.PNG" id="31_u7jew"]
+[ext_resource type="Texture2D" uid="uid://c2gbfj4nts6ql" path="res://textures/TEXTURES/DOOR_4A.PNG" id="32_ujh5d"]
+[ext_resource type="Texture2D" uid="uid://b8xjbe34dkiok" path="res://textures/TEXTURES/TECH_1B.PNG" id="33_dp0f4"]
+[ext_resource type="Texture2D" uid="uid://ccxanmo47vdao" path="res://textures/TEXTURES/TECH_1A.PNG" id="34_t4w4p"]
+[ext_resource type="Texture2D" uid="uid://bgr55i3xf80dd" path="res://textures/TEXTURES/PANEL_1B.PNG" id="35_lsh61"]
+[ext_resource type="Texture2D" uid="uid://do50uq1yhj7uu" path="res://textures/TEXTURES/DOOR_1A.PNG" id="36_16rlb"]
+[ext_resource type="Texture2D" uid="uid://c2dr6i6wsfaot" path="res://textures/TEXTURES/FLOOR_3A.PNG" id="37_tuc0o"]
+[ext_resource type="Texture2D" uid="uid://ci831wvk82c1c" path="res://textures/TEXTURES/LAB_1A.PNG" id="38_fxiqy"]
+[ext_resource type="Texture2D" uid="uid://dvp1jqllwfpow" path="res://textures/TEXTURES/FLOOR_3C.PNG" id="39_nkaf1"]
+[ext_resource type="Texture2D" uid="uid://dn62sdcvg8sn4" path="res://textures/TEXTURES/SUPPORT_1A.PNG" id="40_xo4wb"]
+[ext_resource type="Texture2D" uid="uid://dxic88gklki82" path="res://textures/TEXTURES/TECH_4B.PNG" id="41_wsh5j"]
+[ext_resource type="Texture2D" uid="uid://c4ggcdg2iimko" path="res://textures/TEXTURES/TECH_4A.PNG" id="42_womt8"]
+[ext_resource type="Texture2D" uid="uid://c58n3iuj8idab" path="res://textures/TEXTURES/DOOR_3B.PNG" id="43_l3ulr"]
+[ext_resource type="Texture2D" uid="uid://baqrtq0k8ngyv" path="res://textures/TEXTURES/SUPPORT_2C.PNG" id="44_lu8sa"]
+[ext_resource type="Texture2D" uid="uid://c084xutsdpne7" path="res://textures/TEXTURES/LIGHT_1A.PNG" id="45_fbqj8"]
+[ext_resource type="Texture2D" uid="uid://ce3lbp7syisc1" path="res://textures/TEXTURES/CONCRETE_2B.PNG" id="46_ax1bn"]
+[ext_resource type="Texture2D" uid="uid://bwrf72ol8wu6c" path="res://textures/TEXTURES/DOOR_1B.PNG" id="47_pnq8y"]
+[ext_resource type="Texture2D" uid="uid://dcn4ecc4a1p1j" path="res://textures/TEXTURES/DOOR_1D.PNG" id="48_6e64d"]
+[ext_resource type="Texture2D" uid="uid://bbhq5qwk1rvhs" path="res://textures/TEXTURES/GRID_1B.PNG" id="49_5y8f6"]
+[ext_resource type="Texture2D" uid="uid://6eth21kj3gjw" path="res://textures/TEXTURES/FLOOR_2E.PNG" id="50_78ggr"]
+[ext_resource type="Texture2D" uid="uid://xw06cd2u0rvo" path="res://textures/TEXTURES/STEEL_2D.PNG" id="51_op2ex"]
+[ext_resource type="Texture2D" uid="uid://dqxsbxfcle5gr" path="res://textures/TEXTURES/CONCRETE_2C.PNG" id="52_kahj5"]
+[ext_resource type="Texture2D" uid="uid://cukarxfuh67yd" path="res://textures/TEXTURES/PANEL_2D.PNG" id="53_116su"]
+[ext_resource type="Texture2D" uid="uid://dwloy5qwhp7af" path="res://textures/TEXTURES/STEEL_3B.PNG" id="54_axemn"]
+[ext_resource type="Texture2D" uid="uid://rp6b3mxy2ttb" path="res://textures/TEXTURES/CONCRETE_3C.PNG" id="55_qm2mf"]
+[ext_resource type="Texture2D" uid="uid://df7xcqajlkquy" path="res://textures/TEXTURES/CRATE_2D.PNG" id="56_5pnnj"]
+[ext_resource type="Texture2D" uid="uid://313gg4fcyety" path="res://textures/TEXTURES/CRATE_2I.PNG" id="57_y6pl3"]
+[ext_resource type="Texture2D" uid="uid://bhuukovmemv32" path="res://textures/TEXTURES/CRATE_2K.PNG" id="58_0m241"]
+[ext_resource type="Texture2D" uid="uid://c3wsb0bitwxl8" path="res://textures/TEXTURES/black.png" id="59_k8aku"]
+[ext_resource type="Texture2D" uid="uid://dkgmkp4frds2b" path="res://textures/TEXTURES/FLOOR_2C.PNG" id="60_qgacu"]
+[ext_resource type="Texture2D" uid="uid://b43beo31byhgt" path="res://textures/TEXTURES/DOOR_1C.PNG" id="61_n3cac"]
+[ext_resource type="Texture2D" uid="uid://v4fyb8xg4har" path="res://textures/TEXTURES/BRICK_6D.PNG" id="62_8h5qg"]
+[ext_resource type="Texture2D" uid="uid://coqu6nbxsilyw" path="res://textures/TEXTURES/VENT_1A.PNG" id="63_xrult"]
+[ext_resource type="Texture2D" uid="uid://bwwqxglcqx5u8" path="res://textures/TEXTURES/SUPPORT_1C.PNG" id="64_pulc0"]
+[ext_resource type="Texture2D" uid="uid://bbox0ena5yf7g" path="res://textures/TEXTURES/CRATE_2J.PNG" id="65_rig27"]
+[ext_resource type="Texture2D" uid="uid://dou0vtwiowv8" path="res://textures/TEXTURES/DOOR_2C.PNG" id="66_0tct3"]
+[ext_resource type="Texture2D" uid="uid://6s05txhvxkeg" path="res://textures/TEXTURES/TECH_1E.PNG" id="67_e3ora"]
+[ext_resource type="Texture2D" uid="uid://ryovd5dmgjkc" path="res://textures/TEXTURES/TECH_2F.PNG" id="68_n8wqq"]
+[ext_resource type="Texture2D" uid="uid://cg21cjy5ofrg7" path="res://textures/TEXTURES/TECH_4D.PNG" id="69_b30nn"]
+[ext_resource type="Texture2D" uid="uid://6yuqvpeelbya" path="res://textures/TEXTURES/CRATE_1J.PNG" id="70_ie06g"]
+[ext_resource type="Texture2D" uid="uid://dfcrm43w31gdr" path="res://textures/TEXTURES/SUPPORT_3B.PNG" id="71_e4kk1"]
+[ext_resource type="VideoStream" path="res://assets/newtitle.ogv" id="72_e53nf"]
+[ext_resource type="Theme" uid="uid://bf11rkfxk6cnw" path="res://scripts/testtheme.tres" id="73_1kjov"]
+[ext_resource type="FontFile" uid="uid://b3ll66htywhkr" path="res://assets/Pixellari.ttf" id="74_qkmeb"]
+[ext_resource type="Texture2D" uid="uid://dclrgeunsynqy" path="res://textures/card_icons/sink_card_icon.png" id="75_ckrq5"]
+[ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="76_tog3d"]
+[ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="77_nk528"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="78_fbb1v"]
+[ext_resource type="Shader" path="res://scripts/test.gdshader" id="79_2n5qt"]
+[ext_resource type="Shader" path="res://scripts/speedlines.gdshader" id="80_amya6"]
+[ext_resource type="Texture2D" uid="uid://b04n1234cjcso" path="res://textures/TEXTURES/BLOOD_1B.PNG" id="81_mmtom"]
+[ext_resource type="ArrayMesh" uid="uid://bx34gtqbmcums" path="res://assets/wave_updated.obj" id="82_ons6j"]
+[ext_resource type="Material" uid="uid://bwtcp2vttub2t" path="res://assets/blood_box.tres" id="83_68gdm"]
+[ext_resource type="PackedScene" uid="uid://cppoklkvuvfpj" path="res://scenes/pause_menu.tscn" id="84_3pyfs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gws48"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojdkh"]
-albedo_texture = ExtResource("5_qbdls")
+albedo_texture = ExtResource("5_i6jpv")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xspx2"]
-albedo_texture = ExtResource("6_ynn42")
+albedo_texture = ExtResource("6_joyet")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tym7"]
-albedo_texture = ExtResource("7_j1btx")
+albedo_texture = ExtResource("7_r2mhf")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jihfg"]
-albedo_texture = ExtResource("8_v01g2")
+albedo_texture = ExtResource("8_v7h6x")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8dop"]
-albedo_texture = ExtResource("9_5ce3d")
+albedo_texture = ExtResource("9_t13yi")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2j4r"]
-albedo_texture = ExtResource("10_0dl8b")
+albedo_texture = ExtResource("10_grsaf")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwegb"]
-albedo_texture = ExtResource("11_njgc5")
+albedo_texture = ExtResource("11_7hok3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2k3m"]
-albedo_texture = ExtResource("12_1rios")
+albedo_texture = ExtResource("12_c7ajw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhpe6"]
-albedo_texture = ExtResource("13_nxtf8")
+albedo_texture = ExtResource("13_eut0p")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unod6"]
-albedo_texture = ExtResource("14_mex3g")
+albedo_texture = ExtResource("14_2f4a5")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_farht"]
-albedo_texture = ExtResource("15_t5k8g")
+albedo_texture = ExtResource("15_itun6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8eto"]
-albedo_texture = ExtResource("16_426ar")
+albedo_texture = ExtResource("16_dyshq")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k2d8"]
-albedo_texture = ExtResource("17_p1o6t")
+albedo_texture = ExtResource("17_vhqka")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slggq"]
-albedo_texture = ExtResource("18_iefy6")
+albedo_texture = ExtResource("18_4okuk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kytah"]
-albedo_texture = ExtResource("19_fx53v")
+albedo_texture = ExtResource("19_2tv8p")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yut4i"]
-albedo_texture = ExtResource("20_no4hn")
+albedo_texture = ExtResource("20_86dek")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pynb5"]
-albedo_texture = ExtResource("21_pg4lg")
+albedo_texture = ExtResource("21_w0nym")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2g8a"]
-albedo_texture = ExtResource("22_7mxa5")
+albedo_texture = ExtResource("22_bnaum")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4jf0"]
-albedo_texture = ExtResource("23_6rpjo")
+albedo_texture = ExtResource("23_0c65i")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mh3si"]
-albedo_texture = ExtResource("24_vx0h7")
+albedo_texture = ExtResource("24_8myo1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tddq3"]
-albedo_texture = ExtResource("25_mdryr")
+albedo_texture = ExtResource("25_5adlj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmvq5"]
-albedo_texture = ExtResource("26_jd7qn")
+albedo_texture = ExtResource("26_3d2c0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgorl"]
-albedo_texture = ExtResource("27_a6w27")
+albedo_texture = ExtResource("27_1a2ko")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcvh4"]
-albedo_texture = ExtResource("28_w0xnb")
+albedo_texture = ExtResource("28_p1y7d")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m61g1"]
-albedo_texture = ExtResource("29_k283y")
+albedo_texture = ExtResource("29_fovyv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gq28"]
-albedo_texture = ExtResource("30_waelq")
+albedo_texture = ExtResource("30_b0jsd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_653k5"]
-albedo_texture = ExtResource("31_3plgp")
+albedo_texture = ExtResource("31_u7jew")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eu4hy"]
-albedo_texture = ExtResource("32_rcu7x")
+albedo_texture = ExtResource("32_ujh5d")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_doi50"]
-albedo_texture = ExtResource("33_ytbhg")
+albedo_texture = ExtResource("33_dp0f4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivbxl"]
-albedo_texture = ExtResource("34_j6m6q")
+albedo_texture = ExtResource("34_t4w4p")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rmk0"]
-albedo_texture = ExtResource("35_57gj8")
+albedo_texture = ExtResource("35_lsh61")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnghx"]
-albedo_texture = ExtResource("36_ti3lf")
+albedo_texture = ExtResource("36_16rlb")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mttwo"]
-albedo_texture = ExtResource("37_wxpvu")
+albedo_texture = ExtResource("37_tuc0o")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxnig"]
-albedo_texture = ExtResource("38_1cqht")
+albedo_texture = ExtResource("38_fxiqy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cc5ro"]
-albedo_texture = ExtResource("39_f76l1")
+albedo_texture = ExtResource("39_nkaf1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4jep"]
-albedo_texture = ExtResource("40_3r53o")
+albedo_texture = ExtResource("40_xo4wb")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7l7jv"]
-albedo_texture = ExtResource("41_qleau")
+albedo_texture = ExtResource("41_wsh5j")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gg5vd"]
-albedo_texture = ExtResource("42_40djb")
+albedo_texture = ExtResource("42_womt8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbnbh"]
-albedo_texture = ExtResource("43_0dmca")
+albedo_texture = ExtResource("43_l3ulr")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdsv5"]
-albedo_texture = ExtResource("44_rqlyx")
+albedo_texture = ExtResource("44_lu8sa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjlr8"]
-albedo_texture = ExtResource("45_1882l")
+albedo_texture = ExtResource("45_fbqj8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iao0e"]
-albedo_texture = ExtResource("46_go1p6")
+albedo_texture = ExtResource("46_ax1bn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vv5v"]
-albedo_texture = ExtResource("47_lmbbd")
+albedo_texture = ExtResource("47_pnq8y")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6s4t"]
-albedo_texture = ExtResource("48_kejix")
+albedo_texture = ExtResource("48_6e64d")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sm1ox"]
-albedo_texture = ExtResource("49_il6s7")
+albedo_texture = ExtResource("49_5y8f6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7oi4"]
-albedo_texture = ExtResource("50_mf03m")
+albedo_texture = ExtResource("50_78ggr")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kymqy"]
-albedo_texture = ExtResource("51_u3be5")
+albedo_texture = ExtResource("51_op2ex")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opoad"]
-albedo_texture = ExtResource("52_8p1jh")
+albedo_texture = ExtResource("52_kahj5")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8sbj"]
-albedo_texture = ExtResource("53_ncvqs")
+albedo_texture = ExtResource("53_116su")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxi24"]
-albedo_texture = ExtResource("54_kmqgc")
+albedo_texture = ExtResource("54_axemn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27wpf"]
-albedo_texture = ExtResource("55_abpvg")
+albedo_texture = ExtResource("55_qm2mf")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8itjh"]
-albedo_texture = ExtResource("56_ohegs")
+albedo_texture = ExtResource("56_5pnnj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbac1"]
-albedo_texture = ExtResource("57_2ef00")
+albedo_texture = ExtResource("57_y6pl3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tiu2p"]
-albedo_texture = ExtResource("58_pyspk")
+albedo_texture = ExtResource("58_0m241")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nff4g"]
-albedo_texture = ExtResource("64_om1cx")
+albedo_texture = ExtResource("59_k8aku")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ps113"]
-albedo_texture = ExtResource("61_8py4h")
+albedo_texture = ExtResource("60_qgacu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke2pf"]
-albedo_texture = ExtResource("60_pilbq")
+albedo_texture = ExtResource("61_n3cac")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0ren"]
-albedo_texture = ExtResource("59_iiqh4")
+albedo_texture = ExtResource("62_8h5qg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nh5nr"]
-albedo_texture = ExtResource("63_m23fa")
+albedo_texture = ExtResource("63_xrult")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alnc7"]
-albedo_texture = ExtResource("64_tvwto")
+albedo_texture = ExtResource("64_pulc0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cehy2"]
-albedo_texture = ExtResource("65_l1hcj")
+albedo_texture = ExtResource("65_rig27")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2l2th"]
-albedo_texture = ExtResource("66_4qiyp")
+albedo_texture = ExtResource("66_0tct3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpm7o"]
-albedo_texture = ExtResource("67_tdut0")
+albedo_texture = ExtResource("67_e3ora")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_je47e"]
-albedo_texture = ExtResource("68_7c7l8")
+albedo_texture = ExtResource("68_n8wqq")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2uhi4"]
-albedo_texture = ExtResource("69_5lyre")
+albedo_texture = ExtResource("69_b30nn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm5ql"]
-albedo_texture = ExtResource("70_shu0s")
+albedo_texture = ExtResource("70_ie06g")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5n3o5"]
-albedo_texture = ExtResource("71_qmbyb")
+albedo_texture = ExtResource("71_e4kk1")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6rcpt"]
 _surfaces = [{
@@ -1258,7 +1259,7 @@ _data = {
 
 [sub_resource type="Theme" id="Theme_68f6n"]
 default_base_scale = 31.8
-default_font = ExtResource("55_qp40g")
+default_font = ExtResource("74_qkmeb")
 default_font_size = 100
 
 [sub_resource type="Animation" id="Animation_j1kua"]
@@ -1299,7 +1300,7 @@ _data = {
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kr88l"]
-albedo_texture = ExtResource("70_jqyri")
+albedo_texture = ExtResource("75_ckrq5")
 metallic_specular = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b5ufh"]
@@ -1307,103 +1308,6 @@ material = SubResource("StandardMaterial3D_kr88l")
 size = Vector2(1, 1.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mix8b"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ep3g"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xa831"]
-radius = 0.35
-height = 0.7
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y01dn"]
-render_priority = 0
-shader = ExtResource("9_u7f31")
-
-[sub_resource type="QuadMesh" id="QuadMesh_ppnoh"]
-material = SubResource("ShaderMaterial_y01dn")
-size = Vector2(10, 10)
-orientation = 1
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_pnebp"]
-noise_type = 5
-frequency = 0.2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bf3jb"]
-noise = SubResource("FastNoiseLite_pnebp")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ullqy"]
-shader = ExtResource("10_e3xxt")
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_count = 0.5
-shader_parameter/line_density = 1.0
-shader_parameter/line_faloff = 1.0
-shader_parameter/mask_size = 0.049
-shader_parameter/mask_edge = 1.0
-shader_parameter/animation_speed = 20.0
-shader_parameter/noise = SubResource("NoiseTexture2D_bf3jb")
-
-[sub_resource type="Curve" id="Curve_vj8de"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_5ekq4"]
-curve = SubResource("Curve_vj8de")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3h7to"]
-particle_flag_rotate_y = true
-emission_shape = 3
-emission_box_extents = Vector3(50, 10, 50)
-angle_max = 720.0
-spread = 180.0
-initial_velocity_min = 0.25
-initial_velocity_max = 0.55
-angular_velocity_min = 64.71
-angular_velocity_max = 257.63
-gravity = Vector3(0, 0, 0)
-scale_min = 0.02
-scale_max = 0.07
-alpha_curve = SubResource("CurveTexture_5ekq4")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ore77"]
-vertex_color_use_as_albedo = true
-emission = Color(1, 1, 1, 1)
-disable_receive_shadows = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_yfnwl"]
-material = SubResource("StandardMaterial3D_ore77")
-
-[sub_resource type="Curve" id="Curve_6n4u6"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_tftrw"]
-curve = SubResource("Curve_6n4u6")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0o331"]
-emission_shape = 3
-emission_box_extents = Vector3(50, 4, 50)
-angle_max = 720.0
-direction = Vector3(1, -1, 0)
-spread = 180.0
-initial_velocity_min = 0.25
-initial_velocity_max = 0.8
-angular_velocity_min = 64.71
-angular_velocity_max = 257.63
-gravity = Vector3(0, -6, 0)
-scale_min = 0.2
-scale_max = 0.45
-alpha_curve = SubResource("CurveTexture_tftrw")
-turbulence_enabled = true
-turbulence_noise_strength = 0.15
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0v1h"]
-transparency = 1
-blend_mode = 1
-cull_mode = 2
-vertex_color_use_as_albedo = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_v6sid"]
-material = SubResource("StandardMaterial3D_x0v1h")
-size = Vector2(0.2, 0.2)
 
 [sub_resource type="Shader" id="Shader_tntin"]
 code = "shader_type spatial;
@@ -1477,23 +1381,120 @@ shader_parameter/pixelation_level = 32
 shader_parameter/FoamSize = 0.0
 shader_parameter/WaterOpacity = 1.0
 shader_parameter/FoamGlowIntensity = 0.5
-shader_parameter/water_texture1 = ExtResource("26_jd7qn")
-shader_parameter/water_texture2 = ExtResource("75_lyka7")
+shader_parameter/water_texture1 = ExtResource("26_3d2c0")
+shader_parameter/water_texture2 = ExtResource("81_mmtom")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vkl3u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s6g8c"]
+radius = 0.35
+height = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ev2h"]
+render_priority = 0
+shader = ExtResource("79_2n5qt")
+
+[sub_resource type="QuadMesh" id="QuadMesh_trmmn"]
+material = SubResource("ShaderMaterial_5ev2h")
+size = Vector2(10, 10)
+orientation = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_knht7"]
+noise_type = 5
+frequency = 0.2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jako7"]
+noise = SubResource("FastNoiseLite_knht7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2aiy"]
+shader = ExtResource("80_amya6")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_count = 0.5
+shader_parameter/line_density = 1.0
+shader_parameter/line_faloff = 1.0
+shader_parameter/mask_size = 0.049
+shader_parameter/mask_edge = 1.0
+shader_parameter/animation_speed = 20.0
+shader_parameter/noise = SubResource("NoiseTexture2D_jako7")
+
+[sub_resource type="Curve" id="Curve_rbaig"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wma58"]
+curve = SubResource("Curve_rbaig")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vqulx"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 10, 50)
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.55
+angular_velocity_min = 64.71
+angular_velocity_max = 257.63
+gravity = Vector3(0, 0, 0)
+scale_min = 0.02
+scale_max = 0.07
+alpha_curve = SubResource("CurveTexture_wma58")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5j88"]
+vertex_color_use_as_albedo = true
+emission = Color(1, 1, 1, 1)
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_gnmai"]
+material = SubResource("StandardMaterial3D_g5j88")
+
+[sub_resource type="Curve" id="Curve_7nv67"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_e6lhr"]
+curve = SubResource("Curve_7nv67")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_16pu7"]
+emission_shape = 3
+emission_box_extents = Vector3(50, 4, 50)
+angle_max = 720.0
+direction = Vector3(1, -1, 0)
+spread = 180.0
+initial_velocity_min = 0.25
+initial_velocity_max = 0.8
+angular_velocity_min = 64.71
+angular_velocity_max = 257.63
+gravity = Vector3(0, -6, 0)
+scale_min = 0.2
+scale_max = 0.45
+alpha_curve = SubResource("CurveTexture_e6lhr")
+turbulence_enabled = true
+turbulence_noise_strength = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nao0x"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_stkjo"]
+material = SubResource("StandardMaterial3D_nao0x")
+size = Vector2(0.2, 0.2)
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_hls22")
+script = ExtResource("1_qsj7s")
 
 [node name="QodotMap" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 10.1177, 3.55177, -8.10987)
-script = ExtResource("1_spqor")
+script = ExtResource("2_1e8lf")
 map_file = "/Users/stastigay/Documents/Code Folder/Godot Files/godot_prototype_project/godot_game_dev/Sinking - Game Development/maps/testmap.map"
 inverse_scale_factor = 32.0
-entity_fgd = ExtResource("2_3o7kd")
+entity_fgd = ExtResource("3_6bj1r")
 texture_file_extensions = PackedStringArray("png", "jpg", "jpeg", "bmp", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
 default_material = SubResource("StandardMaterial3D_gws48")
 
 [node name="entity_0_worldspawn" type="Node3D" parent="QodotMap"]
-script = ExtResource("3_6spm6")
+script = ExtResource("4_ny2q8")
 properties = {
 "_tb_textures": "textures;textures/TEXTURES",
 "classname": "worldspawn",
@@ -1563,7 +1564,7 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.999264, 0.997346)
-stream = ExtResource("57_ikbks")
+stream = ExtResource("72_e53nf")
 paused = true
 loop = true
 
@@ -1579,7 +1580,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("56_i6bph")
+theme = ExtResource("73_1kjov")
 text = "13 digital technology 2024"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1758,27 +1759,38 @@ light_color = Color(0.317199, 0.308462, 0.0801571, 1)
 light_energy = 16.0
 omni_range = 1970.96
 
-[node name="dash" parent="." instance=ExtResource("72_mrlr0")]
+[node name="dash" parent="." instance=ExtResource("76_tog3d")]
 transform = Transform3D(-0.999981, -3.03274e-23, 0.00619572, -3.04919e-23, 1, -2.64698e-23, -0.00619572, -2.66582e-23, -0.999981, -12.2068, 3.76281, -6.29486)
 
-[node name="jump2" parent="." instance=ExtResource("73_gdlcb")]
+[node name="jump2" parent="." instance=ExtResource("77_nk528")]
 transform = Transform3D(1, 3.04919e-23, 1.74846e-07, -3.04919e-23, 1, -2.64698e-23, -1.74846e-07, 2.64698e-23, 1, 48.9821, 3.12516, -54.4869)
 
-[node name="jump" parent="." instance=ExtResource("73_gdlcb")]
+[node name="jump" parent="." instance=ExtResource("77_nk528")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, -11.9504, -1.51599, 53.81)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1.00005, 0, 0, 0, 1.00005, 0, 0, 0, 1.00005, 22.8544, -10.7239, -60.9693)
+use_collision = true
+size = Vector3(103.019, 1, 40)
+material = SubResource("ShaderMaterial_gmgjv")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(-5.4099e-09, 0, -0.1, 0, 0.1, 0, 0.123764, 0, -4.37114e-09, -11.5606, -5.83888, 41.0964)
+mesh = ExtResource("82_ons6j")
+material = ExtResource("83_68gdm")
+
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7971, -3.1779, 79.7666)
-script = ExtResource("8_svvno")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2868, -2.47477, 79.7666)
+script = ExtResource("78_fbb1v")
 metadata/player = true
 
 [node name="standing_collision_shape" type="CollisionShape3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
-shape = SubResource("CapsuleShape3D_5ep3g")
+shape = SubResource("CapsuleShape3D_vkl3u")
 
 [node name="crouching_collision_shape" type="CollisionShape3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.352126, 2.08165e-12)
-shape = SubResource("CapsuleShape3D_xa831")
+shape = SubResource("CapsuleShape3D_s6g8c")
 disabled = true
 
 [node name="RayCast3D" type="RayCast3D" parent="player"]
@@ -1804,10 +1816,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/neck/head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
 visible = false
-mesh = SubResource("QuadMesh_ppnoh")
+mesh = SubResource("QuadMesh_trmmn")
 
 [node name="speedlines" type="ColorRect" parent="player"]
-material = SubResource("ShaderMaterial_ullqy")
+material = SubResource("ShaderMaterial_n2aiy")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1832,8 +1844,8 @@ amount = 300
 lifetime = 6.5
 randomness = 0.6
 visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
-process_material = SubResource("ParticleProcessMaterial_3h7to")
-draw_pass_1 = SubResource("BoxMesh_yfnwl")
+process_material = SubResource("ParticleProcessMaterial_vqulx")
+draw_pass_1 = SubResource("BoxMesh_gnmai")
 
 [node name="SnowParticles" type="GPUParticles3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.465, 0)
@@ -1842,19 +1854,10 @@ lifetime = 6.5
 randomness = 0.6
 visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
 transform_align = 1
-process_material = SubResource("ParticleProcessMaterial_0o331")
-draw_pass_1 = SubResource("QuadMesh_v6sid")
+process_material = SubResource("ParticleProcessMaterial_16pu7")
+draw_pass_1 = SubResource("QuadMesh_stkjo")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1.00005, 0, 0, 0, 1.00005, 0, 0, 0, 1.00005, 22.8544, -10.7239, -60.9693)
-use_collision = true
-size = Vector3(103.019, 1, 40)
-material = SubResource("ShaderMaterial_gmgjv")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(-5.4099e-09, 0, -0.1, 0, 0.1, 0, 0.123764, 0, -4.37114e-09, -11.5606, -5.83888, 41.0964)
-mesh = ExtResource("82_y1mge")
-material = ExtResource("83_64iu5")
+[node name="PauseMenu" parent="player" instance=ExtResource("84_3pyfs")]
 
 [connection signal="body_entered" from="intro_words1" to="." method="_on_intro_words_1_body_entered"]
 [connection signal="body_shape_exited" from="intro_words1" to="." method="_on_intro_words_1_body_shape_exited"]

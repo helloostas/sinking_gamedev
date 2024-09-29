@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dm4bsj3igi52y"]
 
-[ext_resource type="Script" path="res://bigtitle.gd" id="1_dmg2x"]
+[ext_resource type="Script" path="res://scripts/bigtitle.gd" id="1_dmg2x"]
 [ext_resource type="VideoStream" path="res://assets/newtitle.ogv" id="2_opj78"]
 
 [node name="Control" type="Control"]

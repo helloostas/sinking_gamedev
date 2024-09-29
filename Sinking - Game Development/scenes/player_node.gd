@@ -378,7 +378,3 @@ func camera_zoom_out(duration: float) -> void:
 	cam_dash_tween.tween_property(camera_3d, "fov", 100.0, 0.3)
 	cam_dash_tween.tween_interval(duration-0.2)
 	cam_dash_tween.tween_property(camera_3d, "fov", 90.0, 0.4)
-
-func _unhandled_input(event) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		$PauseMenu.pause()

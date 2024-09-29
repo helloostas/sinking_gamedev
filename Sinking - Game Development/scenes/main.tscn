@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=4 uid="uid://c3spvehy3qpes"]
+[gd_scene load_steps=134 format=4 uid="uid://c3spvehy3qpes"]
 
 [ext_resource type="Texture2D" uid="uid://eoc11m7u21st" path="res://godot textures/dev/grids/Dark/texture_07.png" id="1_5wyxs"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_83liw"]
@@ -60,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://6yuqvpeelbya" path="res://textures/TEXTURES/CRATE_1J.PNG" id="50_4w45x"]
 [ext_resource type="Texture2D" uid="uid://dqxsbxfcle5gr" path="res://textures/TEXTURES/CONCRETE_2C.PNG" id="51_w17st"]
 [ext_resource type="Shader" path="res://scripts/test.gdshader" id="59_bek4a"]
+[ext_resource type="PackedScene" uid="uid://cppoklkvuvfpj" path="res://scenes/pause_menu.tscn" id="61_8ss8f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unmc3"]
 
@@ -813,29 +814,29 @@ fog_sky_affect = 0.0
 volumetric_fog_density = 0.0028
 volumetric_fog_albedo = Color(0.286275, 0.0235294, 0.0705882, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x37ta"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rhs2g"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5x8jd"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2qcop"]
 radius = 0.35
 height = 0.7
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ex4lk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y01dn"]
 render_priority = 0
 shader = ExtResource("59_bek4a")
 
-[sub_resource type="QuadMesh" id="QuadMesh_03efk"]
-material = SubResource("ShaderMaterial_ex4lk")
+[sub_resource type="QuadMesh" id="QuadMesh_t1n73"]
+material = SubResource("ShaderMaterial_y01dn")
 size = Vector2(10, 10)
 orientation = 1
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_lta8d"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5e276"]
 noise_type = 5
 frequency = 0.2
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3k300"]
-noise = SubResource("FastNoiseLite_lta8d")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bf3jb"]
+noise = SubResource("FastNoiseLite_5e276")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ljvmy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gh8hm"]
 shader = ExtResource("19_fcwm1")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_count = 0.5
@@ -844,16 +845,16 @@ shader_parameter/line_faloff = 1.0
 shader_parameter/mask_size = 0.049
 shader_parameter/mask_edge = 1.0
 shader_parameter/animation_speed = 20.0
-shader_parameter/noise = SubResource("NoiseTexture2D_3k300")
+shader_parameter/noise = SubResource("NoiseTexture2D_bf3jb")
 
-[sub_resource type="Curve" id="Curve_1fpgf"]
+[sub_resource type="Curve" id="Curve_30ugo"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_rlxjv"]
-curve = SubResource("Curve_1fpgf")
+[sub_resource type="CurveTexture" id="CurveTexture_5ekq4"]
+curve = SubResource("Curve_30ugo")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vy761"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qui3c"]
 particle_flag_rotate_y = true
 emission_shape = 3
 emission_box_extents = Vector3(50, 10, 50)
@@ -866,24 +867,24 @@ angular_velocity_max = 257.63
 gravity = Vector3(0, 0, 0)
 scale_min = 0.02
 scale_max = 0.07
-alpha_curve = SubResource("CurveTexture_rlxjv")
+alpha_curve = SubResource("CurveTexture_5ekq4")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tccq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ore77"]
 vertex_color_use_as_albedo = true
 emission = Color(1, 1, 1, 1)
 disable_receive_shadows = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_ko53g"]
-material = SubResource("StandardMaterial3D_1tccq")
+[sub_resource type="BoxMesh" id="BoxMesh_osonl"]
+material = SubResource("StandardMaterial3D_ore77")
 
-[sub_resource type="Curve" id="Curve_noudv"]
+[sub_resource type="Curve" id="Curve_phdgj"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_ojhut"]
-curve = SubResource("Curve_noudv")
+[sub_resource type="CurveTexture" id="CurveTexture_tftrw"]
+curve = SubResource("Curve_phdgj")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f78ld"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wiw5u"]
 emission_shape = 3
 emission_box_extents = Vector3(50, 4, 50)
 angle_max = 720.0
@@ -896,18 +897,19 @@ angular_velocity_max = 257.63
 gravity = Vector3(0, -6, 0)
 scale_min = 0.2
 scale_max = 0.45
-alpha_curve = SubResource("CurveTexture_ojhut")
+alpha_curve = SubResource("CurveTexture_tftrw")
 turbulence_enabled = true
 turbulence_noise_strength = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pglhk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0v1h"]
 transparency = 1
 blend_mode = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
 
-[sub_resource type="QuadMesh" id="QuadMesh_2vocs"]
-material = SubResource("StandardMaterial3D_pglhk")
+[sub_resource type="QuadMesh" id="QuadMesh_toip1"]
+material = SubResource("StandardMaterial3D_x0v1h")
+size = Vector2(0.2, 0.2)
 
 [node name="world" type="Node3D"]
 
@@ -1004,17 +1006,17 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7971, 33.781, 79.7666)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92911, 5.45216, 53.3946)
 script = ExtResource("3_ss8hf")
 metadata/player = true
 
 [node name="standing_collision_shape" type="CollisionShape3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
-shape = SubResource("CapsuleShape3D_x37ta")
+shape = SubResource("CapsuleShape3D_rhs2g")
 
 [node name="crouching_collision_shape" type="CollisionShape3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.352126, 2.08165e-12)
-shape = SubResource("CapsuleShape3D_5x8jd")
+shape = SubResource("CapsuleShape3D_2qcop")
 disabled = true
 
 [node name="RayCast3D" type="RayCast3D" parent="player"]
@@ -1040,10 +1042,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/neck/head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
 visible = false
-mesh = SubResource("QuadMesh_03efk")
+mesh = SubResource("QuadMesh_t1n73")
 
 [node name="speedlines" type="ColorRect" parent="player"]
-material = SubResource("ShaderMaterial_ljvmy")
+material = SubResource("ShaderMaterial_gh8hm")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1068,8 +1070,8 @@ amount = 300
 lifetime = 6.5
 randomness = 0.6
 visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
-process_material = SubResource("ParticleProcessMaterial_vy761")
-draw_pass_1 = SubResource("BoxMesh_ko53g")
+process_material = SubResource("ParticleProcessMaterial_qui3c")
+draw_pass_1 = SubResource("BoxMesh_osonl")
 
 [node name="SnowParticles" type="GPUParticles3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.465, 0)
@@ -1078,8 +1080,10 @@ lifetime = 6.5
 randomness = 0.6
 visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
 transform_align = 1
-process_material = SubResource("ParticleProcessMaterial_f78ld")
-draw_pass_1 = SubResource("QuadMesh_2vocs")
+process_material = SubResource("ParticleProcessMaterial_wiw5u")
+draw_pass_1 = SubResource("QuadMesh_toip1")
+
+[node name="PauseMenu" parent="player" instance=ExtResource("61_8ss8f")]
 
 [connection signal="timeout" from="player/dash_timer" to="player" method="_dash_end"]
 [connection signal="timeout" from="player/lunge_timer" to="player" method="_on_lunge_timer_timeout"]

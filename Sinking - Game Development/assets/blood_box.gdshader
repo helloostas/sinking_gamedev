@@ -51,5 +51,5 @@ void fragment() {
     ALPHA = finalOpacity;
     EMISSION = vec3(foamEffectRounded) * FoamGlowIntensity;
     METALLIC = 0.0;
-    ROUGHNESS = 1.0;
+    ROUGHNESS = 2.0;
 }
