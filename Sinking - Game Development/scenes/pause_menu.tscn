@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://cppoklkvuvfpj"]
 
 [ext_resource type="Shader" path="res://scripts/pause_menu.gdshader" id="1_1roam"]
-[ext_resource type="FontFile" uid="uid://b3ll66htywhkr" path="res://assets/Pixellari.ttf" id="1_fwa3h"]
 [ext_resource type="Script" path="res://scripts/in_game_pause_menu.gd" id="2_53wbu"]
+[ext_resource type="FontFile" uid="uid://cykoauarp6sf5" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="3_360l0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1jwwf"]
 shader = ExtResource("1_1roam")
@@ -10,11 +10,11 @@ shader_parameter/blur = null
 shader_parameter/brightness = 1.0
 
 [sub_resource type="Theme" id="Theme_lvibi"]
-default_font = ExtResource("1_fwa3h")
+default_font = ExtResource("3_360l0")
 default_font_size = 64
 
 [sub_resource type="Theme" id="Theme_r6n1l"]
-default_font = ExtResource("1_fwa3h")
+default_font = ExtResource("3_360l0")
 default_font_size = 32
 
 [sub_resource type="InputEventAction" id="InputEventAction_xum1x"]
@@ -25,11 +25,11 @@ pressed = true
 events = [SubResource("InputEventAction_xum1x")]
 
 [sub_resource type="Theme" id="Theme_8hvla"]
-default_font = ExtResource("1_fwa3h")
+default_font = ExtResource("3_360l0")
 default_font_size = 32
 
 [sub_resource type="Theme" id="Theme_eyktc"]
-default_font = ExtResource("1_fwa3h")
+default_font = ExtResource("3_360l0")
 default_font_size = 32
 
 [sub_resource type="Animation" id="Animation_lu6is"]
