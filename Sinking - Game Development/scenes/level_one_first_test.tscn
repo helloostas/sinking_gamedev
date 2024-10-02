@@ -1,5 +1,6 @@
-[gd_scene load_steps=99 format=4 uid="uid://bmkevqeffmtrk"]
+[gd_scene load_steps=104 format=4 uid="uid://bmkevqeffmtrk"]
 
+[ext_resource type="Script" path="res://scripts/level_one.gd" id="1_40vb5"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_uxvi7"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_7ygpp"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_cp7kg"]
@@ -563,6 +564,60 @@ fog_sky_affect = 0.0
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.593134, 0.593134, 0.593133, 1)
 
+[sub_resource type="Animation" id="Animation_j1kua"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0q83r"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 1.75, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 2.46229),
+"update": 0,
+"values": [Color(1, 1, 1, 0.967742), Color(1, 1, 1, 0.463426), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p5vya"]
+resource_name = "fade_in_for level_1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.4, 0.833333, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 2.46229),
+"update": 0,
+"values": [Color(1, 1, 1, 0.967742), Color(1, 1, 1, 0.463426), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uglit"]
+_data = {
+"RESET": SubResource("Animation_j1kua"),
+"fade_in": SubResource("Animation_0q83r"),
+"fade_in_for level_1": SubResource("Animation_p5vya")
+}
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onhjw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vk3w"]
@@ -661,6 +716,7 @@ material = SubResource("StandardMaterial3D_1hsrs")
 size = Vector2(0.2, 0.2)
 
 [node name="world" type="Node3D"]
+script = ExtResource("1_40vb5")
 
 [node name="Area3D3" parent="." instance=ExtResource("41_30j3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1073, 18.466, 79.5849)
@@ -718,8 +774,36 @@ light_energy = 48.0
 spot_range = 11.9957
 spot_angle = 34.08
 
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -31.0265, 7.78634, 36.964)
+light_color = Color(1, 1, 0.819608, 1)
+light_energy = 8.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -31.0265, 7.78634, 43.0293)
+light_color = Color(1, 1, 0.819608, 1)
+light_energy = 8.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -31.0265, 7.78634, 46.9684)
+light_color = Color(1, 1, 0.819608, 1)
+light_energy = 8.0
+
+[node name="transition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uglit")
+}
+
+[node name="ColorRect" type="ColorRect" parent="transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -31.284, 4.68183, 42.9721)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -30.7479, 20.5312, 34.2573)
 script = ExtResource("36_eirnb")
 metadata/player = true
 
@@ -797,21 +881,6 @@ process_material = SubResource("ParticleProcessMaterial_t2u7a")
 draw_pass_1 = SubResource("QuadMesh_bxr3x")
 
 [node name="PauseMenu" parent="player" instance=ExtResource("42_gsp7x")]
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -31.0265, 7.78634, 36.964)
-light_color = Color(1, 1, 0.819608, 1)
-light_energy = 8.0
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -31.0265, 7.78634, 43.0293)
-light_color = Color(1, 1, 0.819608, 1)
-light_energy = 8.0
-
-[node name="SpotLight3D4" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -31.0265, 7.78634, 46.9684)
-light_color = Color(1, 1, 0.819608, 1)
-light_energy = 8.0
 
 [connection signal="timeout" from="player/dash_timer" to="player" method="_dash_end"]
 [connection signal="timeout" from="player/lunge_timer" to="player" method="_on_lunge_timer_timeout"]
