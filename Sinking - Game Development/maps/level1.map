@@ -4,7 +4,7 @@
 {
 "mapversion" "220"
 "classname" "worldspawn"
-"_tb_textures" "textures;textures/Gluttony;textures/TEXTURES"
+"_tb_textures" "textures;textures/Gluttony;textures/TEXTURES;textures/card_icons;textures/special;textures/world;textures/world/Gluttony;textures/world/TEXTURES"
 // brush 0
 {
 ( -64 -272 -1360 ) ( -64 304 -1360 ) ( -64 -272 -1056 ) TEXTURES/TECH_1D [ 0 -1 0 0 ] [ 0 0 -1 -16 ] 0 2 2
@@ -16,12 +16,12 @@
 }
 // brush 1
 {
-( -176 288 -1200 ) ( -176 288 -1184 ) ( -176 -256 -1200 ) TEXTURES/RIVET_2C [ 0 -1 0 0 ] [ 0 0 -1 32 ] 0 1 1
-( -176 -192 -1200 ) ( -176 -192 -1184 ) ( 560 -192 -1200 ) TEXTURES/RIVET_2C [ 1 0 0 0 ] [ 0 0 -1 32 ] 0 1 1
-( -176 288 -1200 ) ( -176 -256 -1200 ) ( 560 288 -1200 ) TEXTURES/RIVET_2C [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -176 -256 -1184 ) ( -176 288 -1184 ) ( 560 -256 -1184 ) TEXTURES/RIVET_2C [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 560 160 -1200 ) ( 560 160 -1184 ) ( -176 160 -1200 ) TEXTURES/RIVET_2C [ -1 0 0 0 ] [ 0 0 -1 32 ] 0 1 1
-( 560 -256 -1200 ) ( 560 -256 -1184 ) ( 560 288 -1200 ) TEXTURES/RIVET_2C [ 0 1 0 0 ] [ 0 0 -1 32 ] 0 1 1
+( -176 288 -1200 ) ( -176 288 -1184 ) ( -176 -256 -1200 ) world/Gluttony/flesh2 [ 0 -1 0 0 ] [ 0 0 -1 32 ] 0 1 1
+( -176 -192 -1200 ) ( -176 -192 -1184 ) ( 560 -192 -1200 ) world/Gluttony/flesh2 [ 1 0 0 0 ] [ 0 0 -1 32 ] 0 1 1
+( -176 288 -1200 ) ( -176 -256 -1200 ) ( 560 288 -1200 ) world/Gluttony/flesh2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -176 -256 -1184 ) ( -176 288 -1184 ) ( 560 -256 -1184 ) world/Gluttony/flesh2 [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 560 160 -1200 ) ( 560 160 -1184 ) ( -176 160 -1200 ) world/Gluttony/flesh2 [ -1 0 0 0 ] [ 0 0 -1 32 ] 0 1 1
+( 560 -256 -1200 ) ( 560 -256 -1184 ) ( 560 288 -1200 ) world/Gluttony/flesh2 [ 0 1 0 0 ] [ 0 0 -1 32 ] 0 1 1
 }
 // brush 2
 {

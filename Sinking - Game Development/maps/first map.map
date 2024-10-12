@@ -4,15 +4,15 @@
 {
 "mapversion" "220"
 "classname" "worldspawn"
-"_tb_textures" "textures;textures/Art;textures/Art/Materials;textures/Books;textures/Books/Materials;textures/Boxes;textures/Boxes/Materials;textures/Bricks;textures/Bricks/Materials;textures/Buildings;textures/Buildings/Materials;textures/Concrete;textures/Concrete/Materials;textures/Doors;textures/Doors/Materials;textures/Electrical;textures/Electrical/Materials;textures/Floor;textures/Floor/Materials;textures/Food;textures/Food/Materials;textures/Gems;textures/Gems/Materials;textures/Ground;textures/Ground/Materials;textures/Industrial;textures/Industrial/Materials;textures/Metal;textures/Metal/Materials;textures/Misc;textures/Misc/Colors;textures/Misc/Materials;textures/Nature;textures/Nature/Materials;textures/Panels;textures/Panels/Materials;textures/Papers;textures/Papers/Materials;textures/Products;textures/Products/Materials;textures/Road;textures/Road/Materials;textures/Rocks;textures/Rocks/Materials;textures/Roof;textures/Roof/Materials;textures/Shelves;textures/Shelves/Materials;textures/Signs;textures/Signs/Materials;textures/TEXTURES;textures/Tiles;textures/Tiles/Materials;textures/Tools;textures/Tools/Materials;textures/Units;textures/Units/Materials;textures/Vehicles;textures/Vehicles/Materials;textures/Walls;textures/Walls/Materials;textures/Water;textures/Windows;textures/Windows/Materials;textures/Wood;textures/Wood/Materials"
+"_tb_textures" "textures;textures/Art;textures/Art/Materials;textures/Books;textures/Books/Materials;textures/Boxes;textures/Boxes/Materials;textures/Bricks;textures/Bricks/Materials;textures/Buildings;textures/Buildings/Materials;textures/Concrete;textures/Concrete/Materials;textures/Doors;textures/Doors/Materials;textures/Electrical;textures/Electrical/Materials;textures/Floor;textures/Floor/Materials;textures/Food;textures/Food/Materials;textures/Gems;textures/Gems/Materials;textures/Ground;textures/Ground/Materials;textures/Industrial;textures/Industrial/Materials;textures/Metal;textures/Metal/Materials;textures/Misc;textures/Misc/Colors;textures/Misc/Materials;textures/Nature;textures/Nature/Materials;textures/Panels;textures/Panels/Materials;textures/Papers;textures/Papers/Materials;textures/Products;textures/Products/Materials;textures/Road;textures/Road/Materials;textures/Rocks;textures/Rocks/Materials;textures/Roof;textures/Roof/Materials;textures/Shelves;textures/Shelves/Materials;textures/Signs;textures/Signs/Materials;textures/TEXTURES;textures/Tiles;textures/Tiles/Materials;textures/Tools;textures/Tools/Materials;textures/Units;textures/Units/Materials;textures/Vehicles;textures/Vehicles/Materials;textures/Walls;textures/Walls/Materials;textures/Water;textures/Windows;textures/Windows/Materials;textures/Wood;textures/Wood/Materials;textures/card_icons;textures/special;textures/world;textures/world/Gluttony;textures/world/Gluttony 2;textures/world/TEXTURES;textures/world/TEXTURES 2"
 // brush 0
 {
-( 0 0 -64 ) ( 0 0 -65 ) ( 0 1 -64 ) TEXTURES/TILE_7G [ -1.232595164407831e-32 1.8369701987210297e-16 1 0 ] [ 6.123233995736766e-17 -1 1.8369701987210297e-16 0 ] 270 1 1
-( 64 -2560 0 ) ( 64 -2560 -1 ) ( 63 -2560 0 ) TEXTURES/TILE_7G [ -1.232595164407831e-32 1.8369701987210297e-16 1 0 ] [ 1 6.123233995736766e-17 0 0 ] 0 1 1
-( 0 0 -64 ) ( 0 1 -64 ) ( -1 0 -64 ) TEXTURES/TILE_7G [ -1 -6.123233995736766e-17 0 0 ] [ 6.123233995736766e-17 -1 1.8369701987210297e-16 0 ] 270 1 1
-( 64 -64 0 ) ( 63 -64 0 ) ( 64 -63 0 ) TEXTURES/TILE_7G [ 1 6.123233995736766e-17 0 0 ] [ 6.123233995736766e-17 -1 1.8369701987210297e-16 0 ] 90 1 1
-( 0 320 -64 ) ( -1 320 -64 ) ( 0 320 -65 ) TEXTURES/TILE_7G [ 1.232595164407831e-32 -1.8369701987210297e-16 -1 0 ] [ 1 6.123233995736766e-17 0 0 ] 0 1 1
-( 1248 -64 0 ) ( 1248 -63 0 ) ( 1248 -64 -1 ) TEXTURES/TILE_7G [ 1.232595164407831e-32 -1.8369701987210297e-16 -1 0 ] [ 6.123233995736766e-17 -1 1.8369701987210297e-16 0 ] 90 1 1
+( 0 0 -64 ) ( 0 0 -65 ) ( 0 1 -64 ) world/TEXTURES/CONCRETE_2C [ -1.232595164407831e-32 1.8369701987210297e-16 1 0 ] [ 6.123233995736766e-17 -1 1.8369701987210297e-16 0 ] 270 1 1
+( 64 -2560 0 ) ( 64 -2560 -1 ) ( 63 -2560 0 ) world/TEXTURES/CONCRETE_2C [ -1.232595164407831e-32 1.8369701987210297e-16 1 0 ] [ 1 6.123233995736766e-17 0 0 ] 0 1 1
+( 0 0 -64 ) ( 0 1 -64 ) ( -1 0 -64 ) world/TEXTURES/CONCRETE_2C [ -1 -6.123233995736766e-17 0 0 ] [ 6.123233995736766e-17 -1 1.8369701987210297e-16 0 ] 270 1 1
+( 64 -64 0 ) ( 63 -64 0 ) ( 64 -63 0 ) world/TEXTURES/CONCRETE_2C [ 1 6.123233995736766e-17 0 0 ] [ 6.123233995736766e-17 -1 1.8369701987210297e-16 0 ] 90 1 1
+( 0 320 -64 ) ( -1 320 -64 ) ( 0 320 -65 ) world/TEXTURES/CONCRETE_2C [ 1.232595164407831e-32 -1.8369701987210297e-16 -1 0 ] [ 1 6.123233995736766e-17 0 0 ] 0 1 1
+( 1248 -64 0 ) ( 1248 -63 0 ) ( 1248 -64 -1 ) world/TEXTURES/CONCRETE_2C [ 1.232595164407831e-32 -1.8369701987210297e-16 -1 0 ] [ 6.123233995736766e-17 -1 1.8369701987210297e-16 0 ] 90 1 1
 }
 // brush 1
 {
@@ -43,21 +43,21 @@
 }
 // brush 4
 {
-( 160 -720 224 ) ( 160 -592 0 ) ( 160 -592 224 ) TEXTURES/TILE_7F [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 336 -1952 224 ) ( 160 -1952 0 ) ( 160 -1952 224 ) TEXTURES/TILE_7F [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 336 -592 0 ) ( 160 -720 0 ) ( 336 -720 0 ) TEXTURES/TILE_7F [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 336 -592 480 ) ( 160 -720 480 ) ( 160 -592 480 ) TEXTURES/TILE_7F [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 336 -592 224 ) ( 160 -592 0 ) ( 336 -592 0 ) TEXTURES/TILE_7F [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 336 -592 224 ) ( 336 -720 0 ) ( 336 -720 224 ) TEXTURES/TILE_7F [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 160 -720 224 ) ( 160 -592 0 ) ( 160 -592 224 ) world/TEXTURES/FENCE_1A [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 336 -1952 224 ) ( 160 -1952 0 ) ( 160 -1952 224 ) world/TEXTURES/FENCE_1A [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 336 -592 0 ) ( 160 -720 0 ) ( 336 -720 0 ) world/TEXTURES/FENCE_1A [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 336 -592 480 ) ( 160 -720 480 ) ( 160 -592 480 ) world/TEXTURES/FENCE_1A [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 336 -592 224 ) ( 160 -592 0 ) ( 336 -592 0 ) world/TEXTURES/FENCE_1A [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 336 -592 224 ) ( 336 -720 0 ) ( 336 -720 224 ) world/TEXTURES/FENCE_1A [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 // brush 5
 {
-( 480 -672 160 ) ( 480 -560 0 ) ( 480 -560 160 ) TEXTURES/STEEL_2C [ 0 -1 0 16 ] [ 0 0 -1 0 ] 0 1 1
-( 608 -1968 160 ) ( 480 -1968 0 ) ( 480 -1968 160 ) TEXTURES/STEEL_2C [ 1 0 0 16 ] [ 0 0 -1 0 ] 0 1 1
-( 608 -560 0 ) ( 480 -672 0 ) ( 608 -672 0 ) TEXTURES/STEEL_2C [ -1 0 0 -16 ] [ 0 -1 0 16 ] 0 1 1
-( 608 -560 480 ) ( 480 -672 480 ) ( 480 -560 480 ) TEXTURES/STEEL_2C [ 1 0 0 16 ] [ 0 -1 0 16 ] 0 1 1
-( 608 -560 160 ) ( 480 -560 0 ) ( 608 -560 0 ) TEXTURES/STEEL_2C [ -1 0 0 -16 ] [ 0 0 -1 0 ] 0 1 1
-( 608 -560 160 ) ( 608 -672 0 ) ( 608 -672 160 ) TEXTURES/STEEL_2C [ 0 1 0 -16 ] [ 0 0 -1 0 ] 0 1 1
+( 480 -672 160 ) ( 480 -560 0 ) ( 480 -560 160 ) world/TEXTURES/FLOOR_3A [ 0 -1 0 16 ] [ 0 0 -1 0 ] 0 1 1
+( 608 -1968 160 ) ( 480 -1968 0 ) ( 480 -1968 160 ) world/TEXTURES/FLOOR_3A [ 1 0 0 16 ] [ 0 0 -1 0 ] 0 1 1
+( 608 -560 0 ) ( 480 -672 0 ) ( 608 -672 0 ) world/TEXTURES/FLOOR_3A [ -1 0 0 -16 ] [ 0 -1 0 16 ] 0 1 1
+( 608 -560 480 ) ( 480 -672 480 ) ( 480 -560 480 ) world/TEXTURES/FLOOR_3A [ 1 0 0 16 ] [ 0 -1 0 16 ] 0 1 1
+( 608 -560 160 ) ( 480 -560 0 ) ( 608 -560 0 ) world/TEXTURES/FLOOR_3A [ -1 0 0 -16 ] [ 0 0 -1 0 ] 0 1 1
+( 608 -560 160 ) ( 608 -672 0 ) ( 608 -672 160 ) world/TEXTURES/FLOOR_3A [ 0 1 0 -16 ] [ 0 0 -1 0 ] 0 1 1
 }
 // brush 6
 {
