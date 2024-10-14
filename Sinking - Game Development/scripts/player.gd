@@ -363,12 +363,14 @@ func _dash_end():
 	velocity.y = 0
 	$speedlines.material.set_shader_parameter("line_density", 0.0)
 
+
 func _on_lunge_timer_timeout():
 	is_lunging = false
 
 
 func _on_wall_jump_timer_timeout():
 	is_wall_jumping = false
+
 
 func camera_zoom_out(duration: float) -> void:
 	if cam_dash_tween and cam_dash_tween.is_running():
@@ -378,6 +380,7 @@ func camera_zoom_out(duration: float) -> void:
 	cam_dash_tween.tween_property(camera_3d, "fov", 100.0, 0.3)
 	cam_dash_tween.tween_interval(duration-0.2)
 	cam_dash_tween.tween_property(camera_3d, "fov", 90.0, 0.4)
+
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("ui_cancel"):
