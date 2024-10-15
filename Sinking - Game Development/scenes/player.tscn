@@ -1,32 +1,33 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0x5crdcrwvvw"]
+[gd_scene load_steps=22 format=3 uid="uid://b0x5crdcrwvvw"]
 
-[ext_resource type="Script" path="res://scenes/player_node.gd" id="1_xpjci"]
+[ext_resource type="Script" path="res://scripts/player_node.gd" id="1_xpjci"]
 [ext_resource type="Shader" path="res://scripts/test.gdshader" id="2_udt5k"]
 [ext_resource type="Shader" path="res://scripts/speedlines.gdshader" id="3_a5qff"]
+[ext_resource type="PackedScene" uid="uid://cppoklkvuvfpj" path="res://scenes/pause_menu.tscn" id="4_52dax"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3nop0"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pqwnp"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qlf3v"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fv3gt"]
 radius = 0.35
 height = 0.7
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rolw6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2uxlu"]
 render_priority = 0
 shader = ExtResource("2_udt5k")
 
-[sub_resource type="QuadMesh" id="QuadMesh_5tw0i"]
-material = SubResource("ShaderMaterial_rolw6")
+[sub_resource type="QuadMesh" id="QuadMesh_4f6nd"]
+material = SubResource("ShaderMaterial_2uxlu")
 size = Vector2(10, 10)
 orientation = 1
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_lilsw"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kb5vd"]
 noise_type = 5
 frequency = 0.2
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g18bu"]
-noise = SubResource("FastNoiseLite_lilsw")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ggp1a"]
+noise = SubResource("FastNoiseLite_kb5vd")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ok73s"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nwtud"]
 shader = ExtResource("3_a5qff")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_count = 0.5
@@ -35,16 +36,16 @@ shader_parameter/line_faloff = 1.0
 shader_parameter/mask_size = 0.049
 shader_parameter/mask_edge = 1.0
 shader_parameter/animation_speed = 20.0
-shader_parameter/noise = SubResource("NoiseTexture2D_g18bu")
+shader_parameter/noise = SubResource("NoiseTexture2D_ggp1a")
 
-[sub_resource type="Curve" id="Curve_djuf6"]
+[sub_resource type="Curve" id="Curve_3yx8e"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_cia3k"]
-curve = SubResource("Curve_djuf6")
+[sub_resource type="CurveTexture" id="CurveTexture_t8s6u"]
+curve = SubResource("Curve_3yx8e")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0wdxh"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tgamy"]
 particle_flag_rotate_y = true
 emission_shape = 3
 emission_box_extents = Vector3(50, 10, 50)
@@ -57,24 +58,24 @@ angular_velocity_max = 257.63
 gravity = Vector3(0, 0, 0)
 scale_min = 0.02
 scale_max = 0.07
-alpha_curve = SubResource("CurveTexture_cia3k")
+alpha_curve = SubResource("CurveTexture_t8s6u")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uloux"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k12o"]
 vertex_color_use_as_albedo = true
 emission = Color(1, 1, 1, 1)
 disable_receive_shadows = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_rwv6e"]
-material = SubResource("StandardMaterial3D_uloux")
+[sub_resource type="BoxMesh" id="BoxMesh_v5gew"]
+material = SubResource("StandardMaterial3D_0k12o")
 
-[sub_resource type="Curve" id="Curve_5b285"]
+[sub_resource type="Curve" id="Curve_ehgxo"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_8y4m1"]
-curve = SubResource("Curve_5b285")
+[sub_resource type="CurveTexture" id="CurveTexture_tjahs"]
+curve = SubResource("Curve_ehgxo")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vsv1w"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kq4x6"]
 emission_shape = 3
 emission_box_extents = Vector3(50, 4, 50)
 angle_max = 720.0
@@ -87,18 +88,18 @@ angular_velocity_max = 257.63
 gravity = Vector3(0, -6, 0)
 scale_min = 0.2
 scale_max = 0.45
-alpha_curve = SubResource("CurveTexture_8y4m1")
+alpha_curve = SubResource("CurveTexture_tjahs")
 turbulence_enabled = true
 turbulence_noise_strength = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jf84b"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0hym"]
 transparency = 1
 blend_mode = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
 
-[sub_resource type="QuadMesh" id="QuadMesh_p8882"]
-material = SubResource("StandardMaterial3D_jf84b")
+[sub_resource type="QuadMesh" id="QuadMesh_cm37i"]
+material = SubResource("StandardMaterial3D_g0hym")
 size = Vector2(0.2, 0.2)
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
@@ -106,16 +107,15 @@ script = ExtResource("1_xpjci")
 metadata/player = false
 
 [node name="standing_collision_shape" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.0492, 37.5526, 34.2001)
-shape = SubResource("CapsuleShape3D_3nop0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_pqwnp")
 
 [node name="crouching_collision_shape" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.0492, 36.9047, 34.2001)
-shape = SubResource("CapsuleShape3D_qlf3v")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.352126, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_fv3gt")
 disabled = true
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.0492, 36.5526, 34.2001)
 target_position = Vector3(2.08165e-12, 2, 2.08165e-12)
 
 [node name="dash_timer" type="Timer" parent="."]
@@ -128,7 +128,7 @@ one_shot = true
 [node name="dash_fov_timer" type="Timer" parent="."]
 
 [node name="neck" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.0492, 38.3526, 34.2001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.8, 2.08165e-12)
 
 [node name="head" type="Node3D" parent="neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -138,10 +138,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="neck/head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
 visible = false
-mesh = SubResource("QuadMesh_5tw0i")
+mesh = SubResource("QuadMesh_4f6nd")
 
 [node name="speedlines" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_ok73s")
+material = SubResource("ShaderMaterial_nwtud")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -149,32 +149,34 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="left collision" type="RayCast3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.0492, 37.8026, 34.2001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.25, 2.08165e-12)
 target_position = Vector3(-1.5, 2.08165e-12, 2.08165e-12)
 hit_from_inside = true
 
 [node name="right collision" type="RayCast3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.0492, 37.8086, 34.2001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.256, 2.08165e-12)
 target_position = Vector3(1.5, 2.08165e-12, 2.08165e-12)
 hit_from_inside = true
 
 [node name="DustParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.0492, 44.5526, 34.2001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
 visible = false
 emitting = false
 amount = 300
 lifetime = 6.5
 randomness = 0.6
 visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
-process_material = SubResource("ParticleProcessMaterial_0wdxh")
-draw_pass_1 = SubResource("BoxMesh_rwv6e")
+process_material = SubResource("ParticleProcessMaterial_tgamy")
+draw_pass_1 = SubResource("BoxMesh_v5gew")
 
 [node name="SnowParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.0492, 40.0176, 34.2001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.465, 0)
 amount = 650
 lifetime = 6.5
 randomness = 0.6
 visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
 transform_align = 1
-process_material = SubResource("ParticleProcessMaterial_vsv1w")
-draw_pass_1 = SubResource("QuadMesh_p8882")
+process_material = SubResource("ParticleProcessMaterial_kq4x6")
+draw_pass_1 = SubResource("QuadMesh_cm37i")
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_52dax")]

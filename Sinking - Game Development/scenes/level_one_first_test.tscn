@@ -2360,14 +2360,14 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vk3w"]
 radius = 0.35
-height = 0.7
+height = 1.2
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o28bi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvccs"]
 render_priority = 0
 shader = ExtResource("37_ehngf")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ukt2x"]
-material = SubResource("ShaderMaterial_o28bi")
+material = SubResource("ShaderMaterial_uvccs")
 size = Vector2(10, 10)
 orientation = 1
 
@@ -2375,7 +2375,7 @@ orientation = 1
 noise_type = 5
 frequency = 0.2
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qxro6"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nyfc1"]
 noise = SubResource("FastNoiseLite_bchj0")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ytd8v"]
@@ -2387,13 +2387,13 @@ shader_parameter/line_faloff = 1.0
 shader_parameter/mask_size = 0.049
 shader_parameter/mask_edge = 1.0
 shader_parameter/animation_speed = 20.0
-shader_parameter/noise = SubResource("NoiseTexture2D_qxro6")
+shader_parameter/noise = SubResource("NoiseTexture2D_nyfc1")
 
 [sub_resource type="Curve" id="Curve_857kj"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_r1bc0"]
+[sub_resource type="CurveTexture" id="CurveTexture_e2f16"]
 curve = SubResource("Curve_857kj")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i5bnd"]
@@ -2409,21 +2409,21 @@ angular_velocity_max = 257.63
 gravity = Vector3(0, 0, 0)
 scale_min = 0.02
 scale_max = 0.07
-alpha_curve = SubResource("CurveTexture_r1bc0")
+alpha_curve = SubResource("CurveTexture_e2f16")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njmvu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpgnj"]
 vertex_color_use_as_albedo = true
 emission = Color(1, 1, 1, 1)
 disable_receive_shadows = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_0eu1f"]
-material = SubResource("StandardMaterial3D_njmvu")
+material = SubResource("StandardMaterial3D_fpgnj")
 
 [sub_resource type="Curve" id="Curve_a4xp8"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_4ygc4"]
+[sub_resource type="CurveTexture" id="CurveTexture_d2x1l"]
 curve = SubResource("Curve_a4xp8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t2u7a"]
@@ -2439,18 +2439,18 @@ angular_velocity_max = 257.63
 gravity = Vector3(0, -6, 0)
 scale_min = 0.2
 scale_max = 0.45
-alpha_curve = SubResource("CurveTexture_4ygc4")
+alpha_curve = SubResource("CurveTexture_d2x1l")
 turbulence_enabled = true
 turbulence_noise_strength = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hsrs"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32kbe"]
 transparency = 1
 blend_mode = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_bxr3x"]
-material = SubResource("StandardMaterial3D_1hsrs")
+material = SubResource("StandardMaterial3D_32kbe")
 size = Vector2(0.2, 0.2)
 
 [node name="world" type="Node3D"]
@@ -3561,7 +3561,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.43725, -36.2562, 8.94226)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.351382, -26.9452, 1.7247)
 script = ExtResource("36_eirnb")
 metadata/player = true
 
@@ -3570,7 +3570,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
 shape = SubResource("CapsuleShape3D_onhjw")
 
 [node name="crouching_collision_shape" type="CollisionShape3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.352126, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596479, 0)
 shape = SubResource("CapsuleShape3D_4vk3w")
 disabled = true
 
@@ -3644,7 +3644,7 @@ draw_pass_1 = SubResource("QuadMesh_bxr3x")
 transform = Transform3D(0.0410735, 0, 0.999156, 0, 1, 0, -0.999156, 0, 0.0410735, 24.3115, -27.0298, 77.1171)
 
 [node name="Area3D6" parent="." instance=ExtResource("40_k1gfl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.506, -25, 21.0928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.809, -25, 9.23857)
 
 [node name="Area3D7" parent="." instance=ExtResource("41_30j3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.3622, -24.7944, 40.2691)
@@ -3664,11 +3664,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.8769, -28.0371, -6.81057)
 [node name="Area3D13" parent="." instance=ExtResource("40_k1gfl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.1445, -15, 70.9489)
 
-[node name="Area3D" parent="." instance=ExtResource("40_k1gfl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.9177, -25.0009, 75.4287)
-
 [node name="Area3D2" parent="." instance=ExtResource("41_30j3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6893, -9.5, 76.6848)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.410417, 0.889038, 0.202903, -0.534683, 0.0543668, 0.843302, 0.738697, -0.454594, 0.497666, 100.103, -13.7869, 55.9292)
+light_color = Color(0.949249, 0.419152, 0.287297, 1)
+light_energy = 16.0
+spot_range = 4096.0
+
+[node name="Area3D" parent="." instance=ExtResource("41_30j3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.2573, -25, 74.1901)
 
 [connection signal="timeout" from="player/dash_timer" to="player" method="_dash_end"]
 [connection signal="timeout" from="player/lunge_timer" to="player" method="_on_lunge_timer_timeout"]

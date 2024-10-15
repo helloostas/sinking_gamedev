@@ -12,32 +12,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dmg2x")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.99988
-offset_top = 9.0
-offset_right = 7.99988
-offset_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.99186, 0.976978)
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MarginContainer"]
+layout_mode = 2
 stream = ExtResource("2_opj78")
 autoplay = true
 loop = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="MarginContainer"]
 wait_time = 3.0
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MarginContainer/Timer" to="." method="_on_timer_timeout"]

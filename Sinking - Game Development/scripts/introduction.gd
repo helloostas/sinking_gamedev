@@ -24,18 +24,18 @@ func start_function():
 
 func _on_intro_words_1_body_entered(body):
 	if body.has_meta("player"):
-		print("yes!")
+		print("check_1")
 		text_one.play("text1 disappear")
 
 func _on_intro_words_2_body_entered(body):
 	if body.has_meta("player"):
-		print("yes2")
+		print("check_2")
 		text_two.play("text two start")
 
 
 func _on_area_3d_body_entered(body):
 	if body.has_meta("player"):
-		print("yes3")
+		print("check_3")
 		sinking_animation.play("sinking_start")
 		get_tree().change_scene_to_file("res://scenes/bigtitle.tscn")
 	
