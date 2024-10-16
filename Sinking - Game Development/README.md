@@ -1,4 +1,4 @@
-## Game Development Project for Digital Technologies 2024
+## Game Development Project for Year 13 Digital Technologies 2024
 ### Stas Tigay - 2024
 
-Sinking is a game inspired by other games like Neon White, Bloodthief and A Short Hike. 
+Sinking is a game created for the Year 13 Digital Technologies Internal Assesment.
