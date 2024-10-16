@@ -1,6 +1,7 @@
 extends Node3D
 @onready var transition = $transition
 
+# Loads scene animation
 func _ready():
 	start_function()
 

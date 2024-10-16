@@ -4,9 +4,10 @@ extends Area3D
 # Defining Variables
 var type
 var player_position
+var player_meta = "player"
 
 # Card Rotation
-func _process(delta):
+func _process(_delta):
 	player_position = player.position
 	look_at(player_position)
 	rotation.x = clamp(player_position.y, deg_to_rad(0), deg_to_rad(0))
@@ -14,7 +15,7 @@ func _process(delta):
 
 # Dash Ability
 func _on_body_entered(body):
-	if body.has_meta("player"):
+	if body.has_meta(player_meta):
 		if len(body.on_hand_abilities) <= 1:
 			type = body.global_abilities[1]
 			body.on_hand_abilities.append(type)

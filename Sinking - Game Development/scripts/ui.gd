@@ -3,6 +3,7 @@ var cards_string = "transparent_transparent" # Default value
 
 @onready var card_texture = $MarginContainer/card_texture as TextureRect
 
+# Dictionary containing all possible card configurations
 const CARD_COMBINATIONS = {
 	"dash_dash" : "res://godot textures/UI_CARDS/dash_dash.png",
 	"dash_double_jump" : "res://godot textures/UI_CARDS/dash_jump.png",
@@ -26,12 +27,14 @@ func _ready():
 	# Call load_card_texture initially with the default or updated cards_string
 	load_card_texture()
 
+
+# Loads the cards held by the player to a new variable that matches the keys from the dictionary
 func update_cards(card_1, card_2):
 		cards_string = str(card_1 + "_" + card_2)
-		print(cards_string)
+		#print(cards_string)
 		load_card_texture()
 
+
+# Matches the card texture to the cards held by the player
 func load_card_texture():
 	card_texture.texture = load(CARD_COMBINATIONS[cards_string])
-
-#match to texture using dictionary and texture rect

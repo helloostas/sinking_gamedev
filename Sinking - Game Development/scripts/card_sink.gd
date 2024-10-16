@@ -1,9 +1,10 @@
 extends Area3D
 @onready var player = $"../player"
 
-
+# Defining Variables
 var type
 var player_position
+var player_meta = "player"
 
 # Card Rotation
 func _process(delta):
@@ -12,9 +13,9 @@ func _process(delta):
 	rotation.x = clamp(player_position.y, deg_to_rad(0), deg_to_rad(0))
 
 
-# Lunge Ability
+# Sink Ability
 func _on_body_entered(body):
-	if body.has_meta("player"):
+	if body.has_meta(player_meta):
 		if len(body.on_hand_abilities) <= 1:
 			type = body.global_abilities[2]
 			body.on_hand_abilities.append(type)

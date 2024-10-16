@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://2snpd6ou0vqt"]
+
+[ext_resource type="PackedScene" uid="uid://bmbylg4rtp215" path="res://scenes/options_display_button.tscn" id="1_wxfbs"]
+[ext_resource type="Script" path="res://scripts/resolution_mode_button.gd" id="2_nayiy"]
+[ext_resource type="FontFile" uid="uid://cykoauarp6sf5" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="3_r2j67"]
+
+[node name="Resolution_Mode_Button" instance=ExtResource("1_wxfbs")]
+script = ExtResource("2_nayiy")
+
+[node name="Label" parent="HBoxContainer" index="0"]
+theme_override_fonts/font = ExtResource("3_r2j67")
+theme_override_font_sizes/font_size = 64
+text = "Resolution"
+
+[node name="VSeparator" parent="HBoxContainer" index="1"]
+theme_override_constants/separation = 200
+
+[node name="OptionButton" parent="HBoxContainer" index="2"]
+custom_minimum_size = Vector2(350, 64)
+theme_override_fonts/font = ExtResource("3_r2j67")
+theme_override_font_sizes/font_size = 32

@@ -1,4 +1,5 @@
-class_name HotkeyRebindButton
+#class_name HotkeyRebindButton
+
 extends Control
 
 @onready var label = $HBoxContainer/Label as Label
@@ -6,12 +7,14 @@ extends Control
 @export var action_name : String = "forward"
 
 var button_setting_text = "Press any key..."
+var hotkey_node =  "hotkey_button"
 
 # Displaying Processes
 func _ready():
 	set_process_unhandled_key_input(false)
 	set_action_name()
 	set_text_for_key()
+
 
 # Setting the display names
 func set_action_name() -> void:
@@ -35,7 +38,6 @@ func set_action_name() -> void:
 		"jump":
 			label.text = "Jump"
 
-
 # Setting name for rebinded keys
 func set_text_for_key() -> void:
 	var action_events = InputMap.action_get_events(action_name)
@@ -50,23 +52,27 @@ func _on_button_toggled(button_pressed):
 		button.text = button_setting_text
 		set_process_unhandled_key_input(button_pressed)
 		
-		for i in get_tree().get_nodes_in_group("hotkey_button"):
+		for i in get_tree().get_nodes_in_group(hotkey_node):
 			if i.action_name != self.action_name:
 				i.button.toggle_mode = false
 				i.set_process_unhandled_key_input(false)
 	else:
 		
-		for i in get_tree().get_nodes_in_group("hotkey_button"):
+		for i in get_tree().get_nodes_in_group(hotkey_node):
 			if i.action_name != self.action_name:
 				i.button.toggle_mode = true
 				i.set_process_unhandled_key_input(false)
 				
 		set_text_for_key()
 
+
+# Capture the key input when the button is pressed and awaiting a key
 func _unhandled_key_input(event):
 	rebind_action_key(event)
 	button.button_pressed = false
-	
+
+
+# Function to rebind the action to the new key
 func rebind_action_key(event) -> void:
 	InputMap.action_erase_events(action_name)
 	InputMap.action_add_event(action_name, event)

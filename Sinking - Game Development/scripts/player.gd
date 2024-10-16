@@ -1,32 +1,26 @@
 extends CharacterBody3D
 
 # Player Nodes
-
 @onready var head = $neck/head
 @onready var standing_collision_shape = $standing_collision_shape
 @onready var crouching_collision_shape = $crouching_collision_shape
 @onready var ray_cast_3d = $RayCast3D
 @onready var camera_3d = $neck/head/Camera3D
 @onready var neck = $neck
-@onready var wall_running_collision = $"wall running collision"
-
+#@onready var wall_running_collision = $"wall running collision"
 @export var cards : Node
 
-
 # Abilities
-
 var global_abilities = ["double_jump", "dash", "sink", "lunge"]
 var on_hand_abilities = []
 
 # Speed Varibles
-
 var current_speed = 5.0
 const WALKING_SPEED = 15.0
 const SPRINTING_SPEED = 15.0
 const CROUCHING_SPEED = 10.0
 
 # States
-
 var walking = false
 var sprinting = false
 var crouching = false
@@ -35,7 +29,6 @@ var moving_right = false
 var sliding = false
 
 # Movement Variables
-
 var crouch_depth = -0.5
 var lerp_speed = 10.0
 var lerp_rotation_speed = 10.0
@@ -45,7 +38,6 @@ const DOUBLE_JUMP_VELOCITY = 10
 const SINK_VELOCITY = 20
 
 # Camera Variables
-
 var left_move_tilt_ammount = 5
 var right_move_tilt_ammount = -5
 var time = 0
@@ -67,57 +59,48 @@ var wall_run_ammount = 0
 const WALL_JUMP_DURATION = 0.1
 
 # Dash Variables
-
 var dash_timer = 0.0
 var dash_direction
 var is_dashing = false
+var cam_dash_tween: Tween
 const DASH_VELOCITY = 7
 const DASH_DURATION = 0.1
 const DASH_FOV_DURATION = 0.7
 
 # Lunge Variables
-
 var lunge_dir = Vector3()
 var is_lunging = false
 var lunge_velocity = 10
 var lunge_duration = 0.2
 
-
-var cam_dash_tween: Tween
-
 # Input variables
-
 var direction = Vector3.ZERO
 const MOUSE_SENSITIVITY = 0.4
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Setting the Mouse Sensitivity
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-# Mouse movement
 
+# Mouse movement
 func _input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENSITIVITY))
 		head.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENSITIVITY))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
-# Physics Processes
 
+# Physics Processes
 func _physics_process(delta):
 	$speedlines.material.set_shader_parameter("line_density", 0.0)
 	
 # Getting the Input Direction and Handling the Movement / Deceleration
-	
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	
 # Crouching
-	
 	if Input.is_action_pressed("crounch") && is_on_floor():
 		
 		current_speed = CROUCHING_SPEED
@@ -191,13 +174,12 @@ func _physics_process(delta):
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, 0.0, delta * lerp_speed)
 
 # Handle Wall run
-
 	if $"left collision".is_colliding() and not is_on_floor():
 		left_collision = true
 		wall_collision = true
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, deg_to_rad(-20), delta * lerp_rotation_speed)
 		
-		if Input.is_action_just_pressed("ui_accept") and wall_run_ammount < 2:
+		if Input.is_action_just_pressed("jump") and wall_run_ammount < 2:
 			$wall_jump_timer.start(WALL_JUMP_DURATION)
 			is_wall_jumping = true
 			velocity.y = wall_JUMP_VELOCITY
@@ -209,7 +191,7 @@ func _physics_process(delta):
 		wall_collision = true
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, deg_to_rad(20), delta * lerp_rotation_speed)
 		
-		if Input.is_action_just_pressed("ui_accept") and wall_run_ammount < 2:
+		if Input.is_action_just_pressed("jump") and wall_run_ammount < 2:
 			$wall_jump_timer.start(WALL_JUMP_DURATION)
 			is_wall_jumping = true
 			velocity.y = wall_JUMP_VELOCITY
@@ -220,7 +202,6 @@ func _physics_process(delta):
 		wall_collision = false
 
 # Handle sliding
-
 	if sliding:
 		slide_timer -= delta
 		$speedlines.material.set_shader_parameter("line_density", 1.0)
@@ -232,7 +213,6 @@ func _physics_process(delta):
 			sprinting = false
 
 	# Handling the dash
-	
 	if not is_on_floor() and not is_dashing: #and not is_lunging:
 		
 # Add the gravity.
@@ -248,7 +228,7 @@ func _physics_process(delta):
 
 # Handle jump.
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
 # Lerp speed - will decellerate from whatever speed player is moving at
@@ -335,15 +315,15 @@ func _physics_process(delta):
 				card_disposed()
 				#print(on_hand_abilities)
 
-			elif on_hand_abilities[0] == "lunge":
-				is_lunging = true
-				$lunge_timer.start(lunge_duration)
-				lunge_dir = $neck/head.transform.basis.z
-				lunge_dir = transform.basis.z
-				#print(on_hand_abilities[0])
-				on_hand_abilities.remove_at(0)
-				card_disposed()
-				#print(on_hand_abilities)
+			#elif on_hand_abilities[0] == "lunge":
+				#is_lunging = true
+				#$lunge_timer.start(lunge_duration)
+				#lunge_dir = $neck/head.transform.basis.z
+				#lunge_dir = transform.basis.z
+				##print(on_hand_abilities[0])
+				#on_hand_abilities.remove_at(0)
+				#card_disposed()
+				##print(on_hand_abilities)
 				
 			else:
 				pass
