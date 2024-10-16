@@ -3,14 +3,17 @@ extends Control
 
 @onready var label = $HBoxContainer/Label as Label
 @onready var button = $HBoxContainer/Button as Button
-
 @export var action_name : String = "forward"
 
+var button_setting_text = "Press any key..."
+
+# Displaying Processes
 func _ready():
 	set_process_unhandled_key_input(false)
 	set_action_name()
 	set_text_for_key()
 
+# Setting the display names
 func set_action_name() -> void:
 	label.text = "Unassigned"
 	
@@ -32,16 +35,19 @@ func set_action_name() -> void:
 		"jump":
 			label.text = "Jump"
 
+
+# Setting name for rebinded keys
 func set_text_for_key() -> void:
 	var action_events = InputMap.action_get_events(action_name)
 	var action_event = action_events[0]
 	var action_keycode = OS.get_keycode_string(action_event.physical_keycode)
-	
 	button.text = "%s" % action_keycode
 
+
+# Button Pressed
 func _on_button_toggled(button_pressed):
 	if button_pressed:
-		button.text = "Press any key..."
+		button.text = button_setting_text
 		set_process_unhandled_key_input(button_pressed)
 		
 		for i in get_tree().get_nodes_in_group("hotkey_button"):

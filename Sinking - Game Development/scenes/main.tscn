@@ -1,10 +1,9 @@
-[gd_scene load_steps=150 format=4 uid="uid://c3spvehy3qpes"]
+[gd_scene load_steps=130 format=4 uid="uid://c3spvehy3qpes"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_0bc4d"]
 [ext_resource type="Texture2D" uid="uid://eoc11m7u21st" path="res://godot textures/dev/grids/Dark/texture_07.png" id="1_5wyxs"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_uq0mr"]
 [ext_resource type="Material" uid="uid://cyfcyctvv1rdh" path="res://textures/world/TEXTURES/CONCRETE_2C.tres" id="3_pwxta"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="3_ss8hf"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="4_p87bx"]
 [ext_resource type="Material" uid="uid://bucx3a20joui8" path="res://textures/world/TEXTURES/FENCE_1A.tres" id="5_a71lf"]
 [ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="5_e7ufg"]
@@ -12,10 +11,8 @@
 [ext_resource type="Material" uid="uid://cuoidtibw25ei" path="res://textures/world/TEXTURES/FLOOR_3A.tres" id="6_y4c4d"]
 [ext_resource type="PackedScene" uid="uid://cudqyxiii220g" path="res://scenes/card_lunge.tscn" id="7_ihqt3"]
 [ext_resource type="PackedScene" uid="uid://bj8yvn4vc7kkb" path="res://scenes/card_sink.tscn" id="8_n75hf"]
+[ext_resource type="PackedScene" uid="uid://b0x5crdcrwvvw" path="res://scenes/player.tscn" id="13_4fx48"]
 [ext_resource type="Texture2D" uid="uid://bkvmj3kaio78v" path="res://assets/hdris/Mud Road Pure Sky 4k.exr" id="17_xa0av"]
-[ext_resource type="Shader" path="res://scripts/speedlines.gdshader" id="19_fcwm1"]
-[ext_resource type="Shader" path="res://scripts/test.gdshader" id="59_bek4a"]
-[ext_resource type="PackedScene" uid="uid://cppoklkvuvfpj" path="res://scenes/pause_menu.tscn" id="61_8ss8f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3vul"]
 albedo_texture = ExtResource("4_p87bx")
@@ -1058,103 +1055,6 @@ fog_sky_affect = 0.0
 volumetric_fog_density = 0.0028
 volumetric_fog_albedo = Color(0.286275, 0.0235294, 0.0705882, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7hvhs"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h5kxh"]
-radius = 0.35
-height = 1.2
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5fxb4"]
-render_priority = 0
-shader = ExtResource("59_bek4a")
-
-[sub_resource type="QuadMesh" id="QuadMesh_lstk2"]
-material = SubResource("ShaderMaterial_5fxb4")
-size = Vector2(10, 10)
-orientation = 1
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ydf0y"]
-noise_type = 5
-frequency = 0.2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_65qur"]
-noise = SubResource("FastNoiseLite_ydf0y")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_75kew"]
-shader = ExtResource("19_fcwm1")
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_count = 0.5
-shader_parameter/line_density = 1.0
-shader_parameter/line_faloff = 1.0
-shader_parameter/mask_size = 0.049
-shader_parameter/mask_edge = 1.0
-shader_parameter/animation_speed = 20.0
-shader_parameter/noise = SubResource("NoiseTexture2D_65qur")
-
-[sub_resource type="Curve" id="Curve_4lb42"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_ns5du"]
-curve = SubResource("Curve_4lb42")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vgtdx"]
-particle_flag_rotate_y = true
-emission_shape = 3
-emission_box_extents = Vector3(50, 10, 50)
-angle_max = 720.0
-spread = 180.0
-initial_velocity_min = 0.25
-initial_velocity_max = 0.55
-angular_velocity_min = 64.71
-angular_velocity_max = 257.63
-gravity = Vector3(0, 0, 0)
-scale_min = 0.02
-scale_max = 0.07
-alpha_curve = SubResource("CurveTexture_ns5du")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8ukg"]
-vertex_color_use_as_albedo = true
-emission = Color(1, 1, 1, 1)
-disable_receive_shadows = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_oryps"]
-material = SubResource("StandardMaterial3D_p8ukg")
-
-[sub_resource type="Curve" id="Curve_hss2r"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_rx40e"]
-curve = SubResource("Curve_hss2r")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6o2bd"]
-emission_shape = 3
-emission_box_extents = Vector3(50, 4, 50)
-angle_max = 720.0
-direction = Vector3(1, -1, 0)
-spread = 180.0
-initial_velocity_min = 0.25
-initial_velocity_max = 0.8
-angular_velocity_min = 64.71
-angular_velocity_max = 257.63
-gravity = Vector3(0, -6, 0)
-scale_min = 0.2
-scale_max = 0.45
-alpha_curve = SubResource("CurveTexture_rx40e")
-turbulence_enabled = true
-turbulence_noise_strength = 0.15
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqdpr"]
-transparency = 1
-blend_mode = 1
-cull_mode = 2
-vertex_color_use_as_albedo = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_hgvil"]
-material = SubResource("StandardMaterial3D_tqdpr")
-size = Vector2(0.2, 0.2)
-
 [node name="world" type="Node3D"]
 
 [node name="FuncGodotMap" type="Node3D" parent="."]
@@ -1428,86 +1328,4 @@ environment = SubResource("Environment_lgo74")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.351382, 1.72185, 1.7247)
-script = ExtResource("3_ss8hf")
-metadata/player = true
-
-[node name="standing_collision_shape" type="CollisionShape3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
-shape = SubResource("CapsuleShape3D_7hvhs")
-
-[node name="crouching_collision_shape" type="CollisionShape3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596479, 0)
-shape = SubResource("CapsuleShape3D_h5kxh")
-disabled = true
-
-[node name="RayCast3D" type="RayCast3D" parent="player"]
-target_position = Vector3(2.08165e-12, 2, 2.08165e-12)
-
-[node name="dash_timer" type="Timer" parent="player"]
-one_shot = true
-
-[node name="lunge_timer" type="Timer" parent="player"]
-
-[node name="wall_jump_timer" type="Timer" parent="player"]
-
-[node name="dash_fov_timer" type="Timer" parent="player"]
-
-[node name="neck" type="Node3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.8, 2.08165e-12)
-
-[node name="head" type="Node3D" parent="player/neck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-
-[node name="Camera3D" type="Camera3D" parent="player/neck/head"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player/neck/head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
-visible = false
-mesh = SubResource("QuadMesh_lstk2")
-
-[node name="speedlines" type="ColorRect" parent="player"]
-material = SubResource("ShaderMaterial_75kew")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="left collision" type="RayCast3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.25, 2.08165e-12)
-target_position = Vector3(-1.5, 2.08165e-12, 2.08165e-12)
-hit_from_inside = true
-
-[node name="right collision" type="RayCast3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.256, 2.08165e-12)
-target_position = Vector3(1.5, 2.08165e-12, 2.08165e-12)
-hit_from_inside = true
-
-[node name="DustParticles" type="GPUParticles3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
-visible = false
-emitting = false
-amount = 300
-lifetime = 6.5
-randomness = 0.6
-visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
-process_material = SubResource("ParticleProcessMaterial_vgtdx")
-draw_pass_1 = SubResource("BoxMesh_oryps")
-
-[node name="SnowParticles" type="GPUParticles3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.465, 0)
-amount = 650
-lifetime = 6.5
-randomness = 0.6
-visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
-transform_align = 1
-process_material = SubResource("ParticleProcessMaterial_6o2bd")
-draw_pass_1 = SubResource("QuadMesh_hgvil")
-
-[node name="PauseMenu" parent="player" instance=ExtResource("61_8ss8f")]
-
-[connection signal="timeout" from="player/dash_timer" to="player" method="_dash_end"]
-[connection signal="timeout" from="player/lunge_timer" to="player" method="_on_lunge_timer_timeout"]
-[connection signal="timeout" from="player/wall_jump_timer" to="player" method="_on_wall_jump_timer_timeout"]
+[node name="player" parent="." instance=ExtResource("13_4fx48")]

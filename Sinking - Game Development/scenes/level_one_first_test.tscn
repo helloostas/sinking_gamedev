@@ -1,4 +1,4 @@
-[gd_scene load_steps=483 format=4 uid="uid://bmkevqeffmtrk"]
+[gd_scene load_steps=463 format=4 uid="uid://bmkevqeffmtrk"]
 
 [ext_resource type="Script" path="res://scripts/level_one.gd" id="1_40vb5"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_outuu"]
@@ -48,9 +48,6 @@
 [ext_resource type="Material" uid="uid://tclaxnpjpioh" path="res://textures/world/TEXTURES/SWITCH_1A.tres" id="34_m0bda"]
 [ext_resource type="Material" uid="uid://b720u3k6gvxsx" path="res://textures/world/TEXTURES/CONCRETE_1A.tres" id="34_ttaun"]
 [ext_resource type="Material" uid="uid://e42fv6qbmxue" path="res://textures/world/TEXTURES/STEEL_1D.tres" id="35_j4rm7"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="36_eirnb"]
-[ext_resource type="Shader" path="res://scripts/test.gdshader" id="37_ehngf"]
-[ext_resource type="Shader" path="res://scripts/speedlines.gdshader" id="38_2dymp"]
 [ext_resource type="Material" uid="uid://b1kys34d0fans" path="res://textures/world/TEXTURES/TECH_1G.tres" id="38_gkcxg"]
 [ext_resource type="Material" uid="uid://cwbhyoibwpcrv" path="res://textures/world/TEXTURES/TECH_2E.tres" id="39_0a6my"]
 [ext_resource type="Texture2D" uid="uid://bkwv58htj44nk" path="res://assets/hdris/redsky.png" id="39_7y211"]
@@ -60,7 +57,6 @@
 [ext_resource type="Material" uid="uid://divf12y2a10og" path="res://textures/world/TEXTURES/PANEL_2C.tres" id="41_hptie"]
 [ext_resource type="Material" uid="uid://dooduekmgj1mn" path="res://textures/world/TEXTURES/SUPPORT_3B.tres" id="41_qqced"]
 [ext_resource type="Material" uid="uid://b5vpnrl068ico" path="res://textures/world/TEXTURES/STEEL_2C.tres" id="42_ar16n"]
-[ext_resource type="PackedScene" uid="uid://cppoklkvuvfpj" path="res://scenes/pause_menu.tscn" id="42_gsp7x"]
 [ext_resource type="Material" uid="uid://crmb2ju7d6bsp" path="res://textures/world/TEXTURES/TECH_1F.tres" id="43_38alj"]
 [ext_resource type="Material" uid="uid://bxyb3myef5rkt" path="res://textures/world/TEXTURES/SUPPORT_2D.tres" id="44_pd00j"]
 [ext_resource type="Material" uid="uid://bg6x0vdiufdln" path="res://textures/world/TEXTURES/PIPES_3A.tres" id="45_trmqj"]
@@ -90,6 +86,7 @@
 [ext_resource type="Material" uid="uid://di0o3bws08owj" path="res://textures/world/TEXTURES/TECH_4K.tres" id="82_vey4p"]
 [ext_resource type="Material" uid="uid://dh0ov8huhbgix" path="res://textures/world/TEXTURES/TECH_4G.tres" id="83_l7ux1"]
 [ext_resource type="Material" uid="uid://cxkmxdc8iw0qn" path="res://textures/world/TEXTURES/RIVET_3B.tres" id="84_6rgt7"]
+[ext_resource type="PackedScene" uid="uid://b0x5crdcrwvvw" path="res://scenes/player.tscn" id="88_he6ai"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rft82"]
 albedo_texture = ExtResource("19_to8av")
@@ -2356,103 +2353,6 @@ _data = {
 "fade_in_for level_1": SubResource("Animation_p5vya")
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onhjw"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vk3w"]
-radius = 0.35
-height = 1.2
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvccs"]
-render_priority = 0
-shader = ExtResource("37_ehngf")
-
-[sub_resource type="QuadMesh" id="QuadMesh_ukt2x"]
-material = SubResource("ShaderMaterial_uvccs")
-size = Vector2(10, 10)
-orientation = 1
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_bchj0"]
-noise_type = 5
-frequency = 0.2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nyfc1"]
-noise = SubResource("FastNoiseLite_bchj0")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytd8v"]
-shader = ExtResource("38_2dymp")
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_count = 0.5
-shader_parameter/line_density = 1.0
-shader_parameter/line_faloff = 1.0
-shader_parameter/mask_size = 0.049
-shader_parameter/mask_edge = 1.0
-shader_parameter/animation_speed = 20.0
-shader_parameter/noise = SubResource("NoiseTexture2D_nyfc1")
-
-[sub_resource type="Curve" id="Curve_857kj"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_e2f16"]
-curve = SubResource("Curve_857kj")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i5bnd"]
-particle_flag_rotate_y = true
-emission_shape = 3
-emission_box_extents = Vector3(50, 10, 50)
-angle_max = 720.0
-spread = 180.0
-initial_velocity_min = 0.25
-initial_velocity_max = 0.55
-angular_velocity_min = 64.71
-angular_velocity_max = 257.63
-gravity = Vector3(0, 0, 0)
-scale_min = 0.02
-scale_max = 0.07
-alpha_curve = SubResource("CurveTexture_e2f16")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpgnj"]
-vertex_color_use_as_albedo = true
-emission = Color(1, 1, 1, 1)
-disable_receive_shadows = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_0eu1f"]
-material = SubResource("StandardMaterial3D_fpgnj")
-
-[sub_resource type="Curve" id="Curve_a4xp8"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0307692, 0.872047), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.05327, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_d2x1l"]
-curve = SubResource("Curve_a4xp8")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t2u7a"]
-emission_shape = 3
-emission_box_extents = Vector3(50, 4, 50)
-angle_max = 720.0
-direction = Vector3(1, -1, 0)
-spread = 180.0
-initial_velocity_min = 0.25
-initial_velocity_max = 0.8
-angular_velocity_min = 64.71
-angular_velocity_max = 257.63
-gravity = Vector3(0, -6, 0)
-scale_min = 0.2
-scale_max = 0.45
-alpha_curve = SubResource("CurveTexture_d2x1l")
-turbulence_enabled = true
-turbulence_noise_strength = 0.15
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32kbe"]
-transparency = 1
-blend_mode = 1
-cull_mode = 2
-vertex_color_use_as_albedo = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_bxr3x"]
-material = SubResource("StandardMaterial3D_32kbe")
-size = Vector2(0.2, 0.2)
-
 [node name="world" type="Node3D"]
 script = ExtResource("1_40vb5")
 
@@ -3560,86 +3460,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.351382, -26.9452, 1.7247)
-script = ExtResource("36_eirnb")
-metadata/player = true
-
-[node name="standing_collision_shape" type="CollisionShape3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
-shape = SubResource("CapsuleShape3D_onhjw")
-
-[node name="crouching_collision_shape" type="CollisionShape3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596479, 0)
-shape = SubResource("CapsuleShape3D_4vk3w")
-disabled = true
-
-[node name="RayCast3D" type="RayCast3D" parent="player"]
-target_position = Vector3(2.08165e-12, 2, 2.08165e-12)
-
-[node name="dash_timer" type="Timer" parent="player"]
-one_shot = true
-
-[node name="lunge_timer" type="Timer" parent="player"]
-
-[node name="wall_jump_timer" type="Timer" parent="player"]
-
-[node name="dash_fov_timer" type="Timer" parent="player"]
-
-[node name="neck" type="Node3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.8, 2.08165e-12)
-
-[node name="head" type="Node3D" parent="player/neck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-
-[node name="Camera3D" type="Camera3D" parent="player/neck/head"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player/neck/head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.0421373, -0.999112, 0, 0.999112, 0.0421373, 0, 0, -1.28837)
-visible = false
-mesh = SubResource("QuadMesh_ukt2x")
-
-[node name="speedlines" type="ColorRect" parent="player"]
-material = SubResource("ShaderMaterial_ytd8v")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="left collision" type="RayCast3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.25, 2.08165e-12)
-target_position = Vector3(-1.5, 2.08165e-12, 2.08165e-12)
-hit_from_inside = true
-
-[node name="right collision" type="RayCast3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.256, 2.08165e-12)
-target_position = Vector3(1.5, 2.08165e-12, 2.08165e-12)
-hit_from_inside = true
-
-[node name="DustParticles" type="GPUParticles3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
-visible = false
-emitting = false
-amount = 300
-lifetime = 6.5
-randomness = 0.6
-visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
-process_material = SubResource("ParticleProcessMaterial_i5bnd")
-draw_pass_1 = SubResource("BoxMesh_0eu1f")
-
-[node name="SnowParticles" type="GPUParticles3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.465, 0)
-amount = 650
-lifetime = 6.5
-randomness = 0.6
-visibility_aabb = AABB(-33.2673, -20.5062, -51.659, 66.5346, 41.0124, 103.318)
-transform_align = 1
-process_material = SubResource("ParticleProcessMaterial_t2u7a")
-draw_pass_1 = SubResource("QuadMesh_bxr3x")
-
-[node name="PauseMenu" parent="player" instance=ExtResource("42_gsp7x")]
-
 [node name="Area3D5" parent="." instance=ExtResource("40_k1gfl")]
 transform = Transform3D(0.0410735, 0, 0.999156, 0, 1, 0, -0.999156, 0, 0.0410735, 24.3115, -27.0298, 77.1171)
 
@@ -3676,6 +3496,5 @@ spot_range = 4096.0
 [node name="Area3D" parent="." instance=ExtResource("41_30j3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.2573, -25, 74.1901)
 
-[connection signal="timeout" from="player/dash_timer" to="player" method="_dash_end"]
-[connection signal="timeout" from="player/lunge_timer" to="player" method="_on_lunge_timer_timeout"]
-[connection signal="timeout" from="player/wall_jump_timer" to="player" method="_on_wall_jump_timer_timeout"]
+[node name="player" parent="." instance=ExtResource("88_he6ai")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.351382, -30.3494, 1.7247)

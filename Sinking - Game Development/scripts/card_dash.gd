@@ -18,4 +18,5 @@ func _on_body_entered(body):
 		if len(body.on_hand_abilities) <= 1:
 			type = body.global_abilities[1]
 			body.on_hand_abilities.append(type)
+			body.card_collected()
 			queue_free()
