@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dclrgeunsynqy" path="res://textures/card_icons/sink_card_icon.png" id="2_swxik"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wx3p6"]
+size = Vector3(1.5, 1.5, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwcm0"]
 albedo_texture = ExtResource("2_swxik")

@@ -1,9 +1,11 @@
 extends Area3D
+@onready var player = $"../player"
+
 
 var type
 var player_position
-@onready var player = $"../player"
 
+# Card Rotation
 func _process(delta):
 	player_position = player.position
 	look_at(player_position)
@@ -16,4 +18,5 @@ func _on_body_entered(body):
 		if len(body.on_hand_abilities) <= 1:
 			type = body.global_abilities[2]
 			body.on_hand_abilities.append(type)
+			body.card_collected()
 			queue_free()

@@ -10,6 +10,8 @@ extends CharacterBody3D
 @onready var neck = $neck
 @onready var wall_running_collision = $"wall running collision"
 
+@export var cards : Node
+
 
 # Abilities
 
@@ -19,9 +21,9 @@ var on_hand_abilities = []
 # Speed Varibles
 
 var current_speed = 5.0
-const walking_speed = 15.0
-const sprinting_speed = 15.0
-const crounching_speed = 10.0
+const WALKING_SPEED = 15.0
+const SPRINTING_SPEED = 15.0
+const CROUCHING_SPEED = 10.0
 
 # States
 
@@ -34,13 +36,13 @@ var sliding = false
 
 # Movement Variables
 
-const jump_velocity = 6
-const double_jump_velocity = 10
-const sink_velocity = 20
 var crouch_depth = -0.5
 var lerp_speed = 10.0
 var lerp_rotation_speed = 10.0
 var has_dashed = false
+const JUMP_VELOCITY = 6
+const DOUBLE_JUMP_VELOCITY = 10
+const SINK_VELOCITY = 20
 
 # Camera Variables
 
@@ -48,7 +50,7 @@ var left_move_tilt_ammount = 5
 var right_move_tilt_ammount = -5
 var time = 0
 
-#Slide Variables
+# Slide Variables
 var slide_timer = 0.0
 var slide_timer_max = 1.0
 var slide_vector = Vector2.ZERO
@@ -60,17 +62,18 @@ var right_collision = false
 var wall_collision = false
 var wall_jump_direction
 var is_wall_jumping = false
-var wall_jump_velocity = 7
-const wall_jump_duration = 0.1
+var wall_JUMP_VELOCITY = 7
+var wall_run_ammount = 0
+const WALL_JUMP_DURATION = 0.1
 
 # Dash Variables
 
-const dash_velocity = 10
 var dash_timer = 0.0
-const dash_duration = 0.1
-const dash_fov_duration = 0.7
 var dash_direction
 var is_dashing = false
+const DASH_VELOCITY = 7
+const DASH_DURATION = 0.1
+const DASH_FOV_DURATION = 0.7
 
 # Lunge Variables
 
@@ -84,8 +87,8 @@ var cam_dash_tween: Tween
 
 # Input variables
 
-const mouse_sens = 0.4
 var direction = Vector3.ZERO
+const MOUSE_SENSITIVITY = 0.4
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
@@ -100,8 +103,8 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
-		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
+		rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENSITIVITY))
+		head.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENSITIVITY))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 # Physics Processes
@@ -113,19 +116,17 @@ func _physics_process(delta):
 	
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	
-# Handling Movement States
-	
 # Crouching
 	
 	if Input.is_action_pressed("crounch") && is_on_floor():
 		
-		current_speed = crounching_speed
+		current_speed = CROUCHING_SPEED
 		head.position.y = lerp(head.position.y,crouch_depth, delta * lerp_speed)
 		
 		standing_collision_shape.disabled = true
 		crouching_collision_shape.disabled = false
 		
-#Slide Logic
+# Slide Logic
 		
 		if sprinting && input_dir != Vector2.ZERO:
 			slide_timer = slide_timer_max
@@ -151,7 +152,7 @@ func _physics_process(delta):
 # Sprinting
 		
 		if Input.is_action_pressed("sprint"):
-			current_speed = sprinting_speed
+			current_speed = SPRINTING_SPEED
 			
 			walking = false
 			sprinting = true
@@ -160,14 +161,15 @@ func _physics_process(delta):
 			
 # Walking
 			
-			current_speed = walking_speed
+			current_speed = WALKING_SPEED
 			walking = true
 			#sprinting = false
 			crouching = false
 	
-#Handle left/right movement
+# Handle left/right movement
 
 	if is_on_floor():
+		
 		if Input.is_action_pressed("left") and not moving_right:
 			moving_left = true
 			camera_3d.rotation.z = lerp(camera_3d.rotation.z, deg_to_rad(left_move_tilt_ammount), delta * lerp_rotation_speed)
@@ -183,38 +185,41 @@ func _physics_process(delta):
 		else:
 			moving_right = false
 			camera_3d.rotation.z = lerp(camera_3d.rotation.z, 0.0, delta * lerp_speed)
+			wall_run_ammount = 0
 			
 	else:
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, 0.0, delta * lerp_speed)
 
-#Handle Wall run
+# Handle Wall run
 
 	if $"left collision".is_colliding() and not is_on_floor():
 		left_collision = true
 		wall_collision = true
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, deg_to_rad(-20), delta * lerp_rotation_speed)
 		
-		if Input.is_action_just_pressed("ui_accept"):
-			$wall_jump_timer.start(wall_jump_duration)
+		if Input.is_action_just_pressed("ui_accept") and wall_run_ammount < 2:
+			$wall_jump_timer.start(WALL_JUMP_DURATION)
 			is_wall_jumping = true
-			velocity.y = wall_jump_velocity
+			velocity.y = wall_JUMP_VELOCITY
 			wall_jump_direction = transform.basis.x
+			wall_run_ammount += 1
 	
 	if $"right collision".is_colliding() and not is_on_floor():
 		right_collision = true
 		wall_collision = true
 		camera_3d.rotation.z = lerp(camera_3d.rotation.z, deg_to_rad(20), delta * lerp_rotation_speed)
 		
-		if Input.is_action_just_pressed("ui_accept"):
-			$wall_jump_timer.start(wall_jump_duration)
+		if Input.is_action_just_pressed("ui_accept") and wall_run_ammount < 2:
+			$wall_jump_timer.start(WALL_JUMP_DURATION)
 			is_wall_jumping = true
-			velocity.y = wall_jump_velocity
+			velocity.y = wall_JUMP_VELOCITY
 			wall_jump_direction = -transform.basis.x
+			wall_run_ammount += 1
 	
 	if not $"right collision".is_colliding() and not $"left collision".is_colliding():
 		wall_collision = false
 
-#Handle sliding
+# Handle sliding
 
 	if sliding:
 		slide_timer -= delta
@@ -226,7 +231,7 @@ func _physics_process(delta):
 			crouching = false
 			sprinting = false
 
-	#Handling the dash
+	# Handling the dash
 	
 	if not is_on_floor() and not is_dashing: #and not is_lunging:
 		
@@ -244,13 +249,11 @@ func _physics_process(delta):
 # Handle jump.
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = jump_velocity
+		velocity.y = JUMP_VELOCITY
 	
-#lerp speed - will decellerate from whatever speed player is moving at
+# Lerp speed - will decellerate from whatever speed player is moving at
 	
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
-#lerp speed for jumps IDK I HAVENT FIGURED IT OUT YET
 	
 	if sliding:
 		direction = (transform.basis * Vector3(slide_vector.x, 0, slide_vector.y)).normalized()
@@ -282,7 +285,7 @@ func _physics_process(delta):
 	
 	if is_dashing:
 		time += delta
-		velocity += dash_direction * -dash_velocity
+		velocity += dash_direction * -DASH_VELOCITY
 		velocity.y = 0  # Keep the dash horizontal
 		
 	if is_on_floor() and has_dashed:
@@ -291,7 +294,7 @@ func _physics_process(delta):
 	if is_lunging:
 		time += delta
 		velocity += lunge_dir * -lunge_velocity
-		velocity.y = (lunge_dir * dash_velocity).z * 2
+		velocity.y = (lunge_dir * DASH_VELOCITY).z * 2
 	
 	if is_wall_jumping:
 		velocity += wall_jump_direction * 2
@@ -301,43 +304,46 @@ func _physics_process(delta):
 # Abilities
 
 	if Input.is_action_just_pressed("ability"):
-		print(on_hand_abilities)
+		#print(on_hand_abilities)
 		
 		if len(on_hand_abilities) > 0:
 			
 			if on_hand_abilities[0] == "double_jump":
-				velocity.y = double_jump_velocity
-				print(on_hand_abilities[0])
+				velocity.y = DOUBLE_JUMP_VELOCITY
+				#print(on_hand_abilities[0])
 				on_hand_abilities.remove_at(0)
-				print(on_hand_abilities)
+				card_disposed()
+				#print(on_hand_abilities)
 				
 			elif on_hand_abilities[0] == "dash":
 				is_dashing = true
-				$dash_timer.start(dash_duration)
-				$dash_fov_timer.start(dash_fov_duration)
-				camera_zoom_out(dash_fov_duration)
+				$dash_timer.start(DASH_DURATION)
+				$dash_fov_timer.start(DASH_FOV_DURATION)
+				camera_fov_zoom(DASH_FOV_DURATION)
 				
 				dash_direction = transform.basis.z
 				has_dashed = true
-				print(on_hand_abilities[0]) 
+				#print(on_hand_abilities[0]) 
 				on_hand_abilities.remove_at(0)
-				print(on_hand_abilities)
+				card_disposed()
+				#print(on_hand_abilities)
 				
 			elif on_hand_abilities[0] == "sink":
-				# add sink code here
-				velocity.y = -sink_velocity
-				print(on_hand_abilities[0])
+				velocity.y = -SINK_VELOCITY
+				#print(on_hand_abilities[0])
 				on_hand_abilities.remove_at(0)
-				print(on_hand_abilities)
+				card_disposed()
+				#print(on_hand_abilities)
 
 			elif on_hand_abilities[0] == "lunge":
 				is_lunging = true
 				$lunge_timer.start(lunge_duration)
 				lunge_dir = $neck/head.transform.basis.z
 				lunge_dir = transform.basis.z
-				print(on_hand_abilities[0])
+				#print(on_hand_abilities[0])
 				on_hand_abilities.remove_at(0)
-				print(on_hand_abilities)
+				card_disposed()
+				#print(on_hand_abilities)
 				
 			else:
 				pass
@@ -348,7 +354,8 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("switch"):
 		on_hand_abilities.reverse()
-		print(on_hand_abilities)
+		#wprint(on_hand_abilities)
+		card_collected()
 
 # On dash and lunge end funcitons: (Makes each ability stop on timer end)
 
@@ -357,6 +364,7 @@ func _dash_end():
 	velocity.y = 0
 	$speedlines.material.set_shader_parameter("line_density", 0.0)
 
+
 func _on_lunge_timer_timeout():
 	is_lunging = false
 
@@ -364,7 +372,8 @@ func _on_lunge_timer_timeout():
 func _on_wall_jump_timer_timeout():
 	is_wall_jumping = false
 
-func camera_zoom_out(duration: float) -> void:
+
+func camera_fov_zoom(duration: float) -> void:
 	if cam_dash_tween and cam_dash_tween.is_running():
 		cam_dash_tween.kill()
 		
@@ -372,3 +381,23 @@ func camera_zoom_out(duration: float) -> void:
 	cam_dash_tween.tween_property(camera_3d, "fov", 100.0, 0.3)
 	cam_dash_tween.tween_interval(duration-0.2)
 	cam_dash_tween.tween_property(camera_3d, "fov", 90.0, 0.4)
+
+
+func _unhandled_input(event) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		$PauseMenu.pause()
+
+
+func card_collected():
+	if len(on_hand_abilities) > 1:
+		cards.update_cards(on_hand_abilities[0], on_hand_abilities[1])
+	else:
+		cards.update_cards(on_hand_abilities[0], "transparent")
+
+
+#WHY DOESNT THIS WORK 
+func card_disposed():
+	if len(on_hand_abilities) == 1:
+		cards.update_cards(on_hand_abilities[0], "transparent")
+	else:
+		cards.update_cards("transparent", "transparent")

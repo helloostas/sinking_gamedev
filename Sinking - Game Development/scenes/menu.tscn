@@ -41,16 +41,20 @@ grow_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 16
 
 [node name="Play" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 text = "Play"
 
 [node name="Options" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 text = "Options"
 
 [node name="Quit" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 text = "Quit"
 

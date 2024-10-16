@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6q0nousu3jbh" path="res://textures/card_icons/dash_card_icon.png" id="2_4nmum"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ak2wn"]
+size = Vector3(1.5, 1.5, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_da6gt"]
 albedo_texture = ExtResource("2_4nmum")

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bngbsf2anbugy" path="res://textures/card_icons/jump_card_icon.png" id="2_bqq07"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kelex"]
+size = Vector3(1.5, 1.5, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrb1c"]
 albedo_texture = ExtResource("2_bqq07")
