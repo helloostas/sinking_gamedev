@@ -1,8 +1,9 @@
-[gd_scene load_steps=468 format=4 uid="uid://dl34o2438485q"]
+[gd_scene load_steps=473 format=4 uid="uid://dl34o2438485q"]
 
 [ext_resource type="Script" path="res://scripts/introduction.gd" id="1_qsj7s"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_ljy6a"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_wm2bk"]
+[ext_resource type="Material" uid="uid://bwtcp2vttub2t" path="res://assets/blood_box.tres" id="4_0jx73"]
 [ext_resource type="Material" uid="uid://6mm4dorr8hug" path="res://textures/world/TEXTURES/RIVET_3A.tres" id="4_68y26"]
 [ext_resource type="Material" uid="uid://kee8l2fodyb" path="res://textures/world/TEXTURES/RIVET_2B.tres" id="5_ftaen"]
 [ext_resource type="Material" uid="uid://b73fwhudws52q" path="res://textures/world/TEXTURES/RIVET_2C.tres" id="6_yl4cs"]
@@ -77,6 +78,8 @@
 [ext_resource type="PackedScene" uid="uid://c2kbtvdp1kdjj" path="res://scenes/card_dash.tscn" id="76_tog3d"]
 [ext_resource type="PackedScene" uid="uid://b0x5crdcrwvvw" path="res://scenes/player.tscn" id="77_0588p"]
 [ext_resource type="PackedScene" uid="uid://p6w57yy3lu5d" path="res://scenes/card_doublejump.tscn" id="77_nk528"]
+[ext_resource type="Texture2D" uid="uid://defpux68ms3yr" path="res://textures/world/Gluttony/flesh1.png" id="79_g007u"]
+[ext_resource type="Texture2D" uid="uid://cpvq04055dlg6" path="res://textures/world/TEXTURES/BLOOD_1B 2.PNG" id="79_paf6k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lffht"]
 albedo_texture = ExtResource("7_uxi0q")
@@ -2300,6 +2303,78 @@ size = Vector2(1, 1.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mix8b"]
 
+[sub_resource type="Shader" id="Shader_weq50"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform vec3 albedo : source_color;
+uniform sampler2D water_texture1;
+uniform sampler2D water_texture2;
+uniform sampler2D noise_texture;
+uniform vec2 scroll_speed1 = vec2(0.05, 0.0);
+uniform vec2 scroll_speed2 = vec2(-0.03, 0.0);
+uniform float blend_factor = 0.5;
+uniform vec2 scale1 = vec2(1.0, 1.0);
+uniform vec2 scale2 = vec2(1.0, 1.0);
+uniform float wave_strength = 1.0;
+uniform float wave_scale = 0.02;
+uniform int pixelation_level = 64;
+uniform float FoamSize = 0.5;
+uniform sampler2D DepthTexture : hint_depth_texture;
+uniform float FoamGlowIntensity = 0.5;
+
+void vertex() {
+    vec2 global_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xz;
+    float noise_value = texture(noise_texture, global_position * wave_scale).r;
+    float wave = sin(global_position.x * 0.2 + global_position.y * 0.2 + TIME + noise_value * 10.0) * wave_strength;
+    VERTEX.y += wave;
+}
+
+void fragment() {
+    vec2 scaledUV1 = UV * scale1;
+    vec2 scaledUV2 = UV * scale2;
+    vec2 scrolledUV1 = scaledUV1 + scroll_speed1 * TIME;
+    vec2 scrolledUV2 = scaledUV2 + scroll_speed2 * TIME;
+    scrolledUV1 = mod(scrolledUV1, vec2(1.0, 1.0));
+    scrolledUV2 = mod(scrolledUV2, vec2(1.0, 1.0));
+    scrolledUV1 = floor(scrolledUV1 * float(pixelation_level)) / float(pixelation_level);
+    scrolledUV2 = floor(scrolledUV2 * float(pixelation_level)) / float(pixelation_level);
+
+    vec4 water_color1 = texture(water_texture1, scrolledUV1);
+    vec4 water_color2 = texture(water_texture2, scrolledUV2);
+    vec4 blended_water_color = mix(water_color1, water_color2, blend_factor);
+
+    float depthValue = texture(DepthTexture, SCREEN_UV).r;
+    vec4 worldPosition = INV_PROJECTION_MATRIX * vec4(SCREEN_UV * 2.0 - 1.0, depthValue, 1.0);
+    worldPosition.xyz /= worldPosition.w;
+    float foamEffect = clamp(1.0 - smoothstep(worldPosition.z + FoamSize, worldPosition.z, VERTEX.z), 0.0, 1.0);
+    float foamOpacity = 1.0 - foamEffect;
+    float foamEffectRounded = round(foamOpacity);
+
+    ALBEDO = blended_water_color.rgb * albedo;
+	ALPHA = 1.0;
+    EMISSION = vec3(foamEffectRounded) * FoamGlowIntensity;
+    METALLIC = 0.0;
+    ROUGHNESS = 2.0;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_666dq"]
+render_priority = 0
+shader = SubResource("Shader_weq50")
+shader_parameter/albedo = Color(0.452176, 1.01676e-06, 2.64719e-07, 1)
+shader_parameter/scroll_speed1 = Vector2(-0.1, 0)
+shader_parameter/scroll_speed2 = Vector2(0.1, 0)
+shader_parameter/blend_factor = 0.7
+shader_parameter/scale1 = Vector2(1, 1)
+shader_parameter/scale2 = Vector2(1, 5)
+shader_parameter/wave_strength = 1.0
+shader_parameter/wave_scale = 0.02
+shader_parameter/pixelation_level = 64
+shader_parameter/FoamSize = 0.0
+shader_parameter/FoamGlowIntensity = 0.5
+shader_parameter/water_texture1 = ExtResource("79_paf6k")
+shader_parameter/water_texture2 = ExtResource("79_g007u")
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_qsj7s")
 
@@ -3408,6 +3483,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2398, 10.1268, -135.629)
 
 [node name="player" parent="." instance=ExtResource("77_0588p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17011, 4.29985, 1.7247)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1374, 0.0966755, -39.7338)
+material_override = ExtResource("4_0jx73")
+size = Vector3(10.3157, 1, 16.0403)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9858, -0.304546, -144.067)
+material_override = SubResource("ShaderMaterial_666dq")
+size = Vector3(101.245, 1, 35.2636)
+
+[node name="Area3D5" parent="." instance=ExtResource("77_nk528")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40244, 7.98924, -145.188)
+
+[node name="Area3D6" parent="." instance=ExtResource("76_tog3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.7827, 7, -149.866)
 
 [connection signal="body_entered" from="intro_words1" to="." method="_on_intro_words_1_body_entered"]
 [connection signal="body_shape_exited" from="intro_words1" to="." method="_on_intro_words_1_body_shape_exited"]
