@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://8c3glkx4cuyq"]
+
+[ext_resource type="Texture2D" uid="uid://dsc11vq6o0mts" path="res://textures/world/Gluttony/corpses-decayed.png" id="1_cw7fv"]
+
+[resource]
+albedo_texture = ExtResource("1_cw7fv")
+metallic_specular = 0.0
+texture_filter = 2
