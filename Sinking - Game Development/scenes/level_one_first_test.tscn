@@ -3698,3 +3698,40 @@ size = Vector3(246.47, 1, 243.289)
 
 [node name="Area3D4" parent="." instance=ExtResource("40_k1gfl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.743431, -36.5, 47.7182)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74023, -20.61, 48.816)
+light_color = Color(1, 1, 0.862745, 1)
+light_energy = 10.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74023, -20.61, 45.1986)
+light_color = Color(1, 1, 0.862745, 1)
+light_energy = 10.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.2284, -8.26124, 70.1362)
+light_color = Color(1, 1, 0.862745, 1)
+light_energy = 10.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.752, -15.1965, -14.8999)
+light_color = Color(1, 1, 0.862745, 1)
+light_energy = 10.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.332, -15.1965, -11.4665)
+light_color = Color(1, 1, 0.862745, 1)
+light_energy = 10.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 80.533, -13.7869, 30.1146)
+light_color = Color(1, 1, 0.870588, 1)
+light_energy = 16.0
+spot_range = 4096.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 83.351, -13.7869, -7.43388)
+light_color = Color(1, 1, 0.870588, 1)
+light_energy = 16.0
+spot_range = 4096.0

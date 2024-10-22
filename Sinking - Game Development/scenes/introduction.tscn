@@ -3497,9 +3497,6 @@ size = Vector3(101.245, 1, 35.2636)
 [node name="Area3D5" parent="." instance=ExtResource("77_nk528")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40244, 7.98924, -145.188)
 
-[node name="Area3D6" parent="." instance=ExtResource("76_tog3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.7827, 7, -149.866)
-
 [connection signal="body_entered" from="intro_words1" to="." method="_on_intro_words_1_body_entered"]
 [connection signal="body_shape_exited" from="intro_words1" to="." method="_on_intro_words_1_body_shape_exited"]
 [connection signal="body_entered" from="intro_words2" to="." method="_on_intro_words_2_body_entered"]
