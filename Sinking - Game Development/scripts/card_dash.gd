@@ -21,3 +21,5 @@ func _on_body_entered(body):
 			body.on_hand_abilities.append(type)
 			body.card_collected()
 			queue_free()
+		else:
+			pass

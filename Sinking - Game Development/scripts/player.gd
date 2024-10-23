@@ -375,7 +375,7 @@ func card_collected():
 		cards.update_cards(on_hand_abilities[0], "transparent")
 
 
-#WHY DOESNT THIS WORK 
+ 
 func card_disposed():
 	if len(on_hand_abilities) == 1:
 		cards.update_cards(on_hand_abilities[0], "transparent")
