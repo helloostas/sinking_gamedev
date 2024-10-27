@@ -29,9 +29,10 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_ijvt0")
 theme_override_font_sizes/font_size = 32
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -61,7 +62,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -119,6 +119,10 @@ action_name = "ability"
 [node name="Hotkey_Rebind_Button8" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_17vp2")]
 layout_mode = 2
 action_name = "switch"
+
+[node name="Hotkey_Rebind_Button9" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_17vp2")]
+layout_mode = 2
+action_name = "reload"
 
 [node name="HSeparator2" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2

@@ -37,6 +37,8 @@ func set_action_name() -> void:
 			label.text = "Switch Ability"
 		"jump":
 			label.text = "Jump"
+		"reload":
+			label.text = "Restart Level"
 
 # Setting name for rebinded keys
 func set_text_for_key() -> void:

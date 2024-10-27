@@ -73,6 +73,8 @@ var is_lunging = false
 var lunge_velocity = 10
 var lunge_duration = 0.2
 
+var main_scene_path: String = ""
+
 # Input variables
 var direction = Vector3.ZERO
 const MOUSE_SENSITIVITY = 0.4
@@ -83,6 +85,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Setting the Mouse Sensitivity
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	main_scene_path = get_tree().current_scene.get_scene_file_path()
 
 
 # Mouse movement
@@ -97,6 +100,9 @@ func _input(event):
 func _physics_process(delta):
 	$speedlines.material.set_shader_parameter("line_density", 0.0)
 	
+	if Input.is_action_just_pressed("reload") and main_scene_path != "":
+		get_tree().change_scene_to_file(main_scene_path)
+	
 # Getting the Input Direction and Handling the Movement / Deceleration
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	
@@ -110,7 +116,6 @@ func _physics_process(delta):
 		crouching_collision_shape.disabled = false
 		
 # Slide Logic
-		
 		if sprinting && input_dir != Vector2.ZERO:
 			slide_timer = slide_timer_max
 			sliding = true
@@ -133,7 +138,6 @@ func _physics_process(delta):
 		head.position.y = lerp(head.position.y, 0.0, delta * lerp_speed)
 		
 # Sprinting
-		
 		if Input.is_action_pressed("sprint"):
 			current_speed = SPRINTING_SPEED
 			
@@ -143,14 +147,11 @@ func _physics_process(delta):
 		else:
 			
 # Walking
-			
 			current_speed = WALKING_SPEED
 			walking = true
-			#sprinting = false
 			crouching = false
 	
 # Handle left/right movement
-
 	if is_on_floor():
 		
 		if Input.is_action_pressed("left") and not moving_right:
@@ -216,7 +217,6 @@ func _physics_process(delta):
 	if not is_on_floor() and not is_dashing: #and not is_lunging:
 		
 # Add the gravity.
-	
 		if wall_collision and velocity.y < 0:
 			velocity.y -= gravity * delta / 2
 			
@@ -227,19 +227,16 @@ func _physics_process(delta):
 			$speedlines.material.set_shader_parameter("line_density", 1.0)
 
 # Handle jump.
-
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
 # Lerp speed - will decellerate from whatever speed player is moving at
-	
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if sliding:
 		direction = (transform.basis * Vector3(slide_vector.x, 0, slide_vector.y)).normalized()
 	
 # Tweaking the gravity to maintain horizontal momentum while using "dash"
-
 	if direction and not is_dashing:
 		if is_on_floor():
 			velocity.x = lerp(velocity.x, direction.x * current_speed, 0.2)
@@ -262,7 +259,6 @@ func _physics_process(delta):
 			velocity.z = lerp(velocity.z, 0.0, 0.01)
 	
 	# State logic
-	
 	if is_dashing:
 		time += delta
 		velocity += dash_direction * -DASH_VELOCITY
@@ -282,11 +278,11 @@ func _physics_process(delta):
 	move_and_slide()
 	
 # Abilities
-
 	if Input.is_action_just_pressed("ability"):
 		#print(on_hand_abilities)
 		
 		if len(on_hand_abilities) > 0:
+			sprinting = true
 			
 			if on_hand_abilities[0] == "double_jump":
 				velocity.y = DOUBLE_JUMP_VELOCITY
@@ -327,32 +323,30 @@ func _physics_process(delta):
 				
 			else:
 				pass
-			
-			sprinting = true
-	
+
 # Switching Between Abilities
-	
 	if Input.is_action_just_pressed("switch"):
 		on_hand_abilities.reverse()
 		#wprint(on_hand_abilities)
 		card_collected()
 
-# On dash and lunge end funcitons: (Makes each ability stop on timer end)
 
+# On dash and walljump end funcitons: (Makes each ability stop on timer end)
 func _dash_end():
 	is_dashing = false
 	velocity.y = 0
 	$speedlines.material.set_shader_parameter("line_density", 0.0)
 
 
-func _on_lunge_timer_timeout():
-	is_lunging = false
+#func _on_lunge_timer_timeout():
+	#is_lunging = false
 
 
 func _on_wall_jump_timer_timeout():
 	is_wall_jumping = false
 
 
+# FOV change end functionsti
 func camera_fov_zoom(duration: float) -> void:
 	if cam_dash_tween and cam_dash_tween.is_running():
 		cam_dash_tween.kill()
@@ -368,14 +362,17 @@ func _unhandled_input(event) -> void:
 		$PauseMenu.pause()
 
 
+# Updating card UI when cards are collected
 func card_collected():
 	if len(on_hand_abilities) > 1:
 		cards.update_cards(on_hand_abilities[0], on_hand_abilities[1])
+	elif len(on_hand_abilities) == 0:
+		cards.update_cards("transparent", "transparent")
 	else:
 		cards.update_cards(on_hand_abilities[0], "transparent")
 
 
- 
+ # Updating card UI when cards are disposed
 func card_disposed():
 	if len(on_hand_abilities) == 1:
 		cards.update_cards(on_hand_abilities[0], "transparent")
