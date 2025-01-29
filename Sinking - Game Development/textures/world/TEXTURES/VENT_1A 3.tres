@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dwo5d4oirwrx2"]
-
-[ext_resource type="Texture2D" uid="uid://coqu6nbxsilyw" path="res://textures/world/TEXTURES/VENT_1A.PNG" id="1_cmi1p"]
-
-[resource]
-albedo_texture = ExtResource("1_cmi1p")
-metallic_specular = 0.0
-texture_filter = 2

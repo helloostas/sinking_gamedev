@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://caqaufq3svurn"]
-
-[ext_resource type="Texture2D" uid="uid://ca443k1w3514k" path="res://textures/world/TEXTURES/TILE_7G.PNG" id="1_kdk5g"]
-
-[resource]
-albedo_texture = ExtResource("1_kdk5g")
-metallic_specular = 0.0
-texture_filter = 2

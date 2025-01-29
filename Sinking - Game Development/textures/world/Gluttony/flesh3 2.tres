@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://wbb3c6y61o6b"]
-
-[ext_resource type="Texture2D" uid="uid://dqnvp7630twky" path="res://textures/world/Gluttony/flesh3.png" id="1_iur5m"]
-
-[resource]
-albedo_texture = ExtResource("1_iur5m")
-metallic_specular = 0.0
-texture_filter = 2

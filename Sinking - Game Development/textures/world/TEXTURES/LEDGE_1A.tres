@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c64h8aie2jxie"]
-
-[ext_resource type="Texture2D" uid="uid://c6nrf6i0yqi5g" path="res://textures/world/TEXTURES/LEDGE_1A.PNG" id="1_wievn"]
-
-[resource]
-albedo_texture = ExtResource("1_wievn")
-metallic_specular = 0.0
-texture_filter = 2

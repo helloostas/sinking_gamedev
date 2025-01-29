@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bntyabb4bymp0"]
-
-[ext_resource type="Texture2D" uid="uid://do2g8qx5ohi4e" path="res://textures/world/TEXTURES/CRATE_1I.PNG" id="1_4y6g7"]
-
-[resource]
-albedo_texture = ExtResource("1_4y6g7")
-metallic_specular = 0.0
-texture_filter = 2

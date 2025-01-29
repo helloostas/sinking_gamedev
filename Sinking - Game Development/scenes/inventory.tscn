@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://s4ky8jj53w3r"]
-
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 4

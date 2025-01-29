@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://tclaxnpjpioh"]
-
-[ext_resource type="Texture2D" uid="uid://bq5v2vse5ak5n" path="res://textures/world/TEXTURES/SWITCH_1A.png" id="1_qb8bq"]
-
-[resource]
-albedo_texture = ExtResource("1_qb8bq")
-metallic_specular = 0.0
-texture_filter = 2
