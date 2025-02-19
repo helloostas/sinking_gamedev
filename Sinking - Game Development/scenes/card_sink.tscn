@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://bj8yvn4vc7kkb"]
+
+[ext_resource type="Script" path="res://scripts/card_sink.gd" id="1_2livd"]
+[ext_resource type="Texture2D" uid="uid://dclrgeunsynqy" path="res://textures/card_icons/sink_card_icon.png" id="2_swxik"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wx3p6"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwcm0"]
+albedo_texture = ExtResource("2_swxik")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c50ow"]
+material = SubResource("StandardMaterial3D_lwcm0")
+size = Vector2(1, 1.3)
+
+[sub_resource type="Animation" id="Animation_vs6wr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, -3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5hokk"]
+resource_name = "sink_card_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2.08165e-12, 0.225, 2.08165e-12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(1.5708, -3.14159, 0), Vector3(1.5708, -3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5bgbk"]
+_data = {
+"RESET": SubResource("Animation_vs6wr"),
+"sink_card_animation": SubResource("Animation_5hokk")
+}
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.17466, 2.08165e-12)
+script = ExtResource("1_2livd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_wx3p6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -2.53518e-06, 9.17733e-12, 0, -3.61999e-06, -1, 2.53518e-06, -1, 3.61999e-06, 0, 0, 0)
+mesh = SubResource("PlaneMesh_c50ow")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance3D"]
+libraries = {
+"": SubResource("AnimationLibrary_5bgbk")
+}
+autoplay = "sink_card_animation"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

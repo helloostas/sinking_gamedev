@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bc1qpkbtvi2jn"]
+
+[ext_resource type="Texture2D" uid="uid://blb01cj2psnrw" path="res://textures/world/TEXTURES/SLUDGE_1A.PNG" id="1_wo2br"]
+
+[resource]
+albedo_texture = ExtResource("1_wo2br")
+metallic_specular = 0.0
+texture_filter = 2

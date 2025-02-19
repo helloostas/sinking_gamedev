@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ccfv0g7sy2q3g"]
+
+[ext_resource type="Texture2D" uid="uid://bimvwjtikhfy6" path="res://textures/world/TEXTURES/TARMAC_1A.PNG" id="1_v0ow1"]
+
+[resource]
+albedo_texture = ExtResource("1_v0ow1")
+metallic_specular = 0.0
+texture_filter = 2
