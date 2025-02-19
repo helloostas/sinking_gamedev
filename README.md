@@ -10,7 +10,7 @@ Assets and textures were also taken from Itch.io:
 - [Retro Texture Pack by Little Martian](https://little-martian.itch.io/retro-texture-pack)
 - [Ultrakill by Hakita](https://hakita.itch.io/ultrakill-prelude.)
 
-The entire project is still very rough with some critical bugs, however the full project can be downloaded on [Itch.io](https://hellostas.itch.io/)\
+The entire project is still very rough with some critical bugs. The game is published on [Itch.io](https://hellostas.itch.io/).\
 I wrote more about the project on my **[blog](https://www.stastigay.com/)**.
 
 ## Level Preview
