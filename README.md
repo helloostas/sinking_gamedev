@@ -11,4 +11,4 @@ Assets and textures were also taken from Itch.io:
 The entire project is still very rough with some critical bugs, however the full project can be downloaded on [Itch.io](https://hellostas.itch.io/)
 
 I wrote more about the project on my **[blog](stastigay.com)**.
-![image1](/
+![image1](Sinking - Game Development/publishing assets/Sinking Screenshots/2.png)
