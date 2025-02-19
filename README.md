@@ -1,3 +1,4 @@
+![yep](Sinking&#32;-&#32;Game&#32;Development/publishing&#32;assets/Banner&#32;Logo&#32;960x200.png)
 # Sinking
 > Godot Game Development Project for Year 13 Digital Technologies at Mount Albert Grammar School
 Development ended in October 2024
@@ -10,5 +11,4 @@ Assets and textures were also taken from Itch.io:
 
 The entire project is still very rough with some critical bugs, however the full project can be downloaded on [Itch.io](https://hellostas.itch.io/)
 
-I wrote more about the project on my **[blog](stastigay.com)**.
-![hello](Sinking-Game-Development/publishing%20assets/Sinking-Screenshots/3.png)
+I wrote more about the project on my **[blog](stastigay.com)**.  use &#32; to replace space
