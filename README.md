@@ -1,4 +1,5 @@
-Godot Game Development Project for Year 13 Digital Technologies at Mount Albert Grammar School
+# Sinking
+> Godot Game Development Project for Year 13 Digital Technologies at Mount Albert Grammar School
 
 Development ended in October 2024
 
